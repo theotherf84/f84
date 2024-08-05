@@ -5,7 +5,7 @@ import { createClient } from "helpers/supabase/supabase-server"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 
-export const signIn = async (formData: FormData) => {
+export const action = async (formData: FormData) => {
 	const email = formData.get("email")
 	const password = formData.get("password")
 

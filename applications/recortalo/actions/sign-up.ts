@@ -5,7 +5,7 @@ import { createClient } from "helpers/supabase/supabase-server"
 import { headers } from "next/headers"
 import { redirect } from "next/navigation"
 
-export const signUp = async (formData: FormData) => {
+export const action = async (formData: FormData) => {
 	const origin = headers().get("origin")
 
 	const email = formData.get("email") as string

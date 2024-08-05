@@ -1,4 +1,4 @@
-import { signIn } from "actions/sign-in"
+import { action } from "actions/sign-in"
 import { SubmitButton } from "components/submit-button"
 import { PartyPopper, Siren } from "lucide-react"
 import Link from "next/link"
@@ -14,7 +14,7 @@ export const SignInForm = ({ error, success }: { error: string; success: string 
 					<h1 className="text-3xl font-bold">Sign in</h1>
 					<p className="text-muted-foreground">Enter your email below to sign-in to your account</p>
 				</div>
-				<form action={signIn} className="grid gap-4">
+				<form action={action} className="grid gap-4">
 					<div className="grid gap-2">
 						<Label htmlFor="email">Email</Label>
 						<Input id="email" name="email" type="email" placeholder="max@example.com" required />

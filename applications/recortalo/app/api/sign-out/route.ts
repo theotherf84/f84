@@ -1,7 +1,8 @@
 import { createClient } from "helpers/supabase/supabase-server"
 import { redirect } from "next/navigation"
+import { NextRequest } from "next/server"
 
-export async function GET(_: Request) {
+export const GET = async (_: NextRequest) => {
 	const supabase = createClient()
 
 	const { error } = await supabase.auth.signOut()
