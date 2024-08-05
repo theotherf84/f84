@@ -1,0 +1,20 @@
+{
+	"orders": {
+		"forms": {
+			"quickAdd": {
+				"headline": "Agrega una order recurrente rapidamente",
+				"title": "Agregar orden recurrente"
+			}
+		},
+		"pages": {
+			"root": {
+				"actionCard": {
+					"action": "Crear nueva venta",
+					"headline": "Presentamos nuestro panel de ventas dinámico para una gestión perfecta y un análisis detallado.",
+					"quickAction": "Creacion rapida",
+					"title": "Tus ventas"
+				}
+			}
+		}
+	}
+}

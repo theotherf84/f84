@@ -1,0 +1,11 @@
+{
+	"name": "@f84/monorepo",
+	"private": true,
+	"scripts": {
+		"build": "pnpm build",
+		"develop": "pnpm develop",
+		"format": "pnpm format",
+		"lint": "pnpm lint"
+	},
+	"packageManager": "pnpm@9.5.0"
+}
