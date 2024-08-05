@@ -33,7 +33,7 @@ export async function middleware(request: NextRequest) {
 	const isUserAuthenticated = await updateUserSession(request)
 
 	if (!isUserAuthenticated) {
-		const shouldProtectPathname = pathname.includes("/sign-in") || pathname.includes("/sign-up")
+		const shouldProtectPathname = pathname.includes("/sign-in") || pathname.includes("/sign-up") || pathname.includes("/forgot-password")
 
 		if (!shouldProtectPathname) return NextResponse.redirect(new URL("/sign-in", request.url))
 	}
