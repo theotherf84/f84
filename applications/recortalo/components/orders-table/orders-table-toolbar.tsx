@@ -1,44 +1,14 @@
-import { File, ListFilter } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
+import Link from "next/link"
 import { Button } from "shadcn/button"
-import {
-	DropdownMenu,
-	DropdownMenuCheckboxItem,
-	DropdownMenuContent,
-	DropdownMenuLabel,
-	DropdownMenuSeparator,
-	DropdownMenuTrigger,
-} from "shadcn/dropdown-menu"
-import { TabsList, TabsTrigger } from "shadcn/tabs"
 
-const OrdersTableToolbar = () => (
+export const OrdersTableToolbar = () => (
 	<div className="flex items-center">
-		<TabsList>
-			<TabsTrigger value="week">Week</TabsTrigger>
-			<TabsTrigger value="month">Month</TabsTrigger>
-			<TabsTrigger value="year">Year</TabsTrigger>
-		</TabsList>
-		<div className="ml-auto flex items-center gap-2">
-			<DropdownMenu>
-				<DropdownMenuTrigger asChild>
-					<Button variant="outline" size="sm" className="h-7 gap-1 text-sm">
-						<ListFilter className="h-3.5 w-3.5" />
-						<span className="sr-only sm:not-sr-only">Filter</span>
-					</Button>
-				</DropdownMenuTrigger>
-				<DropdownMenuContent align="end">
-					<DropdownMenuLabel>Filter by</DropdownMenuLabel>
-					<DropdownMenuSeparator />
-					<DropdownMenuCheckboxItem checked>Fulfilled</DropdownMenuCheckboxItem>
-					<DropdownMenuCheckboxItem>Declined</DropdownMenuCheckboxItem>
-					<DropdownMenuCheckboxItem>Refunded</DropdownMenuCheckboxItem>
-				</DropdownMenuContent>
-			</DropdownMenu>
-			<Button size="sm" variant="outline" className="h-7 gap-1 text-sm">
-				<File className="h-3.5 w-3.5" />
-				<span className="sr-only sm:not-sr-only">Export</span>
+			<Button asChild size="sm" className="ml-auto">
+				<Link href="/orders/all">
+					View All
+					<ArrowUpRight className="h-4 w-4" />
+				</Link>
 			</Button>
-		</div>
 	</div>
 )
-
-export { OrdersTableToolbar }
