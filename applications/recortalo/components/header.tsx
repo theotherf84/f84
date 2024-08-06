@@ -1,11 +1,9 @@
 import { LanguageSwitcher } from "components/language-switcher"
 import { UserDropdownMenu } from "components/user-dropdown-menu/user-dropdown-menu"
-import { CircleUser, Menu, Package2, Scissors, Search } from "lucide-react"
+import { Menu, Scissors } from "lucide-react"
 import Link from "next/link"
 import { Button } from "shadcn/button"
 import { ColorThemeToggle } from "shadcn/color-theme-toggle"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "shadcn/dropdown-menu"
-import { Input } from "shadcn/input"
 import { Sheet, SheetContent, SheetTrigger } from "shadcn/sheet"
 
 const navigationItems = [
@@ -13,16 +11,6 @@ const navigationItems = [
 		label: "Orders",
 		path: "/orders",
 		protected: false,
-	},
-	{
-		label: "Services",
-		path: "/services",
-		protected: false,
-	},
-	{
-		label: "Users",
-		path: "/users",
-		protected: true,
 	},
 ]
 
@@ -63,7 +51,6 @@ const Header = () => (
 		<div className="flex w-full items-center justify-end gap-4 md:ml-auto md:gap-2 lg:gap-4">
 			<UserDropdownMenu />
 			<ColorThemeToggle />
-			<LanguageSwitcher />
 		</div>
 	</header>
 )
