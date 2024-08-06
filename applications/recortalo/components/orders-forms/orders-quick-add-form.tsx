@@ -10,6 +10,7 @@ import { useForm } from "react-hook-form"
 import type { z as zod } from "zod"
 import { formSchema } from "components/orders-forms/orders-quick-add-form-schema"
 import { Form, FormControl, FormField, FormItem, FormLabel } from "shadcn/form"
+import { Category, Subcategory } from "types/tables.types"
 
 export const QuickAddOrderForm = ({ categories, subcategories, onFormSubmit }: { categories: any; subcategories: any; onFormSubmit: any }) => {
 	const defaultCategory = categories?.filter((category: { name: string }) => category?.name === "Servicios")?.[0]?.name
@@ -51,7 +52,7 @@ export const QuickAddOrderForm = ({ categories, subcategories, onFormSubmit }: {
 										</SelectTrigger>
 									</FormControl>
 									<SelectContent>
-										{categories?.map((category) => (
+										{categories?.map((category: Category) => (
 											<SelectItem key={category?.id} value={category?.name}>
 												{category?.name}
 											</SelectItem>
@@ -80,7 +81,7 @@ export const QuickAddOrderForm = ({ categories, subcategories, onFormSubmit }: {
 										</SelectTrigger>
 									</FormControl>
 									<SelectContent>
-										{subcategories?.map((subcategory) => (
+										{subcategories?.map((subcategory: Subcategory) => (
 											<SelectItem key={subcategory?.id} value={subcategory?.name}>
 												{subcategory?.name}
 											</SelectItem>
