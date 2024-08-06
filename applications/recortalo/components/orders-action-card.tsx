@@ -9,13 +9,13 @@ export const OrdersActionCard = async () => {
 	const { action, headline, title } = translations?.orders?.pages?.root?.actionCard
 
 	return (
-		<Card className="flex flex-col">
-			<CardHeader className="pb-3">
+		<Card className="flex flex-col gap-2">
+			<CardHeader>
 				<CardTitle>{title}</CardTitle>
 				<CardDescription className="leading-relaxed">{headline}</CardDescription>
 			</CardHeader>
-			<CardFooter className="gap-2">
-				<Button asChild disabled>
+			<CardFooter className="gap-4">
+				<Button disabled>
 					<Link href="/orders/add">{action}</Link>
 				</Button>
 				<QuickAddFormContainer />
