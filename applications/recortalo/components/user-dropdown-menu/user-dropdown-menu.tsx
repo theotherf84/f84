@@ -23,7 +23,6 @@ export const UserDropdownMenu = async () => {
 				<DropdownMenuItem className="cursor-pointer">
 					<Link href="/settings">Settings</Link>
 				</DropdownMenuItem>
-				<DropdownMenuItem disabled>Support</DropdownMenuItem>
 				<DropdownMenuSeparator />
 				<UserDropdownMenuSignOutForm />
 			</DropdownMenuContent>
