@@ -1,10 +1,10 @@
 import { Input } from "shadcn/input"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "shadcn/card"
 import { SubmitButton } from "components/submit-button"
-import { action as addCategoryAction } from "actions/add-category"
+import { action } from "actions/add-category"
 
-export const CategoriesAddForm = () => (
-	<form action={addCategoryAction}>
+export const AddCategoryForm = () => (
+	<form action={action}>
 		<Card>
 			<CardHeader>
 				<CardTitle>Add a category</CardTitle>

@@ -7,13 +7,20 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "shadc
 export const OrdersDataTable = async () => {
 	const orders = (await getOrders()) as Order[]
 
+	const hasOrders = !!orders.length
+
 	return (
 		<Card>
 			<CardHeader className="px-7">
 				<CardTitle>Orders</CardTitle>
 				<CardDescription>Recent orders from your store.</CardDescription>
 			</CardHeader>
-			<CardContent>{!!orders.length && <DataTable columns={columns} data={orders} />}</CardContent>
+			<CardContent>
+				{hasOrders && <DataTable columns={columns} data={orders} />}
+				{!hasOrders && (
+					<div className="text-muted-foreground flex flex-col items-center justify-center">Nothing to show yet, try creating an order.</div>
+				)}
+			</CardContent>
 		</Card>
 	)
 }
