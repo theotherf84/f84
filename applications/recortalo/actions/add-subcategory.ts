@@ -7,12 +7,9 @@ import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 
 export const action = async (formData: FormData) => {
-	const category = formData.get("category")
-	const name = formData.get("name")
-
 	const validation = formSchema.safeParse({
-		category,
-		name,
+		category: formData.get("category"),
+		name: formData.get("name"),
 	})
 
 	if (validation.error)
@@ -24,15 +21,15 @@ export const action = async (formData: FormData) => {
 
 	const { error: userError } = await supabase.auth.getUser()
 
-	if (userError) return redirect("/settings/subcategories?error=Could not authenticate user")
+	if (userError) return redirect("/settings?message=Could not authenticate user")
 
 	const { error: insertError, status: insertStatus } = await supabase
 		.from(TableName.Subcategories)
 		.insert({ category: validation.data?.category, name: validation.data?.name })
 
-	if (insertError) return redirect("/settings/subcategories?error=Could not authenticate user")
+	if (insertError) return redirect("/settings?message=Could not add subcategory")
 
-	revalidatePath("/settings/subcategories")
+	revalidatePath("/settings")
 
 	return insertStatus
 }
