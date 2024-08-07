@@ -1,9 +1,9 @@
 import type { Subcategory } from "types/tables.types"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "shadcn/card"
 import { Table, TableBody } from "shadcn/table"
-import { OrdersTableHeader } from "components/orders-table/orders-table-header"
 import { getSubcategories } from "services/get-subcategories"
 import { SubcategoriesTableRow } from "components/subcategories-table/subcategories-table-row"
+import { SubcategoriesTableHeader } from "./subcategories-table-header"
 
 export const SubcategoriesTable = async () => {
 	const subcategories = (await getSubcategories()) as Subcategory[]
@@ -19,7 +19,7 @@ export const SubcategoriesTable = async () => {
 			<CardContent>
 				{hasSubcategories && (
 					<Table>
-						<OrdersTableHeader />
+						<SubcategoriesTableHeader />
 						<TableBody>
 							{subcategories.map((subcategory) => (
 								<SubcategoriesTableRow key={subcategory?.created_at} {...subcategory} />
