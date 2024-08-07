@@ -7,7 +7,7 @@ export const CategoriesAddForm = () => (
 	<form action={addCategoryAction}>
 		<Card>
 			<CardHeader>
-				<CardTitle>Category</CardTitle>
+				<CardTitle>Add a category</CardTitle>
 				<CardDescription>Used to classify orders in your store.</CardDescription>
 			</CardHeader>
 			<CardContent>

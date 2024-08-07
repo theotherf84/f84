@@ -1,11 +1,11 @@
 import Header from "components/header"
-import { SettingsSidebarNavigationMenu } from "components/settings-sidebar-navigation-menu"
-import type { ReactNode } from "react"
+import { SettingsNavigationMenu } from "components/settings-navigation-menu"
+import * as React from "react"
 
 const Layout = ({
 	children,
 }: {
-	children: ReactNode
+	children: React.ReactNode
 }) => {
 	return (
 		<div className="flex min-h-screen w-full flex-col">
@@ -15,7 +15,7 @@ const Layout = ({
 					<h1 className="text-3xl font-semibold">Settings</h1>
 				</div>
 				<div className="mx-auto grid w-full max-w-6xl items-start gap-6 md:grid-cols-[180px_1fr] lg:grid-cols-[250px_1fr]">
-					<SettingsSidebarNavigationMenu />
+					<SettingsNavigationMenu />
 					{children}
 				</div>
 			</main>

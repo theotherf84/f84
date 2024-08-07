@@ -1,24 +1,19 @@
-import { Button } from "shadcn/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "shadcn/card"
-import { Input } from "shadcn/input"
+import { CategoriesAddForm } from "components/categories-forms/categories-add-form"
+import { CategoriesTable } from "components/categories-table/categories-table"
+import { SubcategoriesAddForm } from "components/subcategories-forms/subcategories-add-form"
+import { SubcategoriesTable } from "components/subcategories-table/subcategories-table"
 
 const Page = () => {
 	return (
 		<div className="grid gap-6">
-			<Card className="text-muted-foreground">
-				<CardHeader>
-					<CardTitle>Store Name</CardTitle>
-					<CardDescription>Used to identify your store in the marketplace.</CardDescription>
-				</CardHeader>
-				<CardContent>
-					<form>
-						<Input disabled name="store-name" placeholder="Store name" />
-					</form>
-				</CardContent>
-				<CardFooter className="px-6 py-4">
-					<Button disabled>Save name</Button>
-				</CardFooter>
-			</Card>
+			<div className="flex flex-col gap-4">
+				<CategoriesAddForm />
+				<CategoriesTable />
+			</div>
+			<div className="grid gap-6">
+				<SubcategoriesAddForm />
+				<SubcategoriesTable />
+			</div>
 		</div>
 	)
 }

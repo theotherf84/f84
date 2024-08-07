@@ -8,22 +8,29 @@ import { SubcategoriesTableRow } from "components/subcategories-table/subcategor
 export const SubcategoriesTable = async () => {
 	const subcategories = (await getSubcategories()) as Subcategory[]
 
+	const hasSubcategories = !!subcategories.length
+
 	return (
 		<Card>
 			<CardHeader className="px-7">
 				<CardTitle>Subcategories</CardTitle>
-				<CardDescription>The list of subcategories from your store.</CardDescription>
+				{hasSubcategories && <CardDescription>The list of subcategories from your store.</CardDescription>}
 			</CardHeader>
 			<CardContent>
-				{!!subcategories.length && (
+				{hasSubcategories && (
 					<Table>
 						<OrdersTableHeader />
 						<TableBody>
-							{subcategories?.map((subcategory) => (
+							{subcategories.map((subcategory) => (
 								<SubcategoriesTableRow key={subcategory?.created_at} {...subcategory} />
 							))}
 						</TableBody>
 					</Table>
+				)}
+				{!hasSubcategories && (
+					<div className="text-muted-foreground flex flex-col items-center justify-center">
+						Nothing to show yet, try adding a subcategory to your store.
+					</div>
 				)}
 			</CardContent>
 		</Card>

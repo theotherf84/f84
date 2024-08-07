@@ -8,22 +8,29 @@ import { CategoriesTableHeader } from "components/categories-table/categories-ta
 export const CategoriesTable = async () => {
 	const categories = (await getCategories()) as Category[]
 
+	const hasCategories = !!categories.length
+
 	return (
 		<Card>
 			<CardHeader className="px-7">
 				<CardTitle>Categories</CardTitle>
-				<CardDescription>The list of categories from your store.</CardDescription>
+				{hasCategories && <CardDescription>The list of categories from your store.</CardDescription>}
 			</CardHeader>
 			<CardContent>
-				{!!categories.length && (
+				{hasCategories && (
 					<Table>
 						<CategoriesTableHeader />
 						<TableBody>
-							{categories?.map((category) => (
+							{categories.map((category) => (
 								<CategoriesTableRow key={category?.created_at} {...category} />
 							))}
 						</TableBody>
 					</Table>
+				)}
+				{!hasCategories && (
+					<div className="text-muted-foreground flex flex-col items-center justify-center">
+						Nothing to show yet, try adding a category to your store.
+					</div>
 				)}
 			</CardContent>
 		</Card>
