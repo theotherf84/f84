@@ -5,7 +5,7 @@ import { getTranslations } from "helpers/translations"
 import { QuickAddFormContainer } from "components/orders-forms/orders-quick-add-form-container"
 
 export const OrdersActionCard = async () => {
-	const translations = await getTranslations("")
+	const translations = await getTranslations()
 
 	const { action, headline, title } = translations?.orders?.pages?.root?.actionCard
 

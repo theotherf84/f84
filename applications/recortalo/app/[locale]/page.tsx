@@ -6,8 +6,7 @@ const Page = async ({
 }: {
 	params: { locale: string }
 }) => {
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	const translations = await getTranslations(locale as any)
+	const translations = await getTranslations(locale)
 
 	return (
 		<>

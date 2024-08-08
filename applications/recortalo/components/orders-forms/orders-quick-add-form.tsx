@@ -10,15 +10,18 @@ import { useForm } from "react-hook-form"
 import type { z as zod } from "zod"
 import { formSchema } from "components/orders-forms/orders-quick-add-form-schema"
 import { Form, FormControl, FormField, FormItem, FormLabel } from "shadcn/form"
-import { Category, Subcategory } from "types/tables.types"
+import { Category, Employee, Subcategory } from "types/tables.types"
+import { Avatar, AvatarFallback } from "shadcn/avatar"
+import { QuickAddOrderFormProperties } from "types/forms"
 
-export const QuickAddOrderForm = ({ categories, subcategories, onFormSubmit }: { categories: any; subcategories: any; onFormSubmit: any }) => {
+export const QuickAddOrderForm = ({ categories, employees, subcategories, onSubmit }: QuickAddOrderFormProperties) => {
 	const defaultCategory = categories?.filter((category: { name: string }) => category?.name === "Servicios")?.[0]?.name
 	const defaultSubcategory = subcategories?.filter((subcategory: { name: string }) => subcategory?.name === "Corte de caballero")?.[0]?.name
 
 	const form = useForm<zod.infer<typeof formSchema>>({
 		defaultValues: {
 			category: defaultCategory,
+			employee: "",
 			subcategory: defaultSubcategory,
 			cost: 500,
 			status: "Payed",
@@ -30,12 +33,47 @@ export const QuickAddOrderForm = ({ categories, subcategories, onFormSubmit }: {
 	const handleOnSubmit = async (values: zod.infer<typeof formSchema>) => {
 		const statusCode = await action(values)
 
-		if (statusCode === 201) onFormSubmit()
+		if (statusCode === 201) onSubmit()
 	}
 
 	return (
 		<Form {...form}>
 			<form onSubmit={form.handleSubmit(handleOnSubmit)} className="mx-auto grid gap-4 py-6">
+				<div className="grid gap-3">
+					<FormField
+						control={form.control}
+						name="employee"
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel htmlFor="employee" asChild>
+									<Label>Employee</Label>
+								</FormLabel>
+								<Select onValueChange={field.onChange}>
+									<FormControl>
+										<SelectTrigger className="h-fit" aria-label="Select employee" id="employee">
+											<SelectValue placeholder="Select employee" />
+										</SelectTrigger>
+									</FormControl>
+									<SelectContent>
+										{employees?.map((employee: Employee) => (
+											<SelectItem key={employee.id} value={String(employee.id)}>
+												<div className="flex flex-row gap-4 items-center justify-center">
+													<Avatar>
+														<AvatarFallback>
+															{employee.first_name?.charAt(0).toUpperCase()}
+															{employee.last_name?.charAt(0).toUpperCase()}
+														</AvatarFallback>
+													</Avatar>
+													{employee.first_name} {employee.last_name}
+												</div>
+											</SelectItem>
+										))}
+									</SelectContent>
+								</Select>
+							</FormItem>
+						)}
+					/>
+				</div>
 				<div className="grid gap-3">
 					<FormField
 						control={form.control}

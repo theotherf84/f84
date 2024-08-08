@@ -4,8 +4,9 @@ import { SheetHeader, SheetTitle, SheetDescription, Sheet, SheetContent, SheetTr
 import { Button } from "shadcn/button"
 import { QuickAddOrderForm } from "components/orders-forms/orders-quick-add-form"
 import { useState } from "react"
+import { QuickAddOrderFormSheetProperties } from "types/forms"
 
-export const QuickAddOrderFormSheet = ({ categories, subcategories, translations }: { categories: any; subcategories: any; translations: any }) => {
+export const QuickAddOrderFormSheet = ({ translations, ...properties }: QuickAddOrderFormSheetProperties) => {
 	const [isOpen, setIsOpen] = useState(false)
 
 	const handleOnSheetClose = () => setIsOpen(false)
@@ -18,9 +19,9 @@ export const QuickAddOrderFormSheet = ({ categories, subcategories, translations
 			<SheetContent>
 				<SheetHeader>
 					<SheetTitle>{translations?.title}</SheetTitle>
-					<SheetDescription className="text-left text-muted-foreground">{translations?.headline}</SheetDescription>
+					<SheetDescription className="text-left text-muted-foreground">{translations?.headline as string}</SheetDescription>
 				</SheetHeader>
-				<QuickAddOrderForm categories={categories} subcategories={subcategories} onFormSubmit={handleOnSheetClose} />
+				<QuickAddOrderForm onSubmit={handleOnSheetClose} {...properties} />
 			</SheetContent>
 		</Sheet>
 	)
