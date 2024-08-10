@@ -1,3 +1,5 @@
+import { getFormattedLocaleDateString } from "helpers/get-formatted-locale-date-string"
+import { getFormattedNameInitial } from "helpers/get-formatted-name-initial"
 import { Avatar, AvatarFallback } from "shadcn/avatar"
 import { Badge } from "shadcn/badge"
 import { TableCell, TableRow } from "shadcn/table"
@@ -8,8 +10,8 @@ export const OrdersTableRow = ({ category, cost, created_at, employee, id, statu
 		<TableCell>
 			<Avatar>
 				<AvatarFallback>
-					{employee?.first_name?.charAt(0).toUpperCase()}
-					{employee?.last_name?.charAt(0).toUpperCase()}
+					{getFormattedNameInitial(employee?.first_name)}
+					{getFormattedNameInitial(employee?.last_name)}
 				</AvatarFallback>
 			</Avatar>
 		</TableCell>
@@ -22,14 +24,7 @@ export const OrdersTableRow = ({ category, cost, created_at, employee, id, statu
 				{status}
 			</Badge>
 		</TableCell>
-		<TableCell className="hidden md:table-cell">
-			{new Date(created_at).toLocaleDateString("es-AR", {
-				timeZone: "UTC",
-				day: "2-digit",
-				month: "2-digit",
-				year: "numeric",
-			})}
-		</TableCell>
+		<TableCell className="hidden md:table-cell">{getFormattedLocaleDateString(created_at)}</TableCell>
 		<TableCell className="text-right">{cost}</TableCell>
 	</TableRow>
 )

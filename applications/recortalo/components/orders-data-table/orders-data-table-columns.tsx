@@ -1,6 +1,8 @@
 "use client"
 
 import type { ColumnDef as ColumnDefinition } from "@tanstack/react-table"
+import { getFormattedCurrencyAmount } from "helpers/get-formatted-currency-amount"
+import { getFormattedNameInitial } from "helpers/get-formatted-name-initial"
 import { Avatar, AvatarFallback } from "shadcn/avatar"
 import { Badge } from "shadcn/badge"
 import { DataTableColumnHeader } from "shadcn/data-table/data-table-header"
@@ -15,12 +17,8 @@ export const columns: ColumnDefinition<OrderWithEmployee>[] = [
 		accessorKey: "cost",
 		cell: ({ row }) => {
 			const amount = Number.parseFloat(row.getValue("cost"))
-			const formatted = new Intl.NumberFormat("es-AR", {
-				style: "currency",
-				currency: "ARS",
-			}).format(amount)
 
-			return <div className="font-medium">{formatted}</div>
+			return <div className="font-medium">{getFormattedCurrencyAmount(amount)}</div>
 		},
 		header: "Cost",
 	},
@@ -49,8 +47,8 @@ export const columns: ColumnDefinition<OrderWithEmployee>[] = [
 			return (
 				<Avatar>
 					<AvatarFallback>
-						{first_name.charAt(0).toUpperCase()}
-						{last_name?.charAt(0).toUpperCase()}
+						{getFormattedNameInitial(first_name)}
+						{getFormattedNameInitial(last_name)}
 					</AvatarFallback>
 				</Avatar>
 			)

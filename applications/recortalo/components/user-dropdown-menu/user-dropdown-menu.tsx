@@ -1,9 +1,10 @@
+import { UserDropdownMenuSignOutForm } from "components/user-dropdown-menu/user-dropdown-menu-sign-out-form"
+import { getFormattedNameInitial } from "helpers/get-formatted-name-initial"
+import Link from "next/link"
 import { getUserSession } from "services/get-user-session"
+import { Avatar, AvatarFallback } from "shadcn/avatar"
 import { Button } from "shadcn/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "shadcn/dropdown-menu"
-import { UserDropdownMenuSignOutForm } from "components/user-dropdown-menu/user-dropdown-menu-sign-out-form"
-import Link from "next/link"
-import { Avatar, AvatarFallback } from "shadcn/avatar"
 
 export const UserDropdownMenu = async () => {
 	const session = await getUserSession()
@@ -17,8 +18,8 @@ export const UserDropdownMenu = async () => {
 					<Button variant="ghost" size="icon" className="h-8 w-8 px-0 rounded-full">
 						<Avatar>
 							<AvatarFallback>
-								{userMetadata?.first_name.charAt(0).toUpperCase()}
-								{userMetadata?.last_name?.charAt(0).toUpperCase()}
+								{getFormattedNameInitial(userMetadata?.first_name)}
+								{getFormattedNameInitial(userMetadata?.last_name)}
 							</AvatarFallback>
 						</Avatar>
 						<span className="sr-only">Toggle user menu</span>

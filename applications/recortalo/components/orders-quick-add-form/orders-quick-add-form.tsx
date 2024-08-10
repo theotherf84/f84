@@ -5,6 +5,7 @@ import { action } from "actions/quick-add-order"
 import { formSchema } from "components/orders-quick-add-form/orders-quick-add-form-schema"
 import { OrdersQuickAddFormStepper } from "components/orders-quick-add-form/orders-quick-add-form-stepper"
 import { SubmitButton } from "components/submit-button"
+import { getFormattedNameInitial } from "helpers/get-formatted-name-initial"
 import { type SubmitHandler, useForm } from "react-hook-form"
 import { Avatar, AvatarFallback } from "shadcn/avatar"
 import { Form, FormControl, FormField, FormItem, FormLabel } from "shadcn/form"
@@ -58,8 +59,8 @@ export const QuickAddOrderForm = ({ categories, employees, subcategories, onSubm
 												<div className="flex flex-row gap-4 items-center justify-center">
 													<Avatar>
 														<AvatarFallback>
-															{first_name?.charAt(0).toUpperCase()}
-															{last_name?.charAt(0).toUpperCase()}
+															{getFormattedNameInitial(first_name)}
+															{getFormattedNameInitial(last_name)}
 														</AvatarFallback>
 													</Avatar>
 													{first_name} {last_name}
