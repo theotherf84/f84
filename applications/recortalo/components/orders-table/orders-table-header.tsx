@@ -3,7 +3,7 @@ import { TableHead, TableHeader, TableRow } from "../../shadcn/table"
 export const OrdersTableHeader = () => (
 	<TableHeader>
 		<TableRow>
-			<TableHead>Staff</TableHead>
+			<TableHead>Employee</TableHead>
 			<TableHead>Category</TableHead>
 			<TableHead className="hidden sm:table-cell">Status</TableHead>
 			<TableHead className="hidden sm:table-cell">Date</TableHead>
