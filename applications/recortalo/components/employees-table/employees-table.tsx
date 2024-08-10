@@ -1,9 +1,9 @@
-import type { Employee } from "types/tables.types"
+import { EmployeesTableHeader } from "components/employees-table/employees-table-columns"
+import { EmployeesTableRow } from "components/employees-table/employees-table-row"
+import { getEmployees } from "services/get-employees"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "shadcn/card"
 import { Table, TableBody } from "shadcn/table"
-import { getEmployees } from "services/get-employees"
-import { EmployeesTableRow } from "components/employees-table/employees-table-row"
-import { EmployeesTableHeader } from "components/employees-table/employees-table-header"
+import type { Employee } from "types/tables.types"
 
 export const EmployeesTable = async () => {
 	const employees = (await getEmployees()) as Employee[]
