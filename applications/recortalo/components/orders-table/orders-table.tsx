@@ -4,12 +4,11 @@ import { OrdersTableToolbar } from "components/orders-table/orders-table-toolbar
 import { getOrders } from "services/get-orders"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "shadcn/card"
 import { Table, TableBody } from "shadcn/table"
-import type { OrderWithEmployee } from "types/tables.types"
 
 export const OrdersTable = async () => {
-	const orders: OrderWithEmployee[] = (await getOrders()) || ([] as OrderWithEmployee[])
+	const orders = await getOrders()
 
-	const hasOrders = !!orders.length
+	const hasOrders = !!orders?.length
 
 	return (
 		<div className="flex flex-col gap-4">
