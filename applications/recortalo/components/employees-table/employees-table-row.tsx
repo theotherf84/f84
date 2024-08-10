@@ -1,11 +1,10 @@
-import { AvatarFallback } from "@radix-ui/react-avatar"
-import { Avatar } from "shadcn/avatar"
+import { Avatar, AvatarFallback } from "shadcn/avatar"
 import { TableCell, TableRow } from "shadcn/table"
 import type { Employee } from "types/tables.types"
 
 export const EmployeesTableRow = ({ created_at, first_name, last_name }: Employee) => (
 	<TableRow>
-		<TableCell className="font-medium">
+		<TableCell>
 			<Avatar>
 				<AvatarFallback>
 					{first_name.charAt(0).toUpperCase()}
