@@ -10,7 +10,7 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "shadcn/dropdown-menu"
-import { DataTableViewOptionsProperties } from "types/data-table.types"
+import type { DataTableViewOptionsProperties } from "types/data-table.types"
 
 export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsProperties<TData>) {
 	return (
@@ -27,18 +27,16 @@ export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsPrope
 				{table
 					.getAllColumns()
 					.filter((column) => typeof column.accessorFn !== "undefined" && column.getCanHide())
-					.map((column) => {
-						return (
-							<DropdownMenuCheckboxItem
-								key={column.id}
-								className="capitalize"
-								checked={column.getIsVisible()}
-								onCheckedChange={(value) => column.toggleVisibility(!!value)}
-							>
-								{column.id}
-							</DropdownMenuCheckboxItem>
-						)
-					})}
+					.map((column) => (
+						<DropdownMenuCheckboxItem
+							key={column.id}
+							className="capitalize"
+							checked={column.getIsVisible()}
+							onCheckedChange={(value) => column.toggleVisibility(!!value)}
+						>
+							{column.id}
+						</DropdownMenuCheckboxItem>
+					))}
 			</DropdownMenuContent>
 		</DropdownMenu>
 	)

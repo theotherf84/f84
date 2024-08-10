@@ -1,8 +1,8 @@
 import { classNames } from "helpers/class-names"
 import { ArrowDownIcon, ArrowUpIcon, ChevronsUpDown, EyeIcon } from "lucide-react"
 import { Button } from "shadcn/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "shadcn/dropdown-menu"
-import { DataTableColumnHeaderProperties } from "types/data-table.types"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "shadcn/dropdown-menu"
+import type { DataTableColumnHeaderProperties } from "types/data-table.types"
 
 export function DataTableColumnHeader<TData, TValue>({ column, title, className }: DataTableColumnHeaderProperties<TData, TValue>) {
 	if (!column.getCanSort()) return <div className={classNames(className)}>{title}</div>

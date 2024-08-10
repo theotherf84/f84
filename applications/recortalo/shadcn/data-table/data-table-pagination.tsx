@@ -1,7 +1,7 @@
-import { ChevronLeftIcon, ChevronRightIcon, ArrowLeftIcon, ArrowRightIcon } from "lucide-react"
-import { DataTablePaginationProperties } from "types/data-table.types"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "shadcn/select"
+import { ArrowLeftIcon, ArrowRightIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-react"
 import { Button } from "shadcn/button"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "shadcn/select"
+import type { DataTablePaginationProperties } from "types/data-table.types"
 
 export function DataTablePagination<TData>({ table }: DataTablePaginationProperties<TData>) {
 	return (
