@@ -44,16 +44,23 @@ export const columns: ColumnDefinition<OrderWithEmployee>[] = [
 	{
 		accessorKey: "employee",
 		cell: ({ row }) => {
-			const {first_name, last_name} = row.getValue("employee") as Employee
+			const { first_name, last_name } = row.getValue("employee") as Employee
 
 			return (
 				<Avatar>
-				<AvatarFallback>
-					{first_name.charAt(0).toUpperCase()}
-					{last_name?.charAt(0).toUpperCase()}
-				</AvatarFallback>
-			</Avatar>
+					<AvatarFallback>
+						{first_name.charAt(0).toUpperCase()}
+						{last_name?.charAt(0).toUpperCase()}
+					</AvatarFallback>
+				</Avatar>
 			)
+		},
+		filterFn: (row, columnId, filterValue) => {
+			const { first_name, last_name } = row.getValue(columnId) as Employee
+
+			const fullName = `${first_name} ${last_name}`
+
+			return fullName.includes(filterValue)
 		},
 		header: ({ column }) => <DataTableColumnHeader column={column} title="Employee" />,
 	},
