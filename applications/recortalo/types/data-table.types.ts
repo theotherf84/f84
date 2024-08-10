@@ -1,4 +1,4 @@
-import { Column, ColumnDef as ColumnDefinition, Table } from "@tanstack/react-table"
+import type { Column, ColumnDef as ColumnDefinition, Table } from "@tanstack/react-table"
 
 export interface DataTableColumnHeaderProperties<TData, TValue> extends React.HTMLAttributes<HTMLDivElement> {
 	column: Column<TData, TValue>

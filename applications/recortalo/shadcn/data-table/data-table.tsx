@@ -1,10 +1,10 @@
 "use client"
 
 import { flexRender, getCoreRowModel, getPaginationRowModel, useReactTable } from "@tanstack/react-table"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "shadcn/table"
-import { DataTableProperties } from "types/data-table.types"
 import { DataTablePagination } from "shadcn/data-table/data-table-pagination"
 import { DataTableViewOptions } from "shadcn/data-table/data-table-view-options"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "shadcn/table"
+import type { DataTableProperties } from "types/data-table.types"
 
 export const DataTable = <TData, TValue>({ columns, data }: DataTableProperties<TData, TValue>) => {
 	const table = useReactTable({
