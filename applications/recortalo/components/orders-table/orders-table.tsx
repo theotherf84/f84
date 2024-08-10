@@ -1,12 +1,12 @@
 import { OrdersTableHeader } from "components/orders-table/orders-table-header"
 import { OrdersTableRow } from "components/orders-table/orders-table-row"
 import { OrdersTableToolbar } from "components/orders-table/orders-table-toolbar"
-import { getOrders } from "services/get-orders"
+import { getOrdersWithEmployees } from "services/get-orders-with-employees"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "shadcn/card"
 import { Table, TableBody } from "shadcn/table"
 
 export const OrdersTable = async () => {
-	const orders = await getOrders()
+	const orders = await getOrdersWithEmployees()
 
 	const hasOrders = !!orders?.length
 

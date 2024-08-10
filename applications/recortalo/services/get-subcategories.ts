@@ -7,7 +7,7 @@ export const getSubcategories = async () => {
 
 	const { data, error } = await supabase.from(TableName.Subcategories).select()
 
-	if (error) return
+	if (error) return [] as Subcategory[]
 
-	return data as Subcategory[]
+	return data
 }
