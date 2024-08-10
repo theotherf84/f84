@@ -11,5 +11,5 @@ export const getOrders = async () => {
 
 	if (error) return
 
-	return data
+	return data || []
 }
