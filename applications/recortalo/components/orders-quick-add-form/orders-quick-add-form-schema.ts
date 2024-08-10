@@ -2,7 +2,7 @@ import { z as zod } from "zod"
 
 export const formSchema = zod.object({
 	category: zod.string(),
-	employee: zod.string(),
+	employee: zod.coerce.number(),
 	subcategory: zod.string(),
 	cost: zod.coerce.number(),
 	status: zod.string(),

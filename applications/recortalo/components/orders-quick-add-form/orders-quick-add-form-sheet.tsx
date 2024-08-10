@@ -1,10 +1,10 @@
 "use client"
 
-import { SheetHeader, SheetTitle, SheetDescription, Sheet, SheetContent, SheetTrigger } from "shadcn/sheet"
-import { Button } from "shadcn/button"
-import { QuickAddOrderForm } from "components/orders-forms/orders-quick-add-form"
+import { QuickAddOrderForm } from "components/orders-quick-add-form/orders-quick-add-form"
 import { useState } from "react"
-import { QuickAddOrderFormSheetProperties } from "types/forms"
+import { Button } from "shadcn/button"
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "shadcn/sheet"
+import type { QuickAddOrderFormSheetProperties } from "types/forms"
 
 export const QuickAddOrderFormSheet = ({ translations, ...properties }: QuickAddOrderFormSheetProperties) => {
 	const [isOpen, setIsOpen] = useState(false)

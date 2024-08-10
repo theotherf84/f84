@@ -1,9 +1,18 @@
+import { Avatar, AvatarFallback } from "shadcn/avatar"
 import { Badge } from "shadcn/badge"
 import { TableCell, TableRow } from "shadcn/table"
-import type { Order } from "types/tables.types"
+import type { OrderWithEmployee } from "types/tables.types"
 
-export const OrdersTableRow = ({ category, cost, created_at, id, status, subcategory, user }: Order) => (
+export const OrdersTableRow = ({ category, cost, created_at, employee, id, status, subcategory }: OrderWithEmployee) => (
 	<TableRow>
+		<TableCell>
+			<Avatar>
+				<AvatarFallback>
+					{employee?.first_name?.charAt(0).toUpperCase()}
+					{employee?.last_name?.charAt(0).toUpperCase()}
+				</AvatarFallback>
+			</Avatar>
+		</TableCell>
 		<TableCell>
 			<div className="font-medium">{category}</div>
 			<div className="hidden text-sm text-muted-foreground md:inline">{subcategory}</div>

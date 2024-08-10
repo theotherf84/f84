@@ -5,7 +5,7 @@ import type { Control, ControllerRenderProps as ControllerRenderProperties, Fiel
 import { Button } from "shadcn/button"
 import { FormControl, FormField, FormItem } from "shadcn/form"
 import { Input } from "shadcn/input"
-import type { formSchema } from "components/orders-forms/orders-quick-add-form-schema"
+import type { formSchema } from "components/orders-quick-add-form/orders-quick-add-form-schema"
 import type { z as zod } from "zod"
 
 export const OrdersQuickAddFormStepper = ({ control }: { control: Control<zod.infer<typeof formSchema>> }) => {

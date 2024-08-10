@@ -1,13 +1,13 @@
-import type { Order } from "types/tables.types"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "shadcn/card"
-import { Table, TableBody } from "shadcn/table"
 import { OrdersTableHeader } from "components/orders-table/orders-table-header"
 import { OrdersTableRow } from "components/orders-table/orders-table-row"
 import { OrdersTableToolbar } from "components/orders-table/orders-table-toolbar"
 import { getOrders } from "services/get-orders"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "shadcn/card"
+import { Table, TableBody } from "shadcn/table"
+import type { OrderWithEmployee } from "types/tables.types"
 
 export const OrdersTable = async () => {
-	const orders = (await getOrders()) as Order[]
+	const orders: OrderWithEmployee[] = (await getOrders()) || ([] as OrderWithEmployee[])
 
 	const hasOrders = !!orders.length
 
@@ -24,8 +24,8 @@ export const OrdersTable = async () => {
 						<Table>
 							<OrdersTableHeader />
 							<TableBody>
-								{orders?.map((order) => (
-									<OrdersTableRow key={order?.created_at} {...order} />
+								{orders?.map(({ created_at, ...order }) => (
+									<OrdersTableRow key={created_at} created_at={created_at} {...order} />
 								))}
 							</TableBody>
 						</Table>

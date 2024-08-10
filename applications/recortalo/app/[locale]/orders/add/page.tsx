@@ -1,4 +1,4 @@
-import { OrdersAddForm } from "components/orders-forms/orders-add-form"
+import { OrdersAddForm } from "components/orders-form/orders-add-form"
 
 const Page = () => (
 	<div className="flex min-h-screen w-full flex-col">

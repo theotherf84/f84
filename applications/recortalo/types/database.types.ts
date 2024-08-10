@@ -47,35 +47,35 @@ export type Database = {
 					category: string
 					cost: number
 					created_at: string
+					employee: number | null
 					id: number
 					status: string
 					subcategory: string | null
-					user: string | null
 				}
 				Insert: {
 					category: string
 					cost: number
 					created_at?: string
+					employee?: number | null
 					id?: number
 					status: string
 					subcategory?: string | null
-					user?: string | null
 				}
 				Update: {
 					category?: string
 					cost?: number
 					created_at?: string
+					employee?: number | null
 					id?: number
 					status?: string
 					subcategory?: string | null
-					user?: string | null
 				}
 				Relationships: [
 					{
-						foreignKeyName: "Orders_user_fkey"
-						columns: ["user"]
+						foreignKeyName: "orders_employee_fkey"
+						columns: ["employee"]
 						isOneToOne: false
-						referencedRelation: "users"
+						referencedRelation: "employees"
 						referencedColumns: ["id"]
 					},
 				]

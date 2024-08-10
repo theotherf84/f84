@@ -1,27 +1,25 @@
 "use client"
 
+import { zodResolver } from "@hookform/resolvers/zod"
 import { action } from "actions/quick-add-order"
+import { formSchema } from "components/orders-quick-add-form/orders-quick-add-form-schema"
+import { OrdersQuickAddFormStepper } from "components/orders-quick-add-form/orders-quick-add-form-stepper"
 import { SubmitButton } from "components/submit-button"
+import { type SubmitHandler, useForm } from "react-hook-form"
+import { Avatar, AvatarFallback } from "shadcn/avatar"
+import { Form, FormControl, FormField, FormItem, FormLabel } from "shadcn/form"
 import { Label } from "shadcn/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "shadcn/select"
-import { OrdersQuickAddFormStepper } from "components/orders-forms/orders-quick-add-form-stepper"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import type { z as zod } from "zod"
-import { formSchema } from "components/orders-forms/orders-quick-add-form-schema"
-import { Form, FormControl, FormField, FormItem, FormLabel } from "shadcn/form"
-import { Category, Employee, Subcategory } from "types/tables.types"
-import { Avatar, AvatarFallback } from "shadcn/avatar"
-import { QuickAddOrderFormProperties } from "types/forms"
+import type { QuickAddOrderFormFieldValues, QuickAddOrderFormProperties } from "types/forms"
+import type { Category, Employee, Subcategory } from "types/tables.types"
 
 export const QuickAddOrderForm = ({ categories, employees, subcategories, onSubmit }: QuickAddOrderFormProperties) => {
 	const defaultCategory = categories?.filter((category: { name: string }) => category?.name === "Servicios")?.[0]?.name
 	const defaultSubcategory = subcategories?.filter((subcategory: { name: string }) => subcategory?.name === "Corte de caballero")?.[0]?.name
 
-	const form = useForm<zod.infer<typeof formSchema>>({
+	const form = useForm<QuickAddOrderFormFieldValues>({
 		defaultValues: {
 			category: defaultCategory,
-			employee: "",
 			subcategory: defaultSubcategory,
 			cost: 500,
 			status: "Payed",
@@ -30,8 +28,8 @@ export const QuickAddOrderForm = ({ categories, employees, subcategories, onSubm
 		resolver: zodResolver(formSchema),
 	})
 
-	const handleOnSubmit = async (values: zod.infer<typeof formSchema>) => {
-		const statusCode = await action(values)
+	const handleOnSubmit: SubmitHandler<QuickAddOrderFormFieldValues> = async (data) => {
+		const statusCode = await action(data)
 
 		if (statusCode === 201) onSubmit()
 	}
@@ -55,16 +53,16 @@ export const QuickAddOrderForm = ({ categories, employees, subcategories, onSubm
 										</SelectTrigger>
 									</FormControl>
 									<SelectContent>
-										{employees?.map((employee: Employee) => (
-											<SelectItem key={employee.id} value={String(employee.id)}>
+										{employees?.map(({ first_name, id, last_name }: Employee) => (
+											<SelectItem key={id} value={String(id)}>
 												<div className="flex flex-row gap-4 items-center justify-center">
 													<Avatar>
 														<AvatarFallback>
-															{employee.first_name?.charAt(0).toUpperCase()}
-															{employee.last_name?.charAt(0).toUpperCase()}
+															{first_name?.charAt(0).toUpperCase()}
+															{last_name?.charAt(0).toUpperCase()}
 														</AvatarFallback>
 													</Avatar>
-													{employee.first_name} {employee.last_name}
+													{first_name} {last_name}
 												</div>
 											</SelectItem>
 										))}
@@ -90,9 +88,9 @@ export const QuickAddOrderForm = ({ categories, employees, subcategories, onSubm
 										</SelectTrigger>
 									</FormControl>
 									<SelectContent>
-										{categories?.map((category: Category) => (
-											<SelectItem key={category?.id} value={category?.name}>
-												{category?.name}
+										{categories?.map(({ id, name }: Category) => (
+											<SelectItem key={id} value={name}>
+												{name}
 											</SelectItem>
 										))}
 									</SelectContent>
@@ -104,7 +102,7 @@ export const QuickAddOrderForm = ({ categories, employees, subcategories, onSubm
 				<div className="grid gap-3">
 					<FormField
 						control={form.control}
-						name="category"
+						name="subcategory"
 						render={({ field }) => (
 							<FormItem>
 								<FormLabel htmlFor="subcategory" asChild>
@@ -119,9 +117,9 @@ export const QuickAddOrderForm = ({ categories, employees, subcategories, onSubm
 										</SelectTrigger>
 									</FormControl>
 									<SelectContent>
-										{subcategories?.map((subcategory: Subcategory) => (
-											<SelectItem key={subcategory?.id} value={subcategory?.name}>
-												{subcategory?.name}
+										{subcategories?.map(({ id, name }: Subcategory) => (
+											<SelectItem key={id} value={name}>
+												{name}
 											</SelectItem>
 										))}
 									</SelectContent>

@@ -2,7 +2,7 @@ import Link from "next/link"
 import { Button } from "shadcn/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "shadcn/card"
 import { getTranslations } from "helpers/translations"
-import { QuickAddFormContainer } from "components/orders-forms/orders-quick-add-form-container"
+import { QuickAddFormContainer } from "components/orders-quick-add-form/orders-quick-add-form-container"
 
 export const OrdersActionCard = async () => {
 	const translations = await getTranslations()

@@ -1,9 +1,9 @@
+import { QuickAddOrderFormSheet } from "components/orders-quick-add-form/orders-quick-add-form-sheet"
 import { getTranslations } from "helpers/translations"
 import { getCategories } from "services/get-categories"
-import { getSubcategories } from "services/get-subcategories"
-import { QuickAddOrderFormSheet } from "components/orders-forms/orders-quick-add-form-sheet"
 import { getEmployees } from "services/get-employees"
-import { Category, Employee, Subcategory } from "types/tables.types"
+import { getSubcategories } from "services/get-subcategories"
+import type { Category, Employee, Subcategory } from "types/tables.types"
 
 export const QuickAddFormContainer = async () => {
 	const { orders } = await getTranslations()
