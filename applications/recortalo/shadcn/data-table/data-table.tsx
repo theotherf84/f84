@@ -1,22 +1,50 @@
 "use client"
 
-import { flexRender, getCoreRowModel, getPaginationRowModel, useReactTable } from "@tanstack/react-table"
+import {
+	type ColumnFiltersState,
+	type SortingState,
+	flexRender,
+	getCoreRowModel,
+	getFilteredRowModel,
+	getPaginationRowModel,
+	getSortedRowModel,
+	useReactTable,
+} from "@tanstack/react-table"
+import { useState } from "react"
 import { DataTablePagination } from "shadcn/data-table/data-table-pagination"
 import { DataTableViewOptions } from "shadcn/data-table/data-table-view-options"
+import { Input } from "shadcn/input"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "shadcn/table"
 import type { DataTableProperties } from "types/data-table.types"
 
 export const DataTable = <TData, TValue>({ columns, data }: DataTableProperties<TData, TValue>) => {
+	const [sorting, setSorting] = useState<SortingState>([])
+	const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
+
 	const table = useReactTable({
 		data,
 		columns,
+		onSortingChange: setSorting,
 		getCoreRowModel: getCoreRowModel(),
 		getPaginationRowModel: getPaginationRowModel(),
+		getSortedRowModel: getSortedRowModel(),
+		onColumnFiltersChange: setColumnFilters,
+		getFilteredRowModel: getFilteredRowModel(),
+		state: {
+			sorting,
+			columnFilters,
+		},
 	})
 
 	return (
 		<div className="flex flex-col gap-6">
 			<DataTableViewOptions table={table} />
+			<Input
+				placeholder="Filter employees..."
+				value={(table.getColumn("employee")?.getFilterValue() as string) ?? ""}
+				onChange={(event) => table.getColumn("employee")?.setFilterValue(event.target.value)}
+				className="max-w-sm"
+			/>
 			<Table>
 				<TableHeader>
 					{table.getHeaderGroups().map((headerGroup) => (
