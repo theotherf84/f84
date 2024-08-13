@@ -5,11 +5,17 @@ import { action } from "actions/quick-add-order"
 import { formSchema } from "components/orders-quick-add-form/orders-quick-add-form-schema"
 import { OrdersQuickAddFormStepper } from "components/orders-quick-add-form/orders-quick-add-form-stepper"
 import { SubmitButton } from "components/submit-button"
+import { format } from "date-fns"
 import { getFormattedNameInitial } from "helpers/get-formatted-name-initial"
+import { mergeClassNames } from "helpers/merge-class-names"
+import { CalendarIcon } from "lucide-react"
 import { type SubmitHandler, useForm } from "react-hook-form"
 import { Avatar, AvatarFallback } from "shadcn/avatar"
+import { Button } from "shadcn/button"
+import { Calendar } from "shadcn/calendar"
 import { Form, FormControl, FormField, FormItem, FormLabel } from "shadcn/form"
 import { Label } from "shadcn/label"
+import { Popover, PopoverContent, PopoverTrigger } from "shadcn/popover"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "shadcn/select"
 import type { QuickAddOrderFormFieldValues, QuickAddOrderFormProperties } from "types/forms"
 import type { Category, Employee, Subcategory } from "types/tables.types"
@@ -21,6 +27,7 @@ export const QuickAddOrderForm = ({ categories, employees, subcategories, onSubm
 	const form = useForm<QuickAddOrderFormFieldValues>({
 		defaultValues: {
 			category: defaultCategory,
+			date: new Date(),
 			subcategory: defaultSubcategory,
 			cost: 500,
 			status: "Payed",
@@ -37,7 +44,42 @@ export const QuickAddOrderForm = ({ categories, employees, subcategories, onSubm
 
 	return (
 		<Form {...form}>
-			<form onSubmit={form.handleSubmit(handleOnSubmit)} className="mx-auto grid gap-4 py-6">
+			<form onSubmit={form.handleSubmit(handleOnSubmit)} className="mx-auto space-y-4 py-6">
+				<div className="grid gap-3">
+					<FormField
+						control={form.control}
+						name="date"
+						render={({ field }) => (
+							<FormItem className="flex flex-col">
+								<FormLabel htmlFor="date" asChild>
+									<Label>Date</Label>
+								</FormLabel>
+								<Popover>
+									<PopoverTrigger asChild>
+										<FormControl>
+											<Button
+												variant={"outline"}
+												className={mergeClassNames("pl-3 text-left font-normal", !field.value && "text-muted-foreground")}
+											>
+												{field.value ? format(field.value, "PPP") : <span>Pick a date</span>}
+												<CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+											</Button>
+										</FormControl>
+									</PopoverTrigger>
+									<PopoverContent className="w-auto p-0" align="start">
+										<Calendar
+											mode="single"
+											selected={field.value}
+											onSelect={field.onChange}
+											disabled={(date) => date > new Date() || date < new Date("1900-01-01")}
+											initialFocus
+										/>
+									</PopoverContent>
+								</Popover>
+							</FormItem>
+						)}
+					/>
+				</div>
 				<div className="grid gap-3">
 					<FormField
 						control={form.control}

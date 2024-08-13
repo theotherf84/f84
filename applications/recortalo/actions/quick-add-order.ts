@@ -9,6 +9,7 @@ import type { QuickAddOrderFormFieldValues } from "types/forms"
 export const action = async (data: QuickAddOrderFormFieldValues) => {
 	const validation = formSchema.safeParse({
 		...data,
+		created_at: new Date().toISOString(),
 	})
 
 	if (validation.error)
