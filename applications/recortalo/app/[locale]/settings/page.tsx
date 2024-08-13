@@ -1,4 +1,4 @@
-import { AddCategoryForm } from "components/categories-forms/categories-add-form"
+import { AddCategoryForm } from "components/categories-add-form/categories-add-form"
 import { CategoriesTable } from "components/categories-table/categories-table"
 import { AddSubcategoryForm } from "components/subcategories-forms/subcategories-add-form"
 import { SubcategoriesTable } from "components/subcategories-table/subcategories-table"

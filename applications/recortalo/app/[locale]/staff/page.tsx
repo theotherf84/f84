@@ -1,4 +1,4 @@
-import { AddEmployeeForm } from "components/employees-forms/employees-add-form"
+import { AddEmployeeForm } from "components/employees-add-form/employees-add-form"
 import { EmployeesTable } from "components/employees-table/employees-table"
 
 const Page = () => (

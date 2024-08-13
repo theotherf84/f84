@@ -1,9 +1,9 @@
 "use server"
 
+import { formSchema } from "components/password-recovery-form/password-recovery-form-schema"
 import { createClient } from "helpers/supabase/supabase-server"
-import { redirect } from "next/navigation"
 import { headers } from "next/headers"
-import { formSchema } from "components/password-recovery-forms/password-recovery-form-schema"
+import { redirect } from "next/navigation"
 
 export const action = async (formData: FormData) => {
 	const origin = headers().get("origin")
