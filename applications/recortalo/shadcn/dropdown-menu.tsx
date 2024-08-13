@@ -1,7 +1,7 @@
 "use client"
 
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu"
-import { classNames } from "helpers/class-names"
+import { mergeClassNames } from "helpers/merge-class-names"
 import { Check, ChevronRight, Circle } from "lucide-react"
 import * as React from "react"
 
@@ -20,7 +20,7 @@ const DropdownMenuSubTrigger = React.forwardRef<
 >(({ className, inset, children, ...properties }, reference) => (
 	<DropdownMenuPrimitive.SubTrigger
 		ref={reference}
-		className={classNames(
+		className={mergeClassNames(
 			"flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent data-[state=open]:bg-accent",
 			inset && "pl-8",
 			className,
@@ -40,7 +40,7 @@ const DropdownMenuSubContent = React.forwardRef<
 >(({ className, ...properties }, reference) => (
 	<DropdownMenuPrimitive.SubContent
 		ref={reference}
-		className={classNames(
+		className={mergeClassNames(
 			"z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
 			className,
 		)}
@@ -58,7 +58,7 @@ const DropdownMenuContent = React.forwardRef<
 		<DropdownMenuPrimitive.Content
 			ref={reference}
 			sideOffset={sideOffset}
-			className={classNames(
+			className={mergeClassNames(
 				"z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
 				className,
 			)}
@@ -77,7 +77,7 @@ const DropdownMenuItem = React.forwardRef<
 >(({ className, inset, ...properties }, reference) => (
 	<DropdownMenuPrimitive.Item
 		ref={reference}
-		className={classNames(
+		className={mergeClassNames(
 			"relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
 			inset && "pl-8",
 			className,
@@ -94,7 +94,7 @@ const DropdownMenuCheckboxItem = React.forwardRef<
 >(({ className, children, checked, ...properties }, reference) => (
 	<DropdownMenuPrimitive.CheckboxItem
 		ref={reference}
-		className={classNames(
+		className={mergeClassNames(
 			"relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
 			className,
 		)}
@@ -118,7 +118,7 @@ const DropdownMenuRadioItem = React.forwardRef<
 >(({ className, children, ...properties }, reference) => (
 	<DropdownMenuPrimitive.RadioItem
 		ref={reference}
-		className={classNames(
+		className={mergeClassNames(
 			"relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
 			className,
 		)}
@@ -141,7 +141,7 @@ const DropdownMenuLabel = React.forwardRef<
 		inset?: boolean
 	}
 >(({ className, inset, ...properties }, reference) => (
-	<DropdownMenuPrimitive.Label ref={reference} className={classNames("px-2 py-1.5 text-sm font-semibold", inset && "pl-8", className)} {...properties} />
+	<DropdownMenuPrimitive.Label ref={reference} className={mergeClassNames("px-2 py-1.5 text-sm font-semibold", inset && "pl-8", className)} {...properties} />
 ))
 
 DropdownMenuLabel.displayName = DropdownMenuPrimitive.Label.displayName
@@ -150,13 +150,13 @@ const DropdownMenuSeparator = React.forwardRef<
 	React.ElementRef<typeof DropdownMenuPrimitive.Separator>,
 	React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>
 >(({ className, ...properties }, reference) => (
-	<DropdownMenuPrimitive.Separator ref={reference} className={classNames("-mx-1 my-1 h-px bg-muted", className)} {...properties} />
+	<DropdownMenuPrimitive.Separator ref={reference} className={mergeClassNames("-mx-1 my-1 h-px bg-muted", className)} {...properties} />
 ))
 
 DropdownMenuSeparator.displayName = DropdownMenuPrimitive.Separator.displayName
 
 const DropdownMenuShortcut = ({ className, ...properties }: React.HTMLAttributes<HTMLSpanElement>) => {
-	return <span className={classNames("ml-auto text-xs tracking-widest opacity-60", className)} {...properties} />
+	return <span className={mergeClassNames("ml-auto text-xs tracking-widest opacity-60", className)} {...properties} />
 }
 
 DropdownMenuShortcut.displayName = "DropdownMenuShortcut"

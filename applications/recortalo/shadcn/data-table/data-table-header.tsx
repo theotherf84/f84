@@ -1,14 +1,14 @@
-import { classNames } from "helpers/class-names"
+import { mergeClassNames } from "helpers/merge-class-names"
 import { ArrowDownIcon, ArrowUpIcon, ChevronsUpDown, EyeIcon } from "lucide-react"
 import { Button } from "shadcn/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "shadcn/dropdown-menu"
 import type { DataTableColumnHeaderProperties } from "types/data-table.types"
 
 export function DataTableColumnHeader<TData, TValue>({ column, title, className }: DataTableColumnHeaderProperties<TData, TValue>) {
-	if (!column.getCanSort()) return <div className={classNames(className)}>{title}</div>
+	if (!column.getCanSort()) return <div className={mergeClassNames(className)}>{title}</div>
 
 	return (
-		<div className={classNames("flex items-center space-x-2", className)}>
+		<div className={mergeClassNames("flex items-center space-x-2", className)}>
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
 					<Button variant="ghost" size="sm" className="-ml-3 h-8 data-[state=open]:bg-accent">

@@ -1,5 +1,5 @@
 import { type VariantProps, cva as classVarianceAuthority } from "class-variance-authority"
-import { classNames } from "helpers/class-names"
+import { mergeClassNames } from "helpers/merge-class-names"
 import * as React from "react"
 
 const variants = classVarianceAuthority(
@@ -19,20 +19,20 @@ const variants = classVarianceAuthority(
 
 const Alert = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof variants>>(
 	({ className, variant, ...properties }, reference) => (
-		<div ref={reference} role="alert" className={classNames(variants({ variant }), className)} {...properties} />
+		<div ref={reference} role="alert" className={mergeClassNames(variants({ variant }), className)} {...properties} />
 	),
 )
 
 Alert.displayName = "Alert"
 
 const AlertTitle = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLHeadingElement>>(({ className, ...properties }, reference) => (
-	<h5 ref={reference} className={classNames("mb-1 font-medium leading-none tracking-tight", className)} {...properties} />
+	<h5 ref={reference} className={mergeClassNames("mb-1 font-medium leading-none tracking-tight", className)} {...properties} />
 ))
 
 AlertTitle.displayName = "AlertTitle"
 
 const AlertDescription = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraphElement>>(({ className, ...properties }, reference) => (
-	<div ref={reference} className={classNames("text-sm [&_p]:leading-relaxed", className)} {...properties} />
+	<div ref={reference} className={mergeClassNames("text-sm [&_p]:leading-relaxed", className)} {...properties} />
 ))
 
 AlertDescription.displayName = "AlertDescription"

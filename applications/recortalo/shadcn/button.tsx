@@ -1,6 +1,6 @@
 import { Slot } from "@radix-ui/react-slot"
 import { type VariantProps, cva as classVarianceAuthority } from "class-variance-authority"
-import { classNames } from "helpers/class-names"
+import { mergeClassNames } from "helpers/merge-class-names"
 import * as React from "react"
 
 const variants = classVarianceAuthority(
@@ -36,7 +36,7 @@ interface ButtonProperties extends React.ButtonHTMLAttributes<HTMLButtonElement>
 const Button = React.forwardRef<HTMLButtonElement, ButtonProperties>(({ className, variant, size, asChild = false, ...properties }, reference) => {
 	const Component = asChild ? Slot : "button"
 
-	return <Component className={classNames(variants({ variant, size, className }))} ref={reference} {...properties} />
+	return <Component className={mergeClassNames(variants({ variant, size, className }))} ref={reference} {...properties} />
 })
 
 Button.displayName = "Button"

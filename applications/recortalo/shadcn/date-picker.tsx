@@ -1,7 +1,7 @@
 "use client"
 
 import { format } from "date-fns"
-import { classNames } from "helpers/class-names"
+import { mergeClassNames } from "helpers/merge-class-names"
 import { CalendarIcon } from "lucide-react"
 import * as React from "react"
 import { useState } from "react"
@@ -15,7 +15,7 @@ export const DatePicker = () => {
 	return (
 		<Popover>
 			<PopoverTrigger asChild>
-				<Button variant="outline" className={classNames("w-[280px] justify-start text-left font-normal", !date && "text-muted-foreground")}>
+				<Button variant="outline" className={mergeClassNames("w-[280px] justify-start text-left font-normal", !date && "text-muted-foreground")}>
 					<CalendarIcon className="mr-2 h-4 w-4" />
 					{date ? format(date, "PPP") : <span>Pick a date</span>}
 				</Button>

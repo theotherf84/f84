@@ -2,7 +2,7 @@
 
 import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group"
 import type { VariantProps as VariantProperties } from "class-variance-authority"
-import { classNames } from "helpers/class-names"
+import { mergeClassNames } from "helpers/merge-class-names"
 import {
 	type ComponentPropsWithoutRef as ComponentPropertiesWithoutReference,
 	type ElementRef as ElementReference,
@@ -21,7 +21,7 @@ const ToggleGroup = forwardReference<
 	ElementReference<typeof ToggleGroupPrimitive.Root>,
 	ComponentPropertiesWithoutReference<typeof ToggleGroupPrimitive.Root> & VariantProperties<typeof toggleVariants>
 >(({ className, variant, size, children, ...properties }, reference) => (
-	<ToggleGroupPrimitive.Root ref={reference} className={classNames("flex items-center justify-center gap-1", className)} {...properties}>
+	<ToggleGroupPrimitive.Root ref={reference} className={mergeClassNames("flex items-center justify-center gap-1", className)} {...properties}>
 		<ToggleGroupContext.Provider value={{ variant, size }}>{children}</ToggleGroupContext.Provider>
 	</ToggleGroupPrimitive.Root>
 ))
@@ -37,7 +37,7 @@ const ToggleGroupItem = forwardReference<
 	return (
 		<ToggleGroupPrimitive.Item
 			ref={reference}
-			className={classNames(
+			className={mergeClassNames(
 				toggleVariants({
 					variant: context.variant || variant,
 					size: context.size || size,

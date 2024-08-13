@@ -2,15 +2,15 @@
 
 import * as LabelPrimitive from "@radix-ui/react-label"
 import { Slot } from "@radix-ui/react-slot"
-import { classNames } from "helpers/class-names"
+import { mergeClassNames } from "helpers/merge-class-names"
 import {
-	useContext,
-	type HTMLAttributes,
-	useId,
 	type ComponentPropsWithoutRef as ComponentPropertiesWithoutReference,
-	forwardRef as forwardReference,
-	createContext,
 	type ElementRef as ElementReference,
+	type HTMLAttributes,
+	createContext,
+	forwardRef as forwardReference,
+	useContext,
+	useId,
 } from "react"
 import { Controller, type ControllerProps, type FieldPath, type FieldValues, FormProvider, useFormContext } from "react-hook-form"
 
@@ -63,7 +63,7 @@ const FormItem = forwardReference<HTMLDivElement, HTMLAttributes<HTMLDivElement>
 
 	return (
 		<FormItemContext.Provider value={{ id: identifier }}>
-			<div ref={reference} className={classNames("space-y-2", className)} {...properties} />
+			<div ref={reference} className={mergeClassNames("space-y-2", className)} {...properties} />
 		</FormItemContext.Provider>
 	)
 })
@@ -74,7 +74,7 @@ const FormLabel = forwardReference<ElementReference<typeof LabelPrimitive.Root>,
 	({ className, ...properties }, reference) => {
 		const { error, formItemId } = useFormField()
 
-		return <LabelPrimitive.Label ref={reference} className={classNames(error && "text-destructive", className)} htmlFor={formItemId} {...properties} />
+		return <LabelPrimitive.Label ref={reference} className={mergeClassNames(error && "text-destructive", className)} htmlFor={formItemId} {...properties} />
 	},
 )
 
@@ -99,7 +99,7 @@ FormControl.displayName = "FormControl"
 const FormDescription = forwardReference<HTMLParagraphElement, HTMLAttributes<HTMLParagraphElement>>(({ className, ...properties }, reference) => {
 	const { formDescriptionId: formDescriptionIdentifier } = useFormField()
 
-	return <p ref={reference} id={formDescriptionIdentifier} className={classNames("text-sm text-muted-foreground", className)} {...properties} />
+	return <p ref={reference} id={formDescriptionIdentifier} className={mergeClassNames("text-sm text-muted-foreground", className)} {...properties} />
 })
 
 FormDescription.displayName = "FormDescription"
@@ -111,7 +111,7 @@ const FormMessage = forwardReference<HTMLParagraphElement, HTMLAttributes<HTMLPa
 	if (!body) return null
 
 	return (
-		<p ref={reference} id={formMessageIdentifier} className={classNames("text-sm font-medium text-destructive", className)} {...properties}>
+		<p ref={reference} id={formMessageIdentifier} className={mergeClassNames("text-sm font-medium text-destructive", className)} {...properties}>
 			{body}
 		</p>
 	)

@@ -1,5 +1,5 @@
 import { type VariantProps, cva as classVarianceAuthority } from "class-variance-authority"
-import { classNames } from "helpers/class-names"
+import { mergeClassNames } from "helpers/merge-class-names"
 import type * as React from "react"
 
 const variants = classVarianceAuthority(
@@ -22,7 +22,7 @@ const variants = classVarianceAuthority(
 interface BadgeProperties extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof variants> {}
 
 const Badge = ({ className, variant, ...properties }: BadgeProperties) => {
-	return <div className={classNames(variants({ variant }), className)} {...properties} />
+	return <div className={mergeClassNames(variants({ variant }), className)} {...properties} />
 }
 
 export { Badge }

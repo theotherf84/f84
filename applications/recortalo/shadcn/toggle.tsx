@@ -2,7 +2,7 @@
 
 import * as TogglePrimitive from "@radix-ui/react-toggle"
 import { type VariantProps as VariantProperties, cva as classVarianceAuthority } from "class-variance-authority"
-import { classNames } from "helpers/class-names"
+import { mergeClassNames } from "helpers/merge-class-names"
 import {
 	type ComponentPropsWithoutRef as ComponentPropertiesWithoutReference,
 	type ElementRef as ElementReference,
@@ -34,7 +34,7 @@ const Toggle = forwardReference<
 	ElementReference<typeof TogglePrimitive.Root>,
 	ComponentPropertiesWithoutReference<typeof TogglePrimitive.Root> & VariantProperties<typeof variants>
 >(({ className, variant, size, ...properties }, reference) => (
-	<TogglePrimitive.Root ref={reference} className={classNames(variants({ variant, size, className }))} {...properties} />
+	<TogglePrimitive.Root ref={reference} className={mergeClassNames(variants({ variant, size, className }))} {...properties} />
 ))
 
 Toggle.displayName = TogglePrimitive.Root.displayName
