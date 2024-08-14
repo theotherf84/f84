@@ -9,7 +9,6 @@ import type { QuickAddOrderFormFieldValues } from "types/forms"
 export const action = async (data: QuickAddOrderFormFieldValues) => {
 	const validation = formSchema.safeParse({
 		...data,
-		created_at: new Date().toISOString(),
 	})
 
 	if (validation.error)
@@ -19,15 +18,18 @@ export const action = async (data: QuickAddOrderFormFieldValues) => {
 
 	const supabase = createClient()
 
-	const { error: getUserError } = await supabase.auth.getUser()
+	const { error: userError } = await supabase.auth.getUser()
 
-	if (getUserError) return redirect("/orders?error=Could not authenticate user")
+	if (userError) return redirect("/orders?error=Could not authenticate user")
 
-	const { error: insertOrderError, status: insertOrderStatus } = await supabase.from(TableName.Orders).insert({
-		...validation?.data,
+	const { date, ...order } = validation.data
+
+	const { error: orderError, status: orderStatus } = await supabase.from(TableName.Orders).insert({
+		...order,
+		created_at: date.toISOString(),
 	})
 
-	if (insertOrderError) return redirect("/orders?error=Could not create an order")
+	if (orderError) return redirect("/orders?error=Could not create an order")
 
-	return insertOrderStatus
+	return orderStatus
 }
