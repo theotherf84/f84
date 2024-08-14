@@ -1,10 +1,10 @@
 import { columns } from "components/orders-data-table/orders-data-table-columns"
-import { getOrders } from "services/get-orders"
+import { getOrdersWithEmployees } from "services/get-orders-with-employees"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "shadcn/card"
 import { DataTable } from "shadcn/data-table/data-table"
 
 export const OrdersDataTable = async () => {
-	const orders = await getOrders()
+	const orders = await getOrdersWithEmployees()
 
 	const hasOrders = !!orders?.length
 
