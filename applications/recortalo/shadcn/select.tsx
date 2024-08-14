@@ -6,7 +6,9 @@ import { Check, ChevronDown, ChevronUp } from "lucide-react"
 import { type ComponentPropsWithoutRef, type ElementRef, forwardRef } from "react"
 
 const Select = SelectPrimitive.Root
+
 const SelectGroup = SelectPrimitive.Group
+
 const SelectValue = SelectPrimitive.Value
 
 const SelectTrigger = forwardRef<ElementRef<typeof SelectPrimitive.Trigger>, ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>>(
@@ -14,7 +16,7 @@ const SelectTrigger = forwardRef<ElementRef<typeof SelectPrimitive.Trigger>, Com
 		<SelectPrimitive.Trigger
 			ref={reference}
 			className={mergeClassNames(
-				"flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1",
+				"flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-4 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1",
 				className,
 			)}
 			{...properties}
