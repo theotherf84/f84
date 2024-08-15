@@ -1,6 +1,6 @@
 import Header from "components/header"
 import { SettingsNavigationMenu } from "components/settings-navigation-menu"
-import * as React from "react"
+import type * as React from "react"
 
 const Layout = ({
 	children,
