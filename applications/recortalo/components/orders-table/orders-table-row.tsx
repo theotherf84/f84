@@ -3,9 +3,8 @@ import { getFormattedNameInitial } from "helpers/get-formatted-name-initial"
 import { Avatar, AvatarFallback } from "shadcn/avatar"
 import { Badge } from "shadcn/badge"
 import { TableCell, TableRow } from "shadcn/table"
-import type { OrderWithEmployee } from "types/tables.types"
 
-export const OrdersTableRow = ({ category, cost, created_at, employee, id, status, subcategory }: OrderWithEmployee) => (
+export const OrdersTableRow = ({ category, cost, created_at, employee, id, status, subcategory }: any) => (
 	<TableRow>
 		<TableCell>
 			<Avatar>

@@ -1,7 +1,7 @@
 import { TableCell, TableRow } from "shadcn/table"
 import type { Category } from "types/tables.types"
 
-export const CategoriesTableRow = ({ created_at, id, name }: Category) => (
+export const CategoriesTableRow = ({ created_at, name }: Category) => (
 	<TableRow>
 		<TableCell>
 			<div className="font-medium">{name}</div>
