@@ -13,7 +13,7 @@ export const EmployeesTable = async ({ data }) => {
 				</TableRow>
 			</TableHeader>{" "}
 			<TableBody>
-				{data.map((employee) => (
+				{data?.map((employee) => (
 					<EmployeesTableRow key={employee?.created_at} {...employee} />
 				))}
 			</TableBody>
