@@ -12,7 +12,6 @@ export const OrdersTable = async ({ data }) => (
 				<TableHead className="text-right">Amount</TableHead>
 			</TableRow>
 		</TableHeader>
-		){" "}
 		<TableBody>
 			{data?.map(({ created_at, ...order }) => (
 				<OrdersTableRow key={created_at} created_at={created_at} {...order} />
