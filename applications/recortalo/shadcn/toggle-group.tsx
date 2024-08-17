@@ -12,8 +12,8 @@ const ToggleGroupContext = React.createContext<VariantProperties<typeof toggleVa
 })
 
 const ToggleGroup = React.forwardRef<
-React.ElementRef<typeof ToggleGroupPrimitive.Root>,
-React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Root> & VariantProperties<typeof toggleVariants>
+	React.ElementRef<typeof ToggleGroupPrimitive.Root>,
+	React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Root> & VariantProperties<typeof toggleVariants>
 >(({ className, variant, size, children, ...properties }, reference) => (
 	<ToggleGroupPrimitive.Root ref={reference} className={mergeClassNames("flex items-center justify-center gap-1", className)} {...properties}>
 		<ToggleGroupContext.Provider value={{ variant, size }}>{children}</ToggleGroupContext.Provider>
@@ -23,8 +23,8 @@ React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Root> & VariantProper
 ToggleGroup.displayName = ToggleGroupPrimitive.Root.displayName
 
 const ToggleGroupItem = React.forwardRef<
-React.ElementRef<typeof ToggleGroupPrimitive.Item>,
-React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Item> & VariantProperties<typeof toggleVariants>
+	React.ElementRef<typeof ToggleGroupPrimitive.Item>,
+	React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Item> & VariantProperties<typeof toggleVariants>
 >(({ className, children, variant, size, ...properties }, reference) => {
 	const context = React.useContext(ToggleGroupContext)
 

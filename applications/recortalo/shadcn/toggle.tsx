@@ -27,8 +27,8 @@ const variants = classVarianceAuthority(
 )
 
 const Toggle = React.forwardRef<
-React.ElementRef<typeof TogglePrimitive.Root>,
-React.ComponentPropsWithoutRef<typeof TogglePrimitive.Root> & VariantProperties<typeof variants>
+	React.ElementRef<typeof TogglePrimitive.Root>,
+	React.ComponentPropsWithoutRef<typeof TogglePrimitive.Root> & VariantProperties<typeof variants>
 >(({ className, variant, size, ...properties }, reference) => (
 	<TogglePrimitive.Root ref={reference} className={mergeClassNames(variants({ variant, size, className }))} {...properties} />
 ))

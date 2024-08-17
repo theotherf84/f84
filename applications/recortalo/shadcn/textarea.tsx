@@ -2,7 +2,6 @@ import { mergeClassNames } from "helpers/merge-class-names"
 import React from "react"
 import type { TextareaProperties } from "types/components"
 
-
 const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProperties>(({ className, ...properties }, reference) => {
 	return (
 		<textarea

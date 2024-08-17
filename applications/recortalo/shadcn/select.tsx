@@ -31,23 +31,24 @@ const SelectTrigger = React.forwardRef<React.ElementRef<typeof SelectPrimitive.T
 
 SelectTrigger.displayName = SelectPrimitive.Trigger.displayName
 
-const SelectScrollUpButton = React.forwardRef<React.ElementRef<typeof SelectPrimitive.ScrollUpButton>, React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollUpButton>>(
-	({ className, ...properties }, reference) => (
-		<SelectPrimitive.ScrollUpButton
-			ref={reference}
-			className={mergeClassNames("flex cursor-default items-center justify-center py-1", className)}
-			{...properties}
-		>
-			<ChevronUp className="h-4 w-4" />
-		</SelectPrimitive.ScrollUpButton>
-	),
-)
+const SelectScrollUpButton = React.forwardRef<
+	React.ElementRef<typeof SelectPrimitive.ScrollUpButton>,
+	React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollUpButton>
+>(({ className, ...properties }, reference) => (
+	<SelectPrimitive.ScrollUpButton
+		ref={reference}
+		className={mergeClassNames("flex cursor-default items-center justify-center py-1", className)}
+		{...properties}
+	>
+		<ChevronUp className="h-4 w-4" />
+	</SelectPrimitive.ScrollUpButton>
+))
 
 SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName
 
 const SelectScrollDownButton = React.forwardRef<
-React.ElementRef<typeof SelectPrimitive.ScrollDownButton>,
-React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollDownButton>
+	React.ElementRef<typeof SelectPrimitive.ScrollDownButton>,
+	React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollDownButton>
 >(({ className, ...properties }, reference) => (
 	<SelectPrimitive.ScrollDownButton
 		ref={reference}
