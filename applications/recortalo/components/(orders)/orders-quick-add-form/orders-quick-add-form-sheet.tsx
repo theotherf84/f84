@@ -1,6 +1,6 @@
 "use client"
 
-import { QuickAddOrderForm } from "components/orders-quick-add-form/orders-quick-add-form"
+import { QuickAddOrderForm } from "components/(orders)/orders-quick-add-form/orders-quick-add-form"
 import { useState } from "react"
 import { Button } from "shadcn/button"
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "shadcn/sheet"

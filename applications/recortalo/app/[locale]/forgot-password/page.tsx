@@ -1,5 +1,5 @@
-import { PasswordRecoveryForm } from "components/password-recovery-form/password-recovery-form"
-import { LoginBlockquote } from "components/sign-in-blockquote"
+import { PasswordRecoveryForm } from "components/(authentication)/password-recovery-form/password-recovery-form"
+import { LoginBlockquote } from "components/(authentication)/sign-in-blockquote"
 import { Scissors } from "lucide-react"
 import Link from "next/link"
 

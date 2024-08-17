@@ -1,4 +1,4 @@
-import { OrdersTableRow } from "components/orders-table/orders-table-row"
+import { OrdersTableRow } from "components/(orders)/orders-table/orders-table-row"
 import { Table, TableBody, TableHead, TableHeader, TableRow } from "shadcn/table"
 
 export const OrdersTable = async ({ data }) => (

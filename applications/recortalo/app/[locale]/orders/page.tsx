@@ -1,5 +1,5 @@
-import { OrdersActionCard } from "components/orders-action-card"
-import { OrdersTableContainer } from "components/orders-table/orders-table-container"
+import { OrdersActionCard } from "components/(orders)/orders-action-card"
+import { OrdersTableContainer } from "components/(orders)/orders-table/orders-table-container"
 
 const Page = () => (
 	<div className="grid grid-cols-3 col-span-3 auto-rows-max items-start gap-4 md:gap-8">

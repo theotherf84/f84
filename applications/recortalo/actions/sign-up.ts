@@ -1,6 +1,6 @@
 "use server"
 
-import { formSchema } from "components/sign-up-form/sign-up-form-schema"
+import { formSchema } from "components/(authentication)/sign-up-form/sign-up-form-schema"
 import { createClient } from "helpers/supabase/supabase-server"
 import { headers } from "next/headers"
 import { redirect } from "next/navigation"

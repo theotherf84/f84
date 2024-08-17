@@ -2,8 +2,8 @@
 
 import { zodResolver } from "@hookform/resolvers/zod"
 import { action } from "actions/quick-add-order"
-import { formSchema } from "components/orders-quick-add-form/orders-quick-add-form-schema"
-import { OrdersQuickAddFormStepper } from "components/orders-quick-add-form/orders-quick-add-form-stepper"
+import { formSchema } from "components/(orders)/orders-quick-add-form/orders-quick-add-form-schema"
+import { OrdersQuickAddFormStepper } from "components/(orders)/orders-quick-add-form/orders-quick-add-form-stepper"
 import { SubmitButton } from "components/submit-button"
 import { getFormattedNameInitial } from "helpers/get-formatted-name-initial"
 import { type SubmitHandler, useForm } from "react-hook-form"
@@ -46,7 +46,9 @@ export const QuickAddOrderForm = ({ categories, employees, subcategories, onSubm
 						name="date"
 						render={({ field }) => (
 							<FormItem className="flex flex-col">
-								<FormLabel htmlFor="date">DatePicker</FormLabel>
+								<FormLabel htmlFor="date" asChild>
+									<Label>Date</Label>
+								</FormLabel>{" "}
 								<FormControl>
 									<DatePicker date={field.value} onSelect={(date?: Date) => field.onChange(date)} />
 								</FormControl>

@@ -1,5 +1,5 @@
-import { LoginBlockquote } from "components/sign-in-blockquote"
-import { SignUpForm } from "components/sign-up-form/sign-up-form"
+import { LoginBlockquote } from "components/(authentication)/sign-in-blockquote"
+import { SignUpForm } from "components/(authentication)/sign-up-form/sign-up-form"
 import { Scissors } from "lucide-react"
 import Link from "next/link"
 

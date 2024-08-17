@@ -1,4 +1,4 @@
-import { UpdatePasswordForm } from "components/update-password-forms/update-password-form"
+import { UpdatePasswordForm } from "components/(authentication)/update-password-forms/update-password-form"
 
 const Page = ({
 	searchParams: { error },

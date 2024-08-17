@@ -1,4 +1,4 @@
-import type { formSchema } from "components/orders-quick-add-form/orders-quick-add-form-schema"
+import type { formSchema } from "components/(orders)/orders-quick-add-form/orders-quick-add-form-schema"
 import type { Category, Employee, Subcategory } from "types/tables.types"
 import type { z as zod } from "zod"
 

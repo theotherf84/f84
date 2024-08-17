@@ -1,4 +1,4 @@
-import { columns } from "components/orders-data-table/orders-data-table-columns"
+import { columns } from "components/(orders)/orders-data-table/orders-data-table-columns"
 import { TableDataPlaceholder } from "components/table-data-placeholder"
 import { getOrdersWithEmployees } from "services/get-orders-with-employees"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "shadcn/card"

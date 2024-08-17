@@ -1,11 +1,11 @@
 "use client"
 
+import type { formSchema } from "components/(orders)/orders-quick-add-form/orders-quick-add-form-schema"
 import { Minus, Plus } from "lucide-react"
 import type { Control, ControllerRenderProps as ControllerRenderProperties, FieldValues } from "react-hook-form"
 import { Button } from "shadcn/button"
 import { FormControl, FormField, FormItem } from "shadcn/form"
 import { Input } from "shadcn/input"
-import type { formSchema } from "components/orders-quick-add-form/orders-quick-add-form-schema"
 import type { z as zod } from "zod"
 
 export const OrdersQuickAddFormStepper = ({ control }: { control: Control<zod.infer<typeof formSchema>> }) => {

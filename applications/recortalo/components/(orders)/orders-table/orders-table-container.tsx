@@ -1,5 +1,5 @@
-import { OrdersTable } from "components/orders-table/orders-table"
-import { OrdersTableToolbar } from "components/orders-table/orders-table-toolbar"
+import { OrdersTable } from "components/(orders)/orders-table/orders-table"
+import { OrdersTableToolbar } from "components/(orders)/orders-table/orders-table-toolbar"
 import { TableDataPlaceholder } from "components/table-data-placeholder"
 import { getOrdersWithEmployees } from "services/get-orders-with-employees"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "shadcn/card"

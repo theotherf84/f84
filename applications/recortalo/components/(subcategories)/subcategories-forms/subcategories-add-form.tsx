@@ -1,11 +1,11 @@
-import { Input } from "shadcn/input"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "shadcn/card"
-import { SubmitButton } from "components/submit-button"
 import { action } from "actions/add-subcategory"
+import { SubmitButton } from "components/submit-button"
 import { getCategories } from "services/get-categories"
-import { Category } from "types/tables.types"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "shadcn/card"
+import { Input } from "shadcn/input"
 import { Label } from "shadcn/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "shadcn/select"
+import type { Category } from "types/tables.types"
 
 export const AddSubcategoryForm = async () => {
 	const categories = (await getCategories()) as Category[]

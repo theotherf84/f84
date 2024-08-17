@@ -1,4 +1,4 @@
-import { QuickAddOrderFormSheet } from "components/orders-quick-add-form/orders-quick-add-form-sheet"
+import { QuickAddOrderFormSheet } from "components/(orders)/orders-quick-add-form/orders-quick-add-form-sheet"
 import { getTranslations } from "helpers/translations"
 import { getCategories } from "services/get-categories"
 import { getEmployees } from "services/get-employees"

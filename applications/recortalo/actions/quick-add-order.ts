@@ -1,6 +1,6 @@
 "use server"
 
-import { formSchema } from "components/orders-quick-add-form/orders-quick-add-form-schema"
+import { formSchema } from "components/(orders)/orders-quick-add-form/orders-quick-add-form-schema"
 import { TableName } from "enumerations/table-name"
 import { createClient } from "helpers/supabase/supabase-server"
 import { redirect } from "next/navigation"
