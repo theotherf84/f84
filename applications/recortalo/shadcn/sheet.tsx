@@ -4,11 +4,14 @@ import * as SheetPrimitive from "@radix-ui/react-dialog"
 import { type VariantProps, cva as classVarianceAuthority } from "class-variance-authority"
 import { mergeClassNames } from "helpers/merge-class-names"
 import { X } from "lucide-react"
-import * as React from "react"
+import React from "react"
 
 const Sheet = SheetPrimitive.Root
+
 const SheetTrigger = SheetPrimitive.Trigger
+
 const SheetClose = SheetPrimitive.Close
+
 const SheetPortal = SheetPrimitive.Portal
 
 const SheetOverlay = React.forwardRef<React.ElementRef<typeof SheetPrimitive.Overlay>, React.ComponentPropsWithoutRef<typeof SheetPrimitive.Overlay>>(

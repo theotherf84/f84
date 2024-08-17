@@ -1,5 +1,5 @@
 import { mergeClassNames } from "helpers/merge-class-names"
-import * as React from "react"
+import React from "react"
 
 const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(({ className, ...properties }, reference) => (
 	<div ref={reference} className={mergeClassNames("rounded-lg border bg-card text-card-foreground shadow-sm", className)} {...properties} />

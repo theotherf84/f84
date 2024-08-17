@@ -3,7 +3,7 @@
 import { format } from "date-fns"
 import { mergeClassNames } from "helpers/merge-class-names"
 import { CalendarIcon } from "lucide-react"
-import * as React from "react"
+import React from "react"
 import { useState } from "react"
 import type { SelectSingleEventHandler } from "react-day-picker"
 import { Button } from "shadcn/button"
@@ -24,7 +24,7 @@ export const DatePicker = ({ date, onSelect }: { date: Date; onSelect: (date?: D
 			<PopoverTrigger asChild>
 				<Button variant="outline" className={mergeClassNames("justify-between text-left font-normal", !date && "text-muted-foreground")}>
 					{date ? format(date, "PPP") : <span>Pick a date</span>}
-					<CalendarIcon className="h-4 w-4" />
+					<CalendarIcon className="h-4 w-4 opacity-50" />
 				</Button>
 			</PopoverTrigger>
 			<PopoverContent className="w-auto p-0">

@@ -2,7 +2,7 @@
 
 import * as SeparatorPrimitive from "@radix-ui/react-separator"
 import { mergeClassNames } from "helpers/merge-class-names"
-import * as React from "react"
+import React from "react"
 
 const Separator = React.forwardRef<React.ElementRef<typeof SeparatorPrimitive.Root>, React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root>>(
 	({ className, orientation = "horizontal", decorative = true, ...properties }, reference) => (

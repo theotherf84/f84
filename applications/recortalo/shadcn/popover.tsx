@@ -2,14 +2,13 @@
 
 import * as PopoverPrimitive from "@radix-ui/react-popover"
 import { mergeClassNames } from "helpers/merge-class-names"
-import * as React from "react"
-import { type ComponentPropsWithoutRef as ComponentPropsWithoutReference, type ElementRef as ElementReference, forwardRef as forwardReference } from "react"
+import React from "react"
 
 const Popover = PopoverPrimitive.Root
 
 const PopoverTrigger = PopoverPrimitive.Trigger
 
-const PopoverContent = forwardReference<ElementReference<typeof PopoverPrimitive.Content>, ComponentPropsWithoutReference<typeof PopoverPrimitive.Content>>(
+const PopoverContent = React.forwardRef<React.ElementRef<typeof PopoverPrimitive.Content>, React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>>(
 	({ className, align = "center", sideOffset = 4, ...properties }, reference) => (
 		<PopoverPrimitive.Portal>
 			<PopoverPrimitive.Content

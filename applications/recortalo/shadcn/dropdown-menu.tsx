@@ -3,13 +3,18 @@
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu"
 import { mergeClassNames } from "helpers/merge-class-names"
 import { Check, ChevronRight, Circle } from "lucide-react"
-import * as React from "react"
+import React from "react"
 
 const DropdownMenu = DropdownMenuPrimitive.Root
+
 const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger
+
 const DropdownMenuGroup = DropdownMenuPrimitive.Group
+
 const DropdownMenuPortal = DropdownMenuPrimitive.Portal
+
 const DropdownMenuSub = DropdownMenuPrimitive.Sub
+
 const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup
 
 const DropdownMenuSubTrigger = React.forwardRef<

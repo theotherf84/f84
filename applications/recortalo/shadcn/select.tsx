@@ -3,7 +3,7 @@
 import * as SelectPrimitive from "@radix-ui/react-select"
 import { mergeClassNames } from "helpers/merge-class-names"
 import { Check, ChevronDown, ChevronUp } from "lucide-react"
-import { type ComponentPropsWithoutRef, type ElementRef, forwardRef } from "react"
+import React from "react"
 
 const Select = SelectPrimitive.Root
 
@@ -11,7 +11,7 @@ const SelectGroup = SelectPrimitive.Group
 
 const SelectValue = SelectPrimitive.Value
 
-const SelectTrigger = forwardRef<ElementRef<typeof SelectPrimitive.Trigger>, ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>>(
+const SelectTrigger = React.forwardRef<React.ElementRef<typeof SelectPrimitive.Trigger>, React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>>(
 	({ className, children, ...properties }, reference) => (
 		<SelectPrimitive.Trigger
 			ref={reference}
@@ -31,7 +31,7 @@ const SelectTrigger = forwardRef<ElementRef<typeof SelectPrimitive.Trigger>, Com
 
 SelectTrigger.displayName = SelectPrimitive.Trigger.displayName
 
-const SelectScrollUpButton = forwardRef<ElementRef<typeof SelectPrimitive.ScrollUpButton>, ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollUpButton>>(
+const SelectScrollUpButton = React.forwardRef<React.ElementRef<typeof SelectPrimitive.ScrollUpButton>, React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollUpButton>>(
 	({ className, ...properties }, reference) => (
 		<SelectPrimitive.ScrollUpButton
 			ref={reference}
@@ -45,9 +45,9 @@ const SelectScrollUpButton = forwardRef<ElementRef<typeof SelectPrimitive.Scroll
 
 SelectScrollUpButton.displayName = SelectPrimitive.ScrollUpButton.displayName
 
-const SelectScrollDownButton = forwardRef<
-	ElementRef<typeof SelectPrimitive.ScrollDownButton>,
-	ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollDownButton>
+const SelectScrollDownButton = React.forwardRef<
+React.ElementRef<typeof SelectPrimitive.ScrollDownButton>,
+React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollDownButton>
 >(({ className, ...properties }, reference) => (
 	<SelectPrimitive.ScrollDownButton
 		ref={reference}
@@ -60,7 +60,7 @@ const SelectScrollDownButton = forwardRef<
 
 SelectScrollDownButton.displayName = SelectPrimitive.ScrollDownButton.displayName
 
-const SelectContent = forwardRef<ElementRef<typeof SelectPrimitive.Content>, ComponentPropsWithoutRef<typeof SelectPrimitive.Content>>(
+const SelectContent = React.forwardRef<React.ElementRef<typeof SelectPrimitive.Content>, React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>>(
 	({ className, children, position = "popper", ...properties }, reference) => (
 		<SelectPrimitive.Portal>
 			<SelectPrimitive.Content
@@ -91,7 +91,7 @@ const SelectContent = forwardRef<ElementRef<typeof SelectPrimitive.Content>, Com
 
 SelectContent.displayName = SelectPrimitive.Content.displayName
 
-const SelectLabel = forwardRef<ElementRef<typeof SelectPrimitive.Label>, ComponentPropsWithoutRef<typeof SelectPrimitive.Label>>(
+const SelectLabel = React.forwardRef<React.ElementRef<typeof SelectPrimitive.Label>, React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label>>(
 	({ className, ...properties }, reference) => (
 		<SelectPrimitive.Label ref={reference} className={mergeClassNames("py-1.5 pl-8 pr-2 text-sm font-semibold", className)} {...properties} />
 	),
@@ -99,7 +99,7 @@ const SelectLabel = forwardRef<ElementRef<typeof SelectPrimitive.Label>, Compone
 
 SelectLabel.displayName = SelectPrimitive.Label.displayName
 
-const SelectItem = forwardRef<ElementRef<typeof SelectPrimitive.Item>, ComponentPropsWithoutRef<typeof SelectPrimitive.Item>>(
+const SelectItem = React.forwardRef<React.ElementRef<typeof SelectPrimitive.Item>, React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>>(
 	({ className, children, ...properties }, reference) => (
 		<SelectPrimitive.Item
 			ref={reference}
@@ -122,7 +122,7 @@ const SelectItem = forwardRef<ElementRef<typeof SelectPrimitive.Item>, Component
 
 SelectItem.displayName = SelectPrimitive.Item.displayName
 
-const SelectSeparator = forwardRef<ElementRef<typeof SelectPrimitive.Separator>, ComponentPropsWithoutRef<typeof SelectPrimitive.Separator>>(
+const SelectSeparator = React.forwardRef<React.ElementRef<typeof SelectPrimitive.Separator>, React.ComponentPropsWithoutRef<typeof SelectPrimitive.Separator>>(
 	({ className, ...properties }, reference) => (
 		<SelectPrimitive.Separator ref={reference} className={mergeClassNames("-mx-1 my-1 h-px bg-muted", className)} {...properties} />
 	),

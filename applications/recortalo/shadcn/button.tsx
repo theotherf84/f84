@@ -1,7 +1,7 @@
 import { Slot } from "@radix-ui/react-slot"
 import { type VariantProps, cva as classVarianceAuthority } from "class-variance-authority"
 import { mergeClassNames } from "helpers/merge-class-names"
-import * as React from "react"
+import React from "react"
 
 const variants = classVarianceAuthority(
 	"inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",

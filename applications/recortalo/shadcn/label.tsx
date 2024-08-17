@@ -1,7 +1,7 @@
 import * as LabelPrimitive from "@radix-ui/react-label"
 import { type VariantProps, cva as classVarianceAuthority } from "class-variance-authority"
 import { mergeClassNames } from "helpers/merge-class-names"
-import * as React from "react"
+import React from "react"
 
 const variants = classVarianceAuthority("text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70")
 

@@ -2,37 +2,28 @@
 
 import { getPayloadConfigurationFromPayload } from "helpers/get-payload-configuration-from-payload"
 import { mergeClassNames } from "helpers/merge-class-names"
-import * as React from "react"
-import {
-	type CSSProperties,
-	type ComponentProps as ComponentProperties,
-	createContext,
-	forwardRef as forwardReference,
-	useContext,
-	useId,
-	useMemo,
-} from "react"
+import React from "react"
 import * as RechartsPrimitive from "recharts"
 import { type ChartConfiguration, type ChartContextProperties, themes } from "types/charts"
 
-const ChartContext = createContext<ChartContextProperties | null>(null)
+const ChartContext = React.createContext<ChartContextProperties | null>(null)
 
 function useChart() {
-	const context = useContext(ChartContext)
+	const context = React.useContext(ChartContext)
 
 	if (!context) throw new Error("useChart must be used within a <ChartContainer />")
 
 	return context
 }
 
-const ChartContainer = forwardReference<
+const ChartContainer = React.forwardRef<
 	HTMLDivElement,
-	ComponentProperties<"div"> & {
+	React.ComponentProps<"div"> & {
 		configuration: ChartConfiguration
-		children: ComponentProperties<typeof RechartsPrimitive.ResponsiveContainer>["children"]
+		children: React.ComponentProps<typeof RechartsPrimitive.ResponsiveContainer>["children"]
 	}
 >(({ id, className, children, configuration, ...properties }, reference) => {
-	const uniqueIdentifier = useId()
+	const uniqueIdentifier = React.useId()
 	const chartIdentifier = `chart-${id || uniqueIdentifier.replace(/:/g, "")}`
 
 	return (
@@ -85,10 +76,10 @@ ${colorConfiguration
 
 const ChartTooltip = RechartsPrimitive.Tooltip
 
-const ChartTooltipContent = forwardReference<
+const ChartTooltipContent = React.forwardRef<
 	HTMLDivElement,
-	ComponentProperties<typeof RechartsPrimitive.Tooltip> &
-		ComponentProperties<"div"> & {
+	React.ComponentProps<typeof RechartsPrimitive.Tooltip> &
+	React.ComponentProps<"div"> & {
 			hideLabel?: boolean
 			hideIndicator?: boolean
 			indicator?: "line" | "dot" | "dashed"
@@ -116,7 +107,7 @@ const ChartTooltipContent = forwardReference<
 	) => {
 		const { configuration } = useChart()
 
-		const tooltipLabel = useMemo(() => {
+		const tooltipLabel = React.useMemo(() => {
 			if (hideLabel || !payload?.length) return null
 
 			const [item] = payload
@@ -177,7 +168,7 @@ const ChartTooltipContent = forwardReference<
 														{
 															"--color-bg": indicatorColor,
 															"--color-border": indicatorColor,
-														} as CSSProperties
+														} as React.CSSProperties
 													}
 												/>
 											)
@@ -206,9 +197,9 @@ ChartTooltipContent.displayName = "ChartTooltip"
 
 const ChartLegend = RechartsPrimitive.Legend
 
-const ChartLegendContent = forwardReference<
+const ChartLegendContent = React.forwardRef<
 	HTMLDivElement,
-	ComponentProperties<"div"> &
+	React.ComponentProps<"div"> &
 		Pick<RechartsPrimitive.LegendProps, "payload" | "verticalAlign"> & {
 			hideIcon?: boolean
 			nameKey?: string
@@ -216,9 +207,7 @@ const ChartLegendContent = forwardReference<
 >(({ className, hideIcon = false, payload, verticalAlign = "bottom", nameKey }, reference) => {
 	const { configuration } = useChart()
 
-	if (!payload?.length) {
-		return null
-	}
+	if (!payload?.length) return null
 
 	return (
 		<div ref={reference} className={mergeClassNames("flex items-center justify-center gap-4", verticalAlign === "top" ? "pb-3" : "pt-3", className)}>

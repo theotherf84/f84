@@ -2,12 +2,11 @@
 
 import { mergeClassNames } from "helpers/merge-class-names"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import type * as React from "react"
-import type { ComponentProps as ComponentProperties } from "react"
+import type React from "react"
 import { DayPicker } from "react-day-picker"
 import { buttonVariants } from "shadcn/button"
 
-export type CalendarProperties = ComponentProperties<typeof DayPicker>
+export type CalendarProperties = React.ComponentProps<typeof DayPicker>
 
 const Calendar = ({ className, classNames, showOutsideDays = true, ...properties }: CalendarProperties) => (
 	<DayPicker

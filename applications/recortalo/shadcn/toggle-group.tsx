@@ -3,23 +3,17 @@
 import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group"
 import type { VariantProps as VariantProperties } from "class-variance-authority"
 import { mergeClassNames } from "helpers/merge-class-names"
-import {
-	type ComponentPropsWithoutRef as ComponentPropertiesWithoutReference,
-	type ElementRef as ElementReference,
-	createContext,
-	forwardRef as forwardReference,
-	useContext,
-} from "react"
+import React from "react"
 import { toggleVariants } from "shadcn/toggle"
 
-const ToggleGroupContext = createContext<VariantProperties<typeof toggleVariants>>({
+const ToggleGroupContext = React.createContext<VariantProperties<typeof toggleVariants>>({
 	size: "default",
 	variant: "default",
 })
 
-const ToggleGroup = forwardReference<
-	ElementReference<typeof ToggleGroupPrimitive.Root>,
-	ComponentPropertiesWithoutReference<typeof ToggleGroupPrimitive.Root> & VariantProperties<typeof toggleVariants>
+const ToggleGroup = React.forwardRef<
+React.ElementRef<typeof ToggleGroupPrimitive.Root>,
+React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Root> & VariantProperties<typeof toggleVariants>
 >(({ className, variant, size, children, ...properties }, reference) => (
 	<ToggleGroupPrimitive.Root ref={reference} className={mergeClassNames("flex items-center justify-center gap-1", className)} {...properties}>
 		<ToggleGroupContext.Provider value={{ variant, size }}>{children}</ToggleGroupContext.Provider>
@@ -28,11 +22,11 @@ const ToggleGroup = forwardReference<
 
 ToggleGroup.displayName = ToggleGroupPrimitive.Root.displayName
 
-const ToggleGroupItem = forwardReference<
-	ElementReference<typeof ToggleGroupPrimitive.Item>,
-	ComponentPropertiesWithoutReference<typeof ToggleGroupPrimitive.Item> & VariantProperties<typeof toggleVariants>
+const ToggleGroupItem = React.forwardRef<
+React.ElementRef<typeof ToggleGroupPrimitive.Item>,
+React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Item> & VariantProperties<typeof toggleVariants>
 >(({ className, children, variant, size, ...properties }, reference) => {
-	const context = useContext(ToggleGroupContext)
+	const context = React.useContext(ToggleGroupContext)
 
 	return (
 		<ToggleGroupPrimitive.Item

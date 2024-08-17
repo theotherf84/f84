@@ -1,7 +1,6 @@
 import { mergeClassNames } from "helpers/merge-class-names"
-import * as React from "react"
-
-export interface InputProperties extends React.InputHTMLAttributes<HTMLInputElement> {}
+import React from "react"
+import type { InputProperties } from "types/components"
 
 const Input = React.forwardRef<HTMLInputElement, InputProperties>(({ className, type, ...properties }, reference) => (
 	<input

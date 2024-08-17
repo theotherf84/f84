@@ -1,9 +1,9 @@
 import { mergeClassNames } from "helpers/merge-class-names"
-import { type TextareaHTMLAttributes, forwardRef } from "react"
+import React from "react"
+import type { TextareaProperties } from "types/components"
 
-export interface TextareaProperties extends TextareaHTMLAttributes<HTMLTextAreaElement> {}
 
-const Textarea = forwardRef<HTMLTextAreaElement, TextareaProperties>(({ className, ...properties }, reference) => {
+const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProperties>(({ className, ...properties }, reference) => {
 	return (
 		<textarea
 			className={mergeClassNames(

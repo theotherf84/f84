@@ -1,6 +1,6 @@
 import { mergeClassNames } from "helpers/merge-class-names"
 import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react"
-import * as React from "react"
+import React from "react"
 import { type ButtonProperties, buttonVariants } from "shadcn/button"
 
 const Pagination = ({ className, ...properties }: React.ComponentProps<"nav">) => (

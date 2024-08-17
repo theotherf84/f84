@@ -1,6 +1,6 @@
 import { type VariantProps, cva as classVarianceAuthority } from "class-variance-authority"
 import { mergeClassNames } from "helpers/merge-class-names"
-import * as React from "react"
+import React from "react"
 
 const variants = classVarianceAuthority(
 	"relative w-full rounded-lg border p-4 [&>svg~*]:pl-7 [&>svg+div]:translate-y-[-3px] [&>svg]:absolute [&>svg]:left-4 [&>svg]:top-4 [&>svg]:text-foreground",

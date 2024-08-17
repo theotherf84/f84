@@ -1,5 +1,5 @@
 import { mergeClassNames } from "helpers/merge-class-names"
-import * as React from "react"
+import React from "react"
 
 const Table = React.forwardRef<HTMLTableElement, React.HTMLAttributes<HTMLTableElement>>(({ className, ...properties }, reference) => (
 	<div className="relative w-full overflow-auto">
