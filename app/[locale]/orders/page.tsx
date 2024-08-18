@@ -27,3 +27,5 @@ const Page = () => (
 )
 
 export default Page
+
+export const runtime = "edge"
