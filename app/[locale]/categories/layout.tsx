@@ -1,5 +1,4 @@
 import Header from "components/header"
-import { SettingsNavigationMenu } from "components/settings-navigation-menu"
 import type React from "react"
 
 const Layout = ({

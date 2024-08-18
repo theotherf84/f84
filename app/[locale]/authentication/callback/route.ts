@@ -14,3 +14,5 @@ export const GET = async (request: Request) => {
 
 	return NextResponse.redirect(`${origin}/protected`)
 }
+
+export const runtime = "edge"

@@ -1,14 +1,11 @@
 import Header from "components/header"
 import { WeeklyRevenueCardContainer } from "components/weekly-revenue-card/weekly-revenue-card-container"
-import { getTranslations } from "helpers/translations"
 
-const Page = async ({
+const Page = ({
 	params: { locale },
 }: {
 	params: { locale: string }
 }) => {
-	const translations = await getTranslations(locale)
-
 	return (
 		<>
 			<Header />
@@ -20,3 +17,5 @@ const Page = async ({
 }
 
 export default Page
+
+export const runtime = "edge"
