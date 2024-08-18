@@ -1,6 +1,6 @@
 import { createClient } from "helpers/supabase/supabase-server"
 import { redirect } from "next/navigation"
-import { NextRequest } from "next/server"
+import type { NextRequest } from "next/server"
 
 export const GET = async (_: NextRequest) => {
 	const supabase = createClient()
@@ -11,3 +11,5 @@ export const GET = async (_: NextRequest) => {
 
 	return redirect("/sign-in")
 }
+
+export const runtime = "edge"

@@ -1,6 +1,6 @@
 import { createClient } from "helpers/supabase/supabase-server"
 import { redirect } from "next/navigation"
-import { NextRequest } from "next/server"
+import type { NextRequest } from "next/server"
 
 export const GET = async (request: NextRequest) => {
 	const searchParameters = request.nextUrl.searchParams
@@ -15,3 +15,5 @@ export const GET = async (request: NextRequest) => {
 
 	return redirect("/account/update-password")
 }
+
+export const runtime = "edge"
