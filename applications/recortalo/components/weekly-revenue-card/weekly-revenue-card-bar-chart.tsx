@@ -21,8 +21,6 @@ const generateChartData = (orders: Order[]) => {
 		return accumulator
 	}, {})
 
-	console.log(groupedOrders)
-
 	const dataSet = Object.keys(groupedOrders).map((key) => ({
 		date: key,
 		amount: groupedOrders[key],
