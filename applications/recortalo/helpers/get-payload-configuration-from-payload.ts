@@ -1,6 +1,6 @@
 import type { ChartConfiguration } from "types/charts"
 
-export const getPayloadConfigurationFromPayload = (config: ChartConfiguration, payload: unknown, key: string) => {
+export const getPayloadConfigurationFromPayload = (configuration: ChartConfiguration, payload: unknown, key: string) => {
 	if (typeof payload !== "object" || payload === null) return undefined
 
 	const payloadPayload = "payload" in payload && typeof payload.payload === "object" && payload.payload !== null ? payload.payload : undefined
@@ -13,5 +13,5 @@ export const getPayloadConfigurationFromPayload = (config: ChartConfiguration, p
 		configuredLabelKey = payloadPayload[key as keyof typeof payloadPayload] as string
 	}
 
-	return configuredLabelKey in config ? config[configuredLabelKey] : config[key as keyof typeof config]
+	return configuredLabelKey in configuration ? configuration[configuredLabelKey] : configuration[key as keyof typeof configuration]
 }
