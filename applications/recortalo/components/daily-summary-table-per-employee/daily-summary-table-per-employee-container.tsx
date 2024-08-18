@@ -13,7 +13,7 @@ export const DailySummaryTablePerEmployeeContainer = async () => {
 		return today === createdDay
 	})
 
-	const groupedData = filteredData.reduce((accumulator, order) => {
+	const groupedData = filteredData?.reduce((accumulator, order) => {
 		const employee = order.employee?.id
 
 		accumulator[employee] = accumulator[employee] || []
@@ -23,19 +23,19 @@ export const DailySummaryTablePerEmployeeContainer = async () => {
 		return accumulator
 	}, {})
 
-	const entries = Object.entries(groupedData).map(([key, value]) => ({
+	const entries = Object.entries(groupedData)?.map(([key, value]) => ({
 		[key]: value
-			.map((order) => ({ employee: order.employee, cost: order.cost }))
+			.map((order) => ({ employee: order.employee, amount: order.cost }))
 			.reduce(
 				(accumulator, current) => ({
 					employee: current.employee,
-					amount: accumulator.cost + current.cost,
+					amount: accumulator.amount + current.amount,
 				}),
-				{ cost: 0 },
+				{ amount: 0 },
 			),
 	}))
 
-	const flattenedCollection = Object.values(entries[0]).flat()
+	const flattenedCollection = Object.values(entries[0])?.flat()
 
 	const hasData = !!flattenedCollection?.length
 

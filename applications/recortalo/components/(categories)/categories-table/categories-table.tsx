@@ -8,7 +8,7 @@ export const CategoriesTable = async ({ data }) => (
 				<TableHead>Category</TableHead>
 				<TableHead className="hidden sm:table-cell">Date</TableHead>
 			</TableRow>
-		</TableHeader>{" "}
+		</TableHeader>
 		<TableBody>
 			{data.map((category) => (
 				<CategoriesTableRow key={category?.created_at} {...category} />

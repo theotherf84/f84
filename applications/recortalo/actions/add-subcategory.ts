@@ -1,6 +1,6 @@
 "use server"
 
-import { formSchema } from "components/subcategories-forms/subcategories-add-form-schema"
+import { formSchema } from "components/(subcategories)/subcategories-forms/subcategories-add-form-schema"
 import { TableName } from "enumerations/table-name"
 import { createClient } from "helpers/supabase/supabase-server"
 import { revalidatePath } from "next/cache"

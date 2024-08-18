@@ -1,4 +1,3 @@
-import { LanguageSwitcher } from "components/language-switcher"
 import { UserDropdownMenu } from "components/user-dropdown-menu/user-dropdown-menu"
 import { Menu, Scissors } from "lucide-react"
 import Link from "next/link"
@@ -12,8 +11,12 @@ const navigationItems = [
 		path: "/orders",
 	},
 	{
-		label: "Staff",
-		path: "/staff",
+		label: "Employees",
+		path: "/employees",
+	},
+	{
+		label: "Categories",
+		path: "/categories",
 	},
 ]
 

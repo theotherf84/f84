@@ -1,4 +1,4 @@
-import { SubcategoriesTable } from "components/subcategories-table/subcategories-table"
+import { SubcategoriesTable } from "components/(subcategories)/subcategories-table/subcategories-table"
 import { TableDataPlaceholder } from "components/table-data-placeholder"
 import { getSubcategories } from "services/get-subcategories"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "shadcn/card"

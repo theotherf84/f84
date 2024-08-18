@@ -1,10 +1,9 @@
 import { UserDropdownMenuSignOutForm } from "components/user-dropdown-menu/user-dropdown-menu-sign-out-form"
 import { getFormattedNameInitial } from "helpers/get-formatted-name-initial"
-import Link from "next/link"
 import { getUserSession } from "services/get-user-session"
 import { Avatar, AvatarFallback } from "shadcn/avatar"
 import { Button } from "shadcn/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "shadcn/dropdown-menu"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "shadcn/dropdown-menu"
 
 export const UserDropdownMenu = async () => {
 	const session = await getUserSession()
@@ -30,10 +29,6 @@ export const UserDropdownMenu = async () => {
 						{userMetadata?.first_name} {userMetadata?.last_name}
 					</DropdownMenuLabel>
 					<DropdownMenuLabel className="text-sm text-muted-foreground">{session?.user?.email}</DropdownMenuLabel>
-					<DropdownMenuSeparator />
-					<DropdownMenuItem className="cursor-pointer">
-						<Link href="/settings">Settings</Link>
-					</DropdownMenuItem>
 					<DropdownMenuSeparator />
 					<UserDropdownMenuSignOutForm />
 				</DropdownMenuContent>

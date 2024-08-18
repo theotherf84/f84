@@ -1,11 +1,11 @@
-import { Input } from "shadcn/input"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "shadcn/card"
-import { SubmitButton } from "components/submit-button"
 import { action } from "actions/add-employees"
+import { SubmitButton } from "components/submit-button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "shadcn/card"
+import { Input } from "shadcn/input"
 import { Label } from "shadcn/label"
 
 export const AddEmployeeForm = () => (
-	<form action={action} className="flex flex-col gap-2 lg:w-fit">
+	<form action={action} className="flex flex-col gap-2">
 		<Card className="flex flex-col">
 			<CardHeader>
 				<CardTitle>Add a staff member</CardTitle>
