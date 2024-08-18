@@ -1,4 +1,4 @@
-import { signUp } from "actions/sign-up"
+import { action } from "actions/sign-up"
 import { SubmitButton } from "components/submit-button"
 import { Siren } from "lucide-react"
 import Link from "next/link"
@@ -14,7 +14,7 @@ export const SignUpForm = ({ error }: { error: string }) => {
 					<h1 className="text-3xl font-bold">Sign up</h1>
 					<p className="text-muted-foreground">Enter your information to create an account</p>
 				</div>
-				<form action={signUp} className="grid gap-4">
+				<form action={action} className="grid gap-4">
 					<div className="grid grid-cols-2 gap-4">
 						<div className="grid gap-2">
 							<Label htmlFor="first-name">First name</Label>

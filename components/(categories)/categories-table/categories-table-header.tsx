@@ -1,4 +1,4 @@
-import { TableHead, TableHeader, TableRow } from "../../shadcn/table"
+import { TableHead, TableHeader, TableRow } from "shadcn/table"
 
 export const CategoriesTableHeader = () => (
 	<TableHeader>

@@ -2,16 +2,16 @@
 
 import type { formSchema } from "components/(orders)/orders-quick-add-form/orders-quick-add-form-schema"
 import { Minus, Plus } from "lucide-react"
-import type { Control, ControllerRenderProps as ControllerRenderProperties, FieldValues } from "react-hook-form"
+import type { Control } from "react-hook-form"
 import { Button } from "shadcn/button"
 import { FormControl, FormField, FormItem } from "shadcn/form"
 import { Input } from "shadcn/input"
 import type { z as zod } from "zod"
 
 export const OrdersQuickAddFormStepper = ({ control }: { control: Control<zod.infer<typeof formSchema>> }) => {
-	const handleOnDecreaseCost = (field: ControllerRenderProperties<Control<zod.infer<typeof formSchema>>, "cost">) => field.onChange(field.value - 100)
+	const handleOnDecreaseCost = (field) => field.onChange(field.value - 100)
 
-	const handleOnIncreaseCost = (field: ControllerRenderProperties<Control<zod.infer<typeof formSchema>>, "cost">) => field.onChange(field.value + 100)
+	const handleOnIncreaseCost = (field) => field.onChange(field.value + 100)
 
 	return (
 		<FormField

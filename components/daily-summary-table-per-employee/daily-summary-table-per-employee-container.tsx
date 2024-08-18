@@ -24,7 +24,7 @@ export const DailySummaryTablePerEmployeeContainer = async () => {
 	}, {})
 
 	const entries = Object.entries(groupedData)?.map(([key, value]) => ({
-		[key]: value
+		[key]: (value as { employee: any; cost: number }[])
 			.map((order) => ({ employee: order.employee, amount: order.cost }))
 			.reduce(
 				(accumulator, current) => ({
