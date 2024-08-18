@@ -39,6 +39,8 @@ export const action = async (formData: FormData) => {
 		},
 	})
 
+	console.log(error)
+
 	if (error) {
 		return redirect("/sign-up?error=Could not authenticate user")
 	}
