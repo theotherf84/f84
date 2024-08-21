@@ -35,7 +35,7 @@ export const DailySummaryTablePerEmployeeContainer = async () => {
 			),
 	}))
 
-	const flattenedCollection = Object.values(entries[0])?.flat()
+	const flattenedCollection = Object.values(entries[0] || [])?.flat()
 
 	const hasData = !!flattenedCollection?.length
 
