@@ -1,5 +1,11 @@
-import type { TextareaHTMLAttributes } from "react"
+import type { Dispatch, InputHTMLAttributes, SetStateAction, TextareaHTMLAttributes } from "react"
 
-export interface InputProperties extends React.InputHTMLAttributes<HTMLInputElement> {}
+export interface DatePickerProperties {
+	date: Date
+	setDate: Dispatch<SetStateAction<Date | undefined>>
+	shouldDisableFutureSelection?: boolean
+}
 
-export interface TextareaProperties extends TextareaHTMLAttributes<HTMLTextAreaElement> {}
+export type InputProperties = InputHTMLAttributes<HTMLInputElement>
+
+export type TextareaProperties = TextareaHTMLAttributes<HTMLTextAreaElement>
