@@ -11,6 +11,10 @@ const navigationItems = [
 		path: "/orders",
 	},
 	{
+		label: "Clients",
+		path: "/clients",
+	},
+	{
 		label: "Employees",
 		path: "/employees",
 	},

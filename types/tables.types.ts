@@ -3,6 +3,8 @@ import type { Tables } from "types/database.types"
 
 export type Category = Tables<TableName.Categories>
 
+export type Client = Tables<TableName.Categories>
+
 export type Order = Tables<TableName.Orders>
 
 export type OrderWithEmployee = Omit<Order, "employee"> & { employee: Employee }
