@@ -1,7 +1,7 @@
 "use server"
 
 import { formSchema } from "components/(authentication)/password-recovery-form/password-recovery-form-schema"
-import { createClient } from "helpers/supabase/supabase-server"
+import { createSupabaseClient } from "helpers/supabase/supabase-server"
 import { headers } from "next/headers"
 import { redirect } from "next/navigation"
 
@@ -19,7 +19,7 @@ export const action = async (formData: FormData) => {
 			errors: validation.error.flatten().fieldErrors,
 		}
 
-	const supabase = createClient()
+	const supabase = createSupabaseClient()
 
 	const { error } = await supabase.auth.resetPasswordForEmail(validation?.data?.email, {
 		redirectTo: `${origin}/api/update-password`,

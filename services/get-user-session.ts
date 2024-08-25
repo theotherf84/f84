@@ -1,7 +1,7 @@
-import { createClient } from "helpers/supabase/supabase-server"
+import { createSupabaseClient } from "helpers/supabase/supabase-server"
 
 export const getUserSession = async () => {
-	const supabase = createClient()
+	const supabase = createSupabaseClient()
 
 	const {
 		data: { session },

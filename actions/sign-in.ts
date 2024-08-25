@@ -1,7 +1,7 @@
 "use server"
 
 import { formSchema } from "components/(authentication)/sign-in-form/sign-in-form-schema"
-import { createClient } from "helpers/supabase/supabase-server"
+import { createSupabaseClient } from "helpers/supabase/supabase-server"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 
@@ -19,7 +19,7 @@ export const action = async (formData: FormData) => {
 			errors: validation.error.flatten().fieldErrors,
 		}
 
-	const supabase = createClient()
+	const supabase = createSupabaseClient()
 
 	const { error } = await supabase.auth.signInWithPassword({
 		email: validation?.data?.email,

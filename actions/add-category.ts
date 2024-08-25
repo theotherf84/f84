@@ -2,7 +2,7 @@
 
 import { formSchema } from "components/(categories)/categories-add-form/categories-add-form-schema"
 import { TableName } from "enumerations/table-name"
-import { createClient } from "helpers/supabase/supabase-server"
+import { createSupabaseClient } from "helpers/supabase/supabase-server"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 
@@ -16,7 +16,7 @@ export const action = async (formData: FormData) => {
 			errors: validation.error.flatten().fieldErrors,
 		}
 
-	const supabase = createClient()
+	const supabase = createSupabaseClient()
 
 	const { error: userError } = await supabase.auth.getUser()
 

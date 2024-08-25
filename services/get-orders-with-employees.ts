@@ -1,9 +1,9 @@
 import { TableName } from "enumerations/table-name"
-import { createClient } from "helpers/supabase/supabase-server"
+import { createSupabaseClient } from "helpers/supabase/supabase-server"
 import type { OrderWithEmployee } from "types/tables.types"
 
 export const getOrdersWithEmployees = async () => {
-	const supabase = createClient()
+	const supabase = createSupabaseClient()
 
 	const query = "*, employee (*)"
 

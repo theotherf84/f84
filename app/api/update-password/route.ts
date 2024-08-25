@@ -1,4 +1,4 @@
-import { createClient } from "helpers/supabase/supabase-server"
+import { createSupabaseClient } from "helpers/supabase/supabase-server"
 import { redirect } from "next/navigation"
 import type { NextRequest } from "next/server"
 
@@ -7,7 +7,7 @@ export const GET = async (request: NextRequest) => {
 
 	const code = searchParameters?.get("code") || ""
 
-	const supabase = createClient()
+	const supabase = createSupabaseClient()
 
 	const { error } = await supabase.auth.exchangeCodeForSession(code)
 

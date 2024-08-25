@@ -1,10 +1,10 @@
 import { TableName } from "enumerations/table-name"
 import { getDaysOfWeek } from "helpers/get-days-of-week"
-import { createClient } from "helpers/supabase/supabase-server"
+import { createSupabaseClient } from "helpers/supabase/supabase-server"
 import type { Order } from "types/tables.types"
 
 export const getLastWeekOrders = async () => {
-	const supabase = createClient()
+	const supabase = createSupabaseClient()
 
 	const query = "*"
 

@@ -2,7 +2,7 @@ import { createServerClient } from "@supabase/ssr"
 import { cookies } from "next/headers"
 import type { Database } from "types/database.types"
 
-export const createClient = () => {
+export const createSupabaseClient = () => {
 	const cookieStore = cookies()
 
 	const supabaseAnonimousKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ""

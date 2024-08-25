@@ -1,7 +1,7 @@
 "use server"
 
 import { formSchema } from "components/(authentication)/sign-up-form/sign-up-form-schema"
-import { createClient } from "helpers/supabase/supabase-server"
+import { createSupabaseClient } from "helpers/supabase/supabase-server"
 import { headers } from "next/headers"
 import { redirect } from "next/navigation"
 
@@ -25,7 +25,7 @@ export const action = async (formData: FormData) => {
 			errors: validation.error.flatten().fieldErrors,
 		}
 
-	const supabase = createClient()
+	const supabase = createSupabaseClient()
 
 	const { error } = await supabase.auth.signUp({
 		email: validation?.data?.email,

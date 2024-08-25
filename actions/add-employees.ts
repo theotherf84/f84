@@ -2,7 +2,7 @@
 
 import { formSchema } from "components/(employees)/employees-add-form/employees-add-form-schema"
 import { TableName } from "enumerations/table-name"
-import { createClient } from "helpers/supabase/supabase-server"
+import { createSupabaseClient } from "helpers/supabase/supabase-server"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 import type { AddEmployeeFormFieldValues } from "types/forms"
@@ -17,7 +17,7 @@ export const action = async (data: AddEmployeeFormFieldValues) => {
 			errors: validation.error.flatten().fieldErrors,
 		}
 
-	const supabase = createClient()
+	const supabase = createSupabaseClient()
 
 	const { error: userError } = await supabase.auth.getUser()
 

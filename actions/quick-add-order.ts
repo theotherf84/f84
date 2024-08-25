@@ -2,7 +2,7 @@
 
 import { formSchema } from "components/(orders)/orders-quick-add-form/orders-quick-add-form-schema"
 import { TableName } from "enumerations/table-name"
-import { createClient } from "helpers/supabase/supabase-server"
+import { createSupabaseClient } from "helpers/supabase/supabase-server"
 import { redirect } from "next/navigation"
 import type { QuickAddOrderFormFieldValues } from "types/forms"
 
@@ -16,7 +16,7 @@ export const action = async (data: QuickAddOrderFormFieldValues) => {
 			errors: validation.error.flatten().fieldErrors,
 		}
 
-	const supabase = createClient()
+	const supabase = createSupabaseClient()
 
 	const { error: userError } = await supabase.auth.getUser()
 
