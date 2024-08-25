@@ -3,7 +3,7 @@ import type { Tables } from "types/database.types"
 
 export type Category = Tables<TableName.Categories>
 
-export type Client = Tables<TableName.Categories>
+export type Client = Tables<TableName.Clients>
 
 export type Order = Tables<TableName.Orders>
 
