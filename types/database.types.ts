@@ -24,21 +24,33 @@ export type Database = {
 			employees: {
 				Row: {
 					created_at: string
+					date_of_birth: string | null
+					email: string | null
 					first_name: string
 					id: number
 					last_name: string | null
+					phone_number: string | null
+					social_media_profiles: Json | null
 				}
 				Insert: {
 					created_at?: string
+					date_of_birth?: string | null
+					email?: string | null
 					first_name: string
 					id?: number
 					last_name?: string | null
+					phone_number?: string | null
+					social_media_profiles?: Json | null
 				}
 				Update: {
 					created_at?: string
+					date_of_birth?: string | null
+					email?: string | null
 					first_name?: string
 					id?: number
 					last_name?: string | null
+					phone_number?: string | null
+					social_media_profiles?: Json | null
 				}
 				Relationships: []
 			}

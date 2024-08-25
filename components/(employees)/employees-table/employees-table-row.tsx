@@ -4,7 +4,7 @@ import { Avatar, AvatarFallback } from "shadcn/avatar"
 import { TableCell, TableRow } from "shadcn/table"
 import type { Employee } from "types/tables.types"
 
-export const EmployeesTableRow = ({ created_at, first_name, last_name }: Employee) => (
+export const EmployeesTableRow = ({ email, first_name, last_name }: Employee) => (
 	<TableRow>
 		<TableCell>
 			<Avatar>
@@ -15,7 +15,7 @@ export const EmployeesTableRow = ({ created_at, first_name, last_name }: Employe
 			</Avatar>
 		</TableCell>
 		<TableCell className="font-medium">{first_name}</TableCell>
-		<TableCell className="font-medium">{last_name}</TableCell>
-		<TableCell className="hidden md:table-cell">{getFormattedLocaleDateString(created_at)}</TableCell>
+		<TableCell className="hidden md:table-cell font-medium">{last_name}</TableCell>
+		<TableCell>{email}</TableCell>
 	</TableRow>
 )

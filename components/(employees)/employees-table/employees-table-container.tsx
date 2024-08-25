@@ -1,4 +1,4 @@
-import { EmployeesTable } from "components/employees-table/employees-table"
+import { EmployeesTable } from "components/(employees)/employees-table/employees-table"
 import { TableDataPlaceholder } from "components/table-data-placeholder"
 import { getEmployees } from "services/get-employees"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "shadcn/card"
