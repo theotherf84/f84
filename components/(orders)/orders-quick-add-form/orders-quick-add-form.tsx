@@ -48,9 +48,9 @@ export const QuickAddOrderForm = ({ categories, employees, subcategories, onSubm
 							<FormItem className="flex flex-col">
 								<FormLabel htmlFor="date" asChild>
 									<Label>Date</Label>
-								</FormLabel>{" "}
+								</FormLabel>
 								<FormControl>
-									<DatePicker date={field.value} onSelect={(date?: Date) => field.onChange(date)} />
+									<DatePicker date={field.value} setDate={field.onChange} shouldDisableFutureSelection />
 								</FormControl>
 							</FormItem>
 						)}
