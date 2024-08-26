@@ -9,7 +9,7 @@ const Layout = ({
 	return (
 		<div className="flex min-h-screen w-full flex-col">
 			<Header />
-			<main className="mx-auto grid w-full max-w-6xl items-start gap-6 p-4 md:gap-8 md:p-8 bg-muted/40">{children}</main>
+			<main className="grid w-full items-start gap-6 p-4 md:gap-8 md:p-8 bg-muted/40">{children}</main>
 		</div>
 	)
 }
