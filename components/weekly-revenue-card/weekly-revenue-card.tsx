@@ -6,7 +6,7 @@ import type { Order } from "types/tables.types"
 
 export const WeeklyRevenueCard = ({ orders }: { orders: Order[] }) => {
 	return (
-		<Card className="lg:max-w-md gap-4">
+		<Card className="gap-4 md:max-w-md ">
 			<CardHeader className="gap-2">
 				<CardDescription>This week</CardDescription>
 				<CardTitle className="text-4xl tabular-nums">

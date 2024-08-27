@@ -22,7 +22,7 @@ const Layout = ({
 	params: { locale: string }
 }) => (
 	<html lang={locale} suppressHydrationWarning>
-		<body className="bg-background text-foreground">
+		<body>
 			<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
 				{children}
 			</ThemeProvider>
