@@ -7,8 +7,8 @@ import { Label } from "shadcn/label"
 
 export const UpdatePasswordForm = ({ error }: { error: string }) => {
 	return (
-		<div className="flex items-center justify-center py-12">
-			<div className="mx-auto grid w-[350px] gap-6">
+		<div className="flex h-full items-center justify-center">
+			<div className="mx-auto grid w-1/2 gap-6">
 				<div className="grid gap-2 text-left">
 					<h1 className="text-3xl font-bold">Update password</h1>
 					<p className="text-muted-foreground">Enter your new password</p>

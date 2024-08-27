@@ -5,8 +5,10 @@ const Page = ({
 }: {
 	searchParams: { error: string }
 }) => (
-	<div className="h-screen container relative flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
+	<div className="grid grid-cols-2 h-screen">
+		<div className="columns-1">
 		<UpdatePasswordForm error={error} />
+		</div>
 	</div>
 )
 
