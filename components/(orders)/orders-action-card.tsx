@@ -10,12 +10,12 @@ export const OrdersActionCard = async () => {
 	const { action, headline, title } = translations?.orders?.pages?.root?.actionCard
 
 	return (
-		<Card className="flex flex-col gap-2 lg:w-fit">
+		<Card className="flex flex-1 flex-col gap-4 justify-between">
 			<CardHeader>
 				<CardTitle>{title}</CardTitle>
 				<CardDescription className="leading-relaxed">{headline}</CardDescription>
 			</CardHeader>
-			<CardContent className="flex flex-row gap-4">
+			<CardContent className="flex flex-row gap-2">
 				<Button disabled>
 					<Link href="/orders/add">{action}</Link>
 				</Button>

@@ -16,8 +16,8 @@ export const QuickAddOrderFormSheet = ({ translations, ...properties }: QuickAdd
 			<SheetTrigger asChild>
 				<Button variant="secondary">{translations?.quickAction}</Button>
 			</SheetTrigger>
-			<SheetContent>
-				<SheetHeader>
+			<SheetContent className="flex flex-col gap-6">
+				<SheetHeader className="py-4">
 					<SheetTitle>{translations?.title}</SheetTitle>
 					<SheetDescription className="text-left text-muted-foreground">{translations?.headline as string}</SheetDescription>
 				</SheetHeader>

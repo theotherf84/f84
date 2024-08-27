@@ -13,7 +13,7 @@ export const OrdersTableContainer = async () => {
 		<div className="flex flex-col gap-4">
 			<OrdersTableToolbar />
 			<Card>
-				<CardHeader className="px-7">
+				<CardHeader className="px-6">
 					<CardTitle>Orders</CardTitle>
 					<CardDescription>Recent orders from your store.</CardDescription>
 				</CardHeader>

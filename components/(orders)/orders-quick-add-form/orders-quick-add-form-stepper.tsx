@@ -9,18 +9,18 @@ import { Input } from "shadcn/input"
 import type { z as zod } from "zod"
 
 export const OrdersQuickAddFormStepper = ({ control }: { control: Control<zod.infer<typeof formSchema>> }) => {
-	const handleOnDecreaseCost = (field) => field.onChange(field.value - 100)
+	const handleOnDecreaseCost = (field) => field.onChange(field.value - 500)
 
-	const handleOnIncreaseCost = (field) => field.onChange(field.value + 100)
+	const handleOnIncreaseCost = (field) => field.onChange(field.value + 500)
 
 	return (
 		<FormField
 			control={control}
 			name="cost"
-			defaultValue={500}
+			defaultValue={6000}
 			render={({ field }) => (
 				<>
-					<div className="flex items-center justify-center space-x-2">
+					<div className="flex items-center justify-center">
 						<Button
 							variant="outline"
 							size="icon"
@@ -30,14 +30,14 @@ export const OrdersQuickAddFormStepper = ({ control }: { control: Control<zod.in
 
 								handleOnDecreaseCost(field)
 							}}
-							disabled={field.value <= 100}
+							disabled={field.value <= 500}
 						>
 							<Minus className="h-4 w-4" />
 							<span className="sr-only">Decrease</span>
 						</Button>
-						<div className="flex-1 text-center">
-							<div className="text-5xl font-bold tracking-tighter">{field.value}</div>
-							<div className="text-[0.70rem] uppercase text-muted-foreground">Costo del servicio</div>
+						<div className="flex flex-1 flex-col gap-2 my-4 text-center">
+							<div className="text-6xl font-bold tracking-tighter">{field.value}</div>
+							<div className="text-xs uppercase text-muted-foreground">Costo del servicio</div>
 						</div>
 						<Button
 							variant="outline"

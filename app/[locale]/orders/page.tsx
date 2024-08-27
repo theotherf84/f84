@@ -5,21 +5,21 @@ import { Button } from "shadcn/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "shadcn/card"
 
 const Page = () => (
-	<div className="grid grid-cols-3 col-span-3 auto-rows-max items-start gap-4 md:gap-8">
-		<div className="grid col-span-3 lg:col-span-2 gap-8">
+	<div className="md:container md:mx-auto p-6">
+		<div className="grid col-span-3 md:col-span-2 gap-6">
 			<div className="flex flex-col md:flex-row gap-4">
 				<OrdersActionCard />
-				<Card className="flex flex-col gap-2 flex-1">
+				<Card className="flex flex-1 flex-col gap-4 justify-between">
 					<CardHeader>
 						<CardTitle>Reporte del dia</CardTitle>
 						<CardDescription className="leading-relaxed">Un reporte diario de ventas por empleado</CardDescription>
 					</CardHeader>
-					<CardContent className="flex flex-row gap-4">
+					<CardContent className="flex flex-row gap-2">
 						<Button asChild>
 							<Link href="/orders/employees">Ver reporte</Link>
 						</Button>
 					</CardContent>
-				</Card>{" "}
+				</Card>
 			</div>
 			<OrdersTableContainer />
 		</div>

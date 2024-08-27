@@ -9,7 +9,7 @@ const Page = ({
 	return (
 		<>
 			<Header />
-			<main className="grid items-start gap-6 p-6">
+			<main className="grid gap-6 h-screen p-6">
 				<WeeklyRevenueCardContainer />
 			</main>
 		</>

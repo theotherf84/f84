@@ -39,8 +39,8 @@ export const QuickAddOrderForm = ({ categories, employees, subcategories, onSubm
 
 	return (
 		<Form {...form}>
-			<form onSubmit={form.handleSubmit(handleOnSubmit)} className="mx-auto space-y-4 py-6">
-				<div className="grid gap-3">
+			<form onSubmit={form.handleSubmit(handleOnSubmit)} className="flex flex-col gap-6">
+				<div className="grid gap-2">
 					<FormField
 						control={form.control}
 						name="date"
@@ -56,7 +56,7 @@ export const QuickAddOrderForm = ({ categories, employees, subcategories, onSubm
 						)}
 					/>
 				</div>
-				<div className="grid gap-3">
+				<div className="grid gap-2">
 					<FormField
 						control={form.control}
 						name="employee"
@@ -91,7 +91,7 @@ export const QuickAddOrderForm = ({ categories, employees, subcategories, onSubm
 						)}
 					/>
 				</div>
-				<div className="grid gap-3">
+				<div className="grid gap-2">
 					<FormField
 						control={form.control}
 						name="category"
@@ -118,7 +118,7 @@ export const QuickAddOrderForm = ({ categories, employees, subcategories, onSubm
 						)}
 					/>
 				</div>
-				<div className="grid gap-3">
+				<div className="grid gap-2">
 					<FormField
 						control={form.control}
 						name="subcategory"
@@ -147,10 +147,10 @@ export const QuickAddOrderForm = ({ categories, employees, subcategories, onSubm
 						)}
 					/>
 				</div>
-				<div className="grid gap-3">
+				<div className="grid gap-2">
 					<OrdersQuickAddFormStepper control={form.control} />
 				</div>
-				<div className="grid gap-3">
+				<div className="grid gap-2">
 					<FormField
 						control={form.control}
 						name="status"
@@ -173,7 +173,9 @@ export const QuickAddOrderForm = ({ categories, employees, subcategories, onSubm
 						)}
 					/>
 				</div>
-				<SubmitButton formState={form.formState}>Save order</SubmitButton>
+				<div className="grid gap-2 pt-4">
+					<SubmitButton formState={form.formState}>Save order</SubmitButton>
+				</div>
 			</form>
 		</Form>
 	)

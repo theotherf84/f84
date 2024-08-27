@@ -7,7 +7,7 @@ const Page = ({
 }) => (
 	<div className="grid grid-cols-2 h-screen">
 		<div className="columns-1">
-		<UpdatePasswordForm error={error} />
+			<UpdatePasswordForm error={error} />
 		</div>
 	</div>
 )
