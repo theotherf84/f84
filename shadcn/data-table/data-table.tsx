@@ -10,10 +10,10 @@ import {
 	getSortedRowModel,
 	useReactTable,
 } from "@tanstack/react-table"
+import { TableDataPlaceholder } from "components/table-data-placeholder"
 import { useState } from "react"
 import { DataTablePagination } from "shadcn/data-table/data-table-pagination"
-import { DataTableViewOptions } from "shadcn/data-table/data-table-view-options"
-import { Input } from "shadcn/input"
+import { DataTableToolbar } from "shadcn/data-table/data-table-toolbar"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "shadcn/table"
 import type { DataTableProperties } from "types/data-table.types"
 
@@ -36,15 +36,11 @@ export const DataTable = <TData, TValue>({ columns, data }: DataTableProperties<
 		},
 	})
 
+	const hasData = !!table.getRowModel().rows?.length
+
 	return (
 		<div className="flex flex-col gap-6">
-			<DataTableViewOptions table={table} />
-			<Input
-				placeholder="Filter employees..."
-				value={(table.getColumn("employee")?.getFilterValue() as string) ?? ""}
-				onChange={(event) => table.getColumn("employee")?.setFilterValue(event.target.value)}
-				className="max-w-sm"
-			/>
+			<DataTableToolbar table={table} />
 			<Table>
 				<TableHeader>
 					{table.getHeaderGroups().map((headerGroup) => (
@@ -60,21 +56,15 @@ export const DataTable = <TData, TValue>({ columns, data }: DataTableProperties<
 					))}
 				</TableHeader>
 				<TableBody>
-					{table.getRowModel().rows?.length ? (
+					{hasData &&
 						table.getRowModel().rows.map((row) => (
 							<TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
 								{row.getVisibleCells().map((cell) => (
 									<TableCell key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</TableCell>
 								))}
 							</TableRow>
-						))
-					) : (
-						<TableRow>
-							<TableCell colSpan={columns.length} className="h-24 text-center">
-								No results.
-							</TableCell>
-						</TableRow>
-					)}
+						))}
+					{!hasData && <TableDataPlaceholder />}
 				</TableBody>
 			</Table>
 			<DataTablePagination table={table} />
