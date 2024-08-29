@@ -2,11 +2,9 @@ import { AddClientForm } from "components/(clients)/clients-add-form/clients-add
 import { ClientsTableContainer } from "components/(clients)/clients-table/clients-table-container"
 
 const Page = () => (
-	<div className="grid grid-cols-1 lg:grid-cols-2 auto-rows-max items-start gap-6">
-		<div className="grid col-span-1">
+	<div className="flex flex-col gap-6 md:container md:mx-auto p-6">
+		<div className="flex flex-1 flex-col items-center justify-center gap-6">
 			<AddClientForm />
-		</div>
-		<div className="grid col-span-1">
 			<ClientsTableContainer />
 		</div>
 	</div>

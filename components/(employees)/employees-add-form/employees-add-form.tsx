@@ -47,7 +47,7 @@ export const AddEmployeeForm = () => {
 	}
 
 	return (
-		<form onSubmit={form.handleSubmit(handleOnSubmit)}>
+		<form className="w-full" onSubmit={form.handleSubmit(handleOnSubmit)}>
 			<Card className="flex flex-col">
 				<CardHeader>
 					<CardTitle>Add a staff member</CardTitle>

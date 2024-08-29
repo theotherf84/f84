@@ -9,8 +9,8 @@ export const EmployeesTableContainer = async () => {
 	const hasData = !!data.length
 
 	return (
-		<Card className="flex flex-col gap-2 lg:min-w-1/2">
-			<CardHeader className="px-7">
+		<Card className="w-full">
+			<CardHeader className="px-6">
 				<CardTitle>Employees</CardTitle>
 				<CardDescription>The list of employees of your store.</CardDescription>
 			</CardHeader>
