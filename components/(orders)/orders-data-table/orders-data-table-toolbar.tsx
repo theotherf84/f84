@@ -2,7 +2,7 @@ import { ArrowUpRight } from "lucide-react"
 import Link from "next/link"
 import { Button } from "shadcn/button"
 
-export const OrdersTableToolbar = () => (
+export const OrdersDataTableToolbar = () => (
 	<div className="flex items-center">
 		<Button asChild size="sm" className="ml-auto">
 			<Link href="/orders/all">

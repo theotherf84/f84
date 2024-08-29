@@ -1,5 +1,5 @@
 import { OrdersActionCard } from "components/(orders)/orders-action-card"
-import { OrdersTableContainer } from "components/(orders)/orders-table/orders-table-container"
+import { OrdersDataTableContainer } from "components/(orders)/orders-data-table/orders-data-table-container"
 import Link from "next/link"
 import { Button } from "shadcn/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "shadcn/card"
@@ -21,7 +21,7 @@ const Page = () => (
 					</CardContent>
 				</Card>
 			</div>
-			<OrdersTableContainer />
+			<OrdersDataTableContainer />
 		</div>
 	</div>
 )

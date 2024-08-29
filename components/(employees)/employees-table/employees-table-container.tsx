@@ -1,7 +1,8 @@
-import { EmployeesTable } from "components/(employees)/employees-table/employees-table"
+import { columns } from "components/(employees)/employees-table/employees-table-columns"
 import { TableDataPlaceholder } from "components/table-data-placeholder"
 import { getEmployees } from "services/get-employees"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "shadcn/card"
+import { DataTable } from "shadcn/data-table/data-table"
 
 export const EmployeesTableContainer = async () => {
 	const data = await getEmployees()
@@ -15,7 +16,7 @@ export const EmployeesTableContainer = async () => {
 				<CardDescription>The list of employees of your store.</CardDescription>
 			</CardHeader>
 			<CardContent>
-				{hasData && <EmployeesTable data={data} />}
+				{hasData && <DataTable columns={columns} data={data} />}
 				{!hasData && <TableDataPlaceholder />}
 			</CardContent>
 		</Card>

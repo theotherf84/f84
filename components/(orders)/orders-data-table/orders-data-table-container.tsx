@@ -1,4 +1,5 @@
 import { columns } from "components/(orders)/orders-data-table/orders-data-table-columns"
+import { OrdersDataTableToolbar } from "components/(orders)/orders-data-table/orders-data-table-toolbar"
 import { TableDataPlaceholder } from "components/table-data-placeholder"
 import { getOrdersWithEmployees } from "services/get-orders-with-employees"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "shadcn/card"
@@ -10,15 +11,18 @@ export const OrdersDataTableContainer = async () => {
 	const hasData = !!data?.length
 
 	return (
-		<Card>
-			<CardHeader className="px-7">
-				<CardTitle>Orders</CardTitle>
-				<CardDescription>Recent orders from your store.</CardDescription>
-			</CardHeader>
-			<CardContent>
-				{hasData && <DataTable columns={columns} data={data} />}
-				{!hasData && <TableDataPlaceholder />}
-			</CardContent>
-		</Card>
+		<div className="flex flex-col gap-4">
+			<OrdersDataTableToolbar />
+			<Card>
+				<CardHeader className="px-7">
+					<CardTitle>Orders</CardTitle>
+					<CardDescription>Recent orders from your store.</CardDescription>
+				</CardHeader>
+				<CardContent>
+					{hasData && <DataTable columns={columns} data={data} />}
+					{!hasData && <TableDataPlaceholder />}
+				</CardContent>
+			</Card>
+		</div>
 	)
 }

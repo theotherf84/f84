@@ -1,6 +1,6 @@
 "use client"
 
-import type { ColumnDef as ColumnDefinition } from "@tanstack/react-table"
+import type { ColumnDef } from "@tanstack/react-table"
 import { getFormattedCurrencyAmount } from "helpers/get-formatted-currency-amount"
 import { getFormattedNameInitial } from "helpers/get-formatted-name-initial"
 import { Avatar, AvatarFallback } from "shadcn/avatar"
@@ -8,7 +8,7 @@ import { Badge } from "shadcn/badge"
 import { DataTableColumnHeader } from "shadcn/data-table/data-table-header"
 import type { Employee, OrderWithEmployee } from "types/tables.types"
 
-export const columns: ColumnDefinition<OrderWithEmployee>[] = [
+export const columns: ColumnDef<OrderWithEmployee>[] = [
 	{
 		accessorKey: "category",
 		header: ({ column }) => <DataTableColumnHeader column={column} title="Category" />,

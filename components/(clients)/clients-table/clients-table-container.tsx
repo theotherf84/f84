@@ -1,7 +1,8 @@
-import { ClientsTable } from "components/(clients)/clients-table/clients-table"
+import { columns } from "components/(clients)/clients-table/clients-table-columns"
 import { TableDataPlaceholder } from "components/table-data-placeholder"
 import { getClients } from "services/get-clients"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "shadcn/card"
+import { DataTable } from "shadcn/data-table/data-table"
 
 export const ClientsTableContainer = async () => {
 	const data = await getClients()
@@ -15,7 +16,7 @@ export const ClientsTableContainer = async () => {
 				<CardDescription>The list of employees of your store.</CardDescription>
 			</CardHeader>
 			<CardContent>
-				{hasData && <ClientsTable data={data} />}
+				{hasData && <DataTable columns={columns} data={data} />}
 				{!hasData && <TableDataPlaceholder />}
 			</CardContent>
 		</Card>
