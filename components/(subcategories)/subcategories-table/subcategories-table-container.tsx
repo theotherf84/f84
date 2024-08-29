@@ -9,8 +9,8 @@ export const SubcategoriesTableContainer = async () => {
 	const hasData = !!data.length
 
 	return (
-		<Card>
-			<CardHeader className="px-7">
+		<Card className="w-full">
+			<CardHeader className="px-6">
 				<CardTitle>Subcategories</CardTitle>
 				<CardDescription>The list of subcategories from your store.</CardDescription>
 			</CardHeader>

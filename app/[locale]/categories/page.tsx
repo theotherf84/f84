@@ -5,28 +5,16 @@ import { SubcategoriesTableContainer } from "components/(subcategories)/subcateg
 import React from "react"
 
 const Page = () => (
-	<div className="grid gap-6">
-		<div className="mx-auto grid w-full max-w-6xl gap-2">
-			<h1 className="text-3xl font-semibold">Categories</h1>
+	<div className="flex flex-col gap-6 md:container md:mx-auto p-6">
+		<h1 className="text-4xl font-semibold">Categories</h1>
+		<div className="flex flex-1 flex-col items-center justify-center gap-6">
+			<AddCategoryForm />
+			<CategoriesTableContainer />
 		</div>
-		<div className="grid gap-6 grid-cols-1 md:grid-cols-2">
-			<div className="grid col-span-1">
-				<AddCategoryForm />
-			</div>
-			<div className="grid col-span-1">
-				<CategoriesTableContainer />
-			</div>
-		</div>
-		<div className="mx-auto grid w-full max-w-6xl gap-2">
-			<h1 className="text-3xl font-semibold">Subcategories</h1>
-		</div>
-		<div className="grid gap-6 grid-cols-1 md:grid-cols-2">
-			<div className="grid col-span-1">
-				<AddSubcategoryForm />
-			</div>
-			<div className="grid col-span-1">
-				<SubcategoriesTableContainer />
-			</div>
+		<h1 className="text-4xl font-semibold">Subcategories</h1>
+		<div className="flex flex-1 flex-col items-center justify-center gap-6">
+			<AddSubcategoryForm />
+			<SubcategoriesTableContainer />
 		</div>
 	</div>
 )

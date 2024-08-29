@@ -9,8 +9,8 @@ export const CategoriesTableContainer = async () => {
 	const hasData = !!data.length
 
 	return (
-		<Card>
-			<CardHeader className="px-7">
+		<Card className="w-full">
+			<CardHeader className="px-6">
 				<CardTitle>Categories</CardTitle>
 				<CardDescription>The list of categories from your store.</CardDescription>
 			</CardHeader>

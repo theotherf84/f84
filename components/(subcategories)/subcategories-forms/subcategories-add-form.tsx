@@ -13,8 +13,8 @@ export const AddSubcategoryForm = async () => {
 	const hasCategories = !!categories.length
 
 	return (
-		<form action={action}>
-			<Card>
+		<form action={action} className="w-full">
+			<Card className="flex flex-col gap-2">
 				<CardHeader>
 					<CardTitle>Add a subcategory</CardTitle>
 					<CardDescription>Used to subclassify orders in your store.</CardDescription>
@@ -50,8 +50,8 @@ export const AddSubcategoryForm = async () => {
 					)}
 				</CardContent>
 				{hasCategories && (
-					<CardFooter className="px-6 py-4">
-						<SubmitButton>Save subcategory</SubmitButton>
+					<CardFooter>
+						<SubmitButton>Save</SubmitButton>
 					</CardFooter>
 				)}
 			</Card>
