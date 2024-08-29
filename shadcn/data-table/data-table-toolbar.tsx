@@ -2,18 +2,11 @@
 
 import { ChevronDownIcon } from "lucide-react"
 import { Button } from "shadcn/button"
-import {
-	DropdownMenu,
-	DropdownMenuCheckboxItem,
-	DropdownMenuContent,
-	DropdownMenuLabel,
-	DropdownMenuSeparator,
-	DropdownMenuTrigger,
-} from "shadcn/dropdown-menu"
+import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuTrigger } from "shadcn/dropdown-menu"
 import { Input } from "shadcn/input"
 import type { DataTableToolbarProperties } from "types/data-table.types"
 
-export function DataTableToolbar<TData>({ table }: DataTableToolbarProperties<TData>) {
+export const DataTableToolbar = <TData,>({ table }: DataTableToolbarProperties<TData>) => {
 	return (
 		<div className="flex flex-1 items-center justify-between">
 			<Input

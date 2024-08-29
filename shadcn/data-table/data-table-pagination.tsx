@@ -3,7 +3,7 @@ import { Button } from "shadcn/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "shadcn/select"
 import type { DataTablePaginationProperties } from "types/data-table.types"
 
-export function DataTablePagination<TData>({ table }: DataTablePaginationProperties<TData>) {
+export const DataTablePagination = <TData,>({ table }: DataTablePaginationProperties<TData>) => {
 	return (
 		<div className="flex items-center justify-between px-2">
 			<div className="flex-1 text-sm text-muted-foreground">
@@ -18,7 +18,7 @@ export function DataTablePagination<TData>({ table }: DataTablePaginationPropert
 							table.setPageSize(Number(value))
 						}}
 					>
-						<SelectTrigger className="h-8 w-[70px]">
+						<SelectTrigger className="h-8 w-20">
 							<SelectValue placeholder={table.getState().pagination.pageSize} />
 						</SelectTrigger>
 						<SelectContent side="top">
@@ -30,7 +30,7 @@ export function DataTablePagination<TData>({ table }: DataTablePaginationPropert
 						</SelectContent>
 					</Select>
 				</div>
-				<div className="flex w-[100px] items-center justify-center text-sm font-medium">
+				<div className="flex w-28 items-center justify-center text-sm font-medium">
 					Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
 				</div>
 				<div className="flex items-center space-x-2">

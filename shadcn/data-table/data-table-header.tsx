@@ -4,14 +4,14 @@ import { Button } from "shadcn/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "shadcn/dropdown-menu"
 import type { DataTableColumnHeaderProperties } from "types/data-table.types"
 
-export function DataTableColumnHeader<TData, TValue>({ column, title, className }: DataTableColumnHeaderProperties<TData, TValue>) {
+export const DataTableColumnHeader = <TData, TValue>({ column, title, className }: DataTableColumnHeaderProperties<TData, TValue>) => {
 	if (!column.getCanSort()) return <div className={mergeClassNames(className)}>{title}</div>
 
 	return (
 		<div className={mergeClassNames("flex items-center space-x-2", className)}>
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
-					<Button variant="ghost" size="sm" className="-ml-3 h-8 data-[state=open]:bg-accent">
+					<Button variant="ghost" size="sm" className="-ml-4 h-8 data-[state=open]:bg-accent">
 						<span>{title}</span>
 						{column.getIsSorted() === "desc" ? (
 							<ArrowDownIcon className="ml-2 h-4 w-4" />
@@ -24,15 +24,15 @@ export function DataTableColumnHeader<TData, TValue>({ column, title, className 
 				</DropdownMenuTrigger>
 				<DropdownMenuContent align="start">
 					<DropdownMenuItem onClick={() => column.toggleSorting(false)}>
-						<ArrowUpIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
+						<ArrowUpIcon className="mr-2 h-4 w-4 text-muted-foreground/70" />
 						Ascending
 					</DropdownMenuItem>
 					<DropdownMenuItem onClick={() => column.toggleSorting(true)}>
-						<ArrowDownIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
+						<ArrowDownIcon className="mr-2 h-4 w-4 text-muted-foreground/70" />
 						Descending
 					</DropdownMenuItem>
 					<DropdownMenuItem onClick={() => column.toggleVisibility(false)}>
-						<EyeIcon className="mr-2 h-3.5 w-3.5 text-muted-foreground/70" />
+						<EyeIcon className="mr-2 h-4 w-4 text-muted-foreground/70" />
 						Hide
 					</DropdownMenuItem>
 				</DropdownMenuContent>
