@@ -4,10 +4,8 @@ import type { Database } from "types/database.types"
 
 export const updateUserSession = async (request: NextRequest) => {
 	// Create an unmodified response
-	let response = NextResponse.next({
-		request: {
-			headers: request.headers,
-		},
+	const response = NextResponse.next({
+		request,
 	})
 
 	const supabaseAnonimousKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ""
@@ -21,10 +19,6 @@ export const updateUserSession = async (request: NextRequest) => {
 			setAll(cookiesToSet) {
 				// biome-ignore lint/complexity/noForEach: <explanation>
 				cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
-
-				response = NextResponse.next({
-					request,
-				})
 
 				// biome-ignore lint/complexity/noForEach: <explanation>
 				cookiesToSet.forEach(({ name, value, options }) => response.cookies.set(name, value, options))

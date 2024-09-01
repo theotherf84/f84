@@ -1,6 +1,6 @@
 export const defaultLocale = "es-ar" as const
 
-export const supportedLocales = ["en-us", "es-ar"] as const
+export const supportedLocales = ["es-ar"] as const
 
 export const internationalisationConfiguration = {
 	defaultLocale,
