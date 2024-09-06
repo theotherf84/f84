@@ -1,7 +1,6 @@
+import { UserAvatar } from "components/user-avatar"
 import { UserDropdownMenuSignOutForm } from "components/user-dropdown-menu/user-dropdown-menu-sign-out-form"
-import { getFormattedNameInitial } from "helpers/get-formatted-name-initial"
 import { getUserSession } from "services/get-user-session"
-import { Avatar, AvatarFallback } from "shadcn/avatar"
 import { Button } from "shadcn/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "shadcn/dropdown-menu"
 
@@ -15,12 +14,7 @@ export const UserDropdownMenu = async () => {
 			<DropdownMenu>
 				<DropdownMenuTrigger asChild>
 					<Button variant="ghost" size="icon" className="h-8 w-8 px-0 rounded-full">
-						<Avatar>
-							<AvatarFallback>
-								{getFormattedNameInitial(userMetadata?.first_name)}
-								{getFormattedNameInitial(userMetadata?.last_name)}
-							</AvatarFallback>
-						</Avatar>
+						<UserAvatar firstName={userMetadata?.first_name} lastName={userMetadata?.last_name} />
 						<span className="sr-only">Toggle user menu</span>
 					</Button>
 				</DropdownMenuTrigger>

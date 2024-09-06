@@ -1,11 +1,11 @@
-import { QuickAddOrderFormSheet } from "components/(orders)/orders-quick-add-form/orders-quick-add-form-sheet"
+import { QuickAddOrderForm } from "components/(orders)/orders-quick-add-form/orders-quick-add-form"
+import { ContentSheet } from "components/content-sheet"
 import { getTranslations } from "helpers/translations"
 import { getCategories } from "services/get-categories"
 import { getEmployees } from "services/get-employees"
 import { getSubcategories } from "services/get-subcategories"
-import type { Category, Employee, Subcategory } from "types/tables.types"
 
-export const QuickAddFormContainer = async () => {
+export const QuickAddOrderFormContainer = async () => {
 	const { orders } = await getTranslations()
 
 	const { quickAction } = orders?.pages?.root?.actionCard
@@ -14,15 +14,14 @@ export const QuickAddFormContainer = async () => {
 	const [categories, employees, subcategories] = await Promise.all([getCategories(), getEmployees(), getSubcategories()])
 
 	return (
-		<QuickAddOrderFormSheet
-			categories={categories as Category[]}
-			employees={employees as Employee[]}
-			subcategories={subcategories as Subcategory[]}
-			translations={{
-				headline,
-				quickAction,
+		<ContentSheet
+			messages={{
+				action: quickAction,
+				subtitle: headline,
 				title,
 			}}
-		/>
+		>
+			<QuickAddOrderForm categories={categories} employees={employees} subcategories={subcategories} />
+		</ContentSheet>
 	)
 }

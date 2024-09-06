@@ -18,7 +18,7 @@ export type AddEmployeeFormFieldValues = zod.infer<typeof addEmployeeFormSchema>
 // biome-ignore lint/suspicious/noEmptyInterface: <explanation>
 export interface AddEmployeeFormProperties {}
 
-export interface QuickAddOrderFormProperties extends FormProperties {
+export interface QuickAddOrderFormProperties {
 	categories: Category[]
 	employees: Employee[]
 	subcategories: Subcategory[]

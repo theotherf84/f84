@@ -1,4 +1,4 @@
-import { QuickAddFormContainer } from "components/(orders)/orders-quick-add-form/orders-quick-add-form-container"
+import { QuickAddOrderFormContainer } from "components/(orders)/orders-quick-add-form/orders-quick-add-form-container"
 import { getTranslations } from "helpers/translations"
 import Link from "next/link"
 import { Button } from "shadcn/button"
@@ -19,7 +19,7 @@ export const OrdersActionCard = async () => {
 				<Button disabled>
 					<Link href="/orders/add">{action}</Link>
 				</Button>
-				<QuickAddFormContainer />
+				<QuickAddOrderFormContainer />
 			</CardContent>
 		</Card>
 	)

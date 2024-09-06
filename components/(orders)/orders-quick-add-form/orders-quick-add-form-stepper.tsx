@@ -10,7 +10,7 @@ import { Input } from "shadcn/input"
 import { Label } from "shadcn/label"
 import type * as zod from "zod"
 
-export const OrdersQuickAddFormStepper = ({ control }: { control: Control<zod.infer<typeof formSchema>> }) => {
+export const QuickAddOrderFormCostStepper = ({ control }: { control: Control<zod.infer<typeof formSchema>> }) => {
 	const handleOnDecreaseCost = (field) => field.onChange(field.value - 500)
 
 	const handleOnIncreaseCost = (field) => field.onChange(field.value + 500)

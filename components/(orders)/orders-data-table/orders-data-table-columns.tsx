@@ -1,14 +1,30 @@
 "use client"
 
 import type { ColumnDef } from "@tanstack/react-table"
-import { getFormattedCurrencyAmount } from "helpers/get-formatted-currency-amount"
-import { getFormattedNameInitial } from "helpers/get-formatted-name-initial"
-import { Avatar, AvatarFallback } from "shadcn/avatar"
+import { UserAvatar } from "components/user-avatar"
+import { getFormattedLocaleCurrency } from "helpers/get-formatted-locale-currency"
+import { MoreHorizontal } from "lucide-react"
 import { Badge } from "shadcn/badge"
+import { Button } from "shadcn/button"
+import { Checkbox } from "shadcn/checkbox"
 import { DataTableColumnHeader } from "shadcn/data-table/data-table-header"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "shadcn/dropdown-menu"
 import type { Employee, OrderWithEmployee } from "types/tables.types"
 
 export const columns: ColumnDef<OrderWithEmployee>[] = [
+	{
+		id: "id",
+		header: ({ table }) => (
+			<Checkbox
+				checked={table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && "indeterminate")}
+				onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+				aria-label="Select all"
+			/>
+		),
+		cell: ({ row }) => <Checkbox checked={row.getIsSelected()} onCheckedChange={(value) => row.toggleSelected(!!value)} aria-label="Select row" />,
+		enableSorting: false,
+		enableHiding: false,
+	},
 	{
 		accessorKey: "category",
 		header: ({ column }) => <DataTableColumnHeader column={column} title="Category" />,
@@ -18,7 +34,7 @@ export const columns: ColumnDef<OrderWithEmployee>[] = [
 		cell: ({ row }) => {
 			const amount = Number.parseFloat(row.getValue("cost"))
 
-			return <div className="font-medium">{getFormattedCurrencyAmount(amount)}</div>
+			return <div className="font-medium">{getFormattedLocaleCurrency(amount)}</div>
 		},
 		header: "Cost",
 	},
@@ -44,14 +60,7 @@ export const columns: ColumnDef<OrderWithEmployee>[] = [
 		cell: ({ row }) => {
 			const { first_name, last_name } = row.getValue("employee") as Employee
 
-			return (
-				<Avatar>
-					<AvatarFallback>
-						{getFormattedNameInitial(first_name)}
-						{getFormattedNameInitial(last_name)}
-					</AvatarFallback>
-				</Avatar>
-			)
+			return <UserAvatar firstName={first_name} lastName={last_name} />
 		},
 		filterFn: (row, columnId, filterValue) => {
 			const { first_name, last_name } = row.getValue(columnId) as Employee
@@ -61,5 +70,28 @@ export const columns: ColumnDef<OrderWithEmployee>[] = [
 			return fullName.includes(filterValue)
 		},
 		header: ({ column }) => <DataTableColumnHeader column={column} title="Employee" />,
+	},
+	{
+		id: "actions",
+		cell: ({ row }) => {
+			const order = row.original
+
+			return (
+				<DropdownMenu>
+					<DropdownMenuTrigger asChild>
+						<Button variant="ghost" className="h-8 w-8 p-0">
+							<span className="sr-only">Open menu</span>
+							<MoreHorizontal className="h-4 w-4" />
+						</Button>
+					</DropdownMenuTrigger>
+					<DropdownMenuContent align="end">
+						<DropdownMenuItem onClick={() => navigator.clipboard.writeText(order.id as unknown as string)}>Copy payment ID</DropdownMenuItem>
+						<DropdownMenuItem>View customer</DropdownMenuItem>
+						<DropdownMenuItem>View payment details</DropdownMenuItem>
+					</DropdownMenuContent>
+				</DropdownMenu>
+			)
+		},
+		header: ({ column }) => <DataTableColumnHeader column={column} title="Actions" />,
 	},
 ]
