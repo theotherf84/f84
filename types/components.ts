@@ -1,9 +1,11 @@
 import type { DialogProps } from "@radix-ui/react-dialog"
 import type { countries } from "constants/countries"
 import type { CarrierCode, CountryCallingCode, CountryCode, E164Number, NationalNumber, NumberType } from "libphonenumber-js"
-import type { ComponentPropsWithoutRef, Dispatch, InputHTMLAttributes, SetStateAction, TextareaHTMLAttributes } from "react"
+import type { ComponentPropsWithoutRef, Dispatch, InputHTMLAttributes, ReactNode, SetStateAction, TextareaHTMLAttributes } from "react"
 
 export type CommandDialogProperties = DialogProps
+
+export type ContentSheetProperties = { children: ReactNode; messages: Record<string, string> }
 
 export type Country = (typeof countries)[number]
 
@@ -35,3 +37,5 @@ export interface PhoneInputProperties extends ComponentPropsWithoutRef<"input"> 
 }
 
 export type TextareaProperties = TextareaHTMLAttributes<HTMLTextAreaElement>
+
+export type UserAvatarProperties = { firstName: string; lastName?: string | null }
