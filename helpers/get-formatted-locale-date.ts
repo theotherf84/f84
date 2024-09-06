@@ -1,4 +1,4 @@
-export const getFormattedLocaleDateString = (date: string) =>
+export const getFormattedLocaleDate = (date: string) =>
 	new Date(date).toLocaleDateString("es-AR", {
 		timeZone: "UTC",
 		day: "2-digit",
