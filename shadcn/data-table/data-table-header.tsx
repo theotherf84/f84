@@ -1,42 +1,27 @@
 import { mergeClassNames } from "helpers/merge-class-names"
-import { ArrowDownIcon, ArrowUpIcon, ChevronsUpDown, EyeIcon } from "lucide-react"
+import { ArrowDownIcon, ArrowUpIcon, ChevronsUpDown } from "lucide-react"
 import { Button } from "shadcn/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "shadcn/dropdown-menu"
 import type { DataTableColumnHeaderProperties } from "types/data-table.types"
 
 export const DataTableColumnHeader = <TData, TValue>({ column, title, className }: DataTableColumnHeaderProperties<TData, TValue>) => {
 	if (!column.getCanSort()) return <div className={mergeClassNames(className)}>{title}</div>
 
+	const toggleSorting = () => {
+		column.toggleSorting()
+	}
+
 	return (
 		<div className={mergeClassNames("flex items-center space-x-2", className)}>
-			<DropdownMenu>
-				<DropdownMenuTrigger asChild>
-					<Button variant="ghost" size="sm" className="-ml-4 h-8 data-[state=open]:bg-accent">
-						<span>{title}</span>
-						{column.getIsSorted() === "desc" ? (
-							<ArrowDownIcon className="ml-2 h-4 w-4" />
-						) : column.getIsSorted() === "asc" ? (
-							<ArrowUpIcon className="ml-2 h-4 w-4" />
-						) : (
-							<ChevronsUpDown className="ml-2 h-4 w-4" />
-						)}
-					</Button>
-				</DropdownMenuTrigger>
-				<DropdownMenuContent align="start">
-					<DropdownMenuItem onClick={() => column.toggleSorting(false)}>
-						<ArrowUpIcon className="mr-2 h-4 w-4 text-muted-foreground/70" />
-						Ascending
-					</DropdownMenuItem>
-					<DropdownMenuItem onClick={() => column.toggleSorting(true)}>
-						<ArrowDownIcon className="mr-2 h-4 w-4 text-muted-foreground/70" />
-						Descending
-					</DropdownMenuItem>
-					<DropdownMenuItem onClick={() => column.toggleVisibility(false)}>
-						<EyeIcon className="mr-2 h-4 w-4 text-muted-foreground/70" />
-						Hide
-					</DropdownMenuItem>
-				</DropdownMenuContent>
-			</DropdownMenu>
+			<Button onClick={toggleSorting} className="-ml-4 h-8 data-[state=open]:bg-accent" size="sm" variant="ghost">
+				<span>{title}</span>
+				{column.getIsSorted() === "desc" ? (
+					<ArrowDownIcon className="ml-2 h-4 w-4" />
+				) : column.getIsSorted() === "asc" ? (
+					<ArrowUpIcon className="ml-2 h-4 w-4" />
+				) : (
+					<ChevronsUpDown className="ml-2 h-4 w-4" />
+				)}
+			</Button>
 		</div>
 	)
 }
