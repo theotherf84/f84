@@ -20,21 +20,19 @@ const SearchClientInput = ({ onSelect }: SearchClientInputProperties) => {
 	return (
 		<Popover open={open} onOpenChange={setOpen}>
 			<PopoverTrigger asChild>
-				<Button aria-expanded={open} role="combobox" className="justify-between" variant="outline">
+				<Button aria-expanded={open} role="combobox" className="flex flex-row h-fit justify-between px-4 py-2" variant="outline">
 					{selectedItem ? (
-						<>
-							<div className="flex flex-row gap-4 items-center justify-center">
-								<UserAvatar firstName={selectedItem.first_name} lastName={selectedItem.last_name} />
-								{selectedItem.first_name} {selectedItem.last_name}
-							</div>
-						</>
+						<div className="flex gap-4 items-center">
+							<UserAvatar firstName={selectedItem.first_name} lastName={selectedItem.last_name} />
+							{selectedItem.first_name} {selectedItem.last_name}
+						</div>
 					) : (
-						"Select place..."
+						"Search client"
 					)}
 					<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
 				</Button>
 			</PopoverTrigger>
-			<PopoverContent className="p-0">
+			<PopoverContent className="p-0 w-[--radix-popover-trigger-width] max-h-[--radix-popover-content-available-height]">
 				<Command>
 					<CommandInput placeholder="Search the place..." onValueChange={(value) => handleSearch(value)} className="w-full" />
 					<CommandList>
@@ -60,12 +58,15 @@ const SearchClientInput = ({ onSelect }: SearchClientInputProperties) => {
 										}}
 									>
 										<Check className={mergeClassNames("mr-2 h-4 w-4", value === item.first_name ? "opacity-100" : "opacity-0")} />
-										{item.first_name}
+										<div className="flex gap-4 items-center">
+											<UserAvatar firstName={item.first_name} />
+											{item.first_name}
+										</div>
 									</CommandItem>
 								))}
 							</CommandGroup>
 						) : (
-							<CommandEmpty>No results found.</CommandEmpty>
+							<CommandEmpty>No clients found.</CommandEmpty>
 						)}
 					</CommandList>
 				</Command>
