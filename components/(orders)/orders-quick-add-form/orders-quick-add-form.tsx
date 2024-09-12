@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { action } from "actions/quick-add-order"
 import { formSchema } from "components/(orders)/orders-quick-add-form/orders-quick-add-form-schema"
 import { QuickAddOrderFormCostStepper } from "components/(orders)/orders-quick-add-form/orders-quick-add-form-stepper"
+import SearchClientInput from "components/search-client-input"
 import { SubmitButton } from "components/submit-button"
 import { UserAvatar } from "components/user-avatar"
 import { type SubmitHandler, useForm } from "react-hook-form"
@@ -39,6 +40,22 @@ export const QuickAddOrderForm = ({ categories, employees, subcategories, onClos
 	return (
 		<Form {...form}>
 			<form onSubmit={form.handleSubmit(handleOnSubmit)} className="flex flex-col gap-6">
+				<div className="grid gap-2">
+					<FormField
+						control={form.control}
+						name="client"
+						render={({ field }) => (
+							<FormItem className="flex flex-col">
+								<FormLabel htmlFor="date" asChild>
+									<Label>Client</Label>
+								</FormLabel>
+								<FormControl>
+									<SearchClientInput onSelect={field.onChange} />
+								</FormControl>
+							</FormItem>
+						)}
+					/>
+				</div>
 				<div className="grid gap-2">
 					<FormField
 						control={form.control}
