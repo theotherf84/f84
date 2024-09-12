@@ -2,6 +2,7 @@ import type { DialogProps } from "@radix-ui/react-dialog"
 import type { countries } from "constants/countries"
 import type { CarrierCode, CountryCallingCode, CountryCode, E164Number, NationalNumber, NumberType } from "libphonenumber-js"
 import type { ComponentPropsWithoutRef, Dispatch, InputHTMLAttributes, ReactNode, SetStateAction, TextareaHTMLAttributes } from "react"
+import type { Client } from "types/tables.types"
 
 export type CommandDialogProperties = DialogProps
 
@@ -18,22 +19,26 @@ export interface DatePickerProperties {
 export type InputProperties = InputHTMLAttributes<HTMLInputElement>
 
 export type PhoneData = {
-	phoneNumber?: E164Number
-	countryCode?: CountryCode
-	countryCallingCode?: CountryCallingCode
 	carrierCode?: CarrierCode
-	nationalNumber?: NationalNumber
+	countryCallingCode?: CountryCallingCode
+	countryCode?: CountryCode
 	internationalNumber?: string
-	possibleCountries?: string
-	isValid?: boolean
 	isPossible?: boolean
-	uri?: string
+	isValid?: boolean
+	nationalNumber?: NationalNumber
+	phoneNumber?: E164Number
+	possibleCountries?: string
 	type?: NumberType
+	uri?: string
 }
 
 export interface PhoneInputProperties extends ComponentPropsWithoutRef<"input"> {
 	value?: string
 	defaultCountry?: CountryCode
+}
+
+export interface SearchClientInputProperties {
+	onSelect: (item: Client | null) => void
 }
 
 export type TextareaProperties = TextareaHTMLAttributes<HTMLTextAreaElement>

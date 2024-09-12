@@ -17,6 +17,7 @@
 			"constants/*": ["./constants/*"],
 			"enumerations/*": ["./enumerations/*"],
 			"helpers/*": ["./helpers/*"],
+			"hooks/*": ["./hooks/*"],
 			"shadcn/*": ["./shadcn/*"],
 			"services/*": ["./services/*"],
 			"styles/*": ["./styles/*"],

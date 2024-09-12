@@ -65,6 +65,9 @@ importers:
       '@tanstack/react-table':
         specifier: ^8.20.1
         version: 8.20.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@uidotdev/usehooks':
+        specifier: ^2.4.1
+        version: 2.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       autoprefixer:
         specifier: ^10.4.17
         version: 10.4.19(postcss@8.4.39)
@@ -1191,6 +1194,13 @@ packages:
 
   '@types/ws@8.5.11':
     resolution: {integrity: sha512-4+q7P5h3SpJxaBft0Dzpbr6lmMaqh0Jr2tbhJZ/luAwvD7ohSCniYkwz/pLxuT2h0EOa6QADgJj1Ko+TzRfZ+w==}
+
+  '@uidotdev/usehooks@2.4.1':
+    resolution: {integrity: sha512-1I+RwWyS+kdv3Mv0Vmc+p0dPYH0DTRAo04HLyXReYBL9AeseDWUJyi4THuksBJcu9F0Pih69Ak150VDnqbVnXg==}
+    engines: {node: '>=16'}
+    peerDependencies:
+      react: '>=18.0.0'
+      react-dom: '>=18.0.0'
 
   ansi-regex@5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
@@ -2857,6 +2867,11 @@ snapshots:
   '@types/ws@8.5.11':
     dependencies:
       '@types/node': 20.14.11
+
+  '@uidotdev/usehooks@2.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   ansi-regex@5.0.1: {}
 
