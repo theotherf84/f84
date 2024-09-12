@@ -14,7 +14,7 @@ export const ContentSheet = ({ children, messages, ...properties }: ContentSheet
 	return (
 		<Sheet open={isOpen} onOpenChange={setIsOpen}>
 			<SheetTrigger asChild>
-				<Button variant="ghost">{messages.action}</Button>
+				<Button variant="secondary">{messages.action}</Button>
 			</SheetTrigger>
 			<SheetContent className="flex flex-col gap-6 w-full md:w-auto">
 				<SheetHeader className="py-4">
