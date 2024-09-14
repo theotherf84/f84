@@ -34,7 +34,7 @@ export const QuickAddOrderForm = ({ categories, employees, subcategories, onClos
 	const handleOnSubmit: SubmitHandler<QuickAddOrderFormFieldValues> = async (data) => {
 		const statusCode = await action(data)
 
-		if (statusCode === 201) onClose()
+		if (statusCode === 201) onClose?.()
 	}
 
 	return (

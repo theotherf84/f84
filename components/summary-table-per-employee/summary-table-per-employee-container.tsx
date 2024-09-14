@@ -7,7 +7,6 @@ import { DataTable } from "shadcn/data-table/data-table"
 
 export const SummaryTablePerEmployeeContainer = async () => {
 	const data = await getOrdersWithEmployees()
-
 	const orders = await groupOrdersByEmployee(data)
 
 	return (
@@ -17,7 +16,7 @@ export const SummaryTablePerEmployeeContainer = async () => {
 					<CardTitle>Orders</CardTitle>
 					<CardDescription>Recent orders from your store.</CardDescription>
 				</CardHeader>
-				<CardContent>{orders?.length ? <DataTable columns={columns} data={orders} /> : <TableDataPlaceholder />}</CardContent>
+				<CardContent>{orders?.length ? <DataTable columns={columns as any} data={orders} /> : <TableDataPlaceholder />}</CardContent>
 			</Card>
 		</div>
 	)

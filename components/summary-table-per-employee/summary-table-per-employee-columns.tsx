@@ -7,7 +7,7 @@ import { getFormattedLocaleCurrency } from "helpers/get-formatted-locale-currenc
 import { DataTableColumnHeader } from "shadcn/data-table/data-table-header"
 import type { Employee } from "types/tables.types"
 
-export const columns: ColumnDef<unknown>[] = [
+export const columns: ColumnDef<any>[] = [
 	{
 		accessorKey: "employee",
 		cell: ({ row }) => {
@@ -40,7 +40,7 @@ export const columns: ColumnDef<unknown>[] = [
 	{
 		id: "actions",
 		cell: ({ row }) => {
-			const orders = row.original["orders"]
+			const orders = row.original.orders
 
 			return (
 				<ContentSheet messages={{ action: "View orders", subtitle: "View orders", title: "View orders" }}>
