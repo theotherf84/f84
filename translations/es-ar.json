@@ -1,8 +1,13 @@
 {
-	"quickAddOrderFormSheetSubtitle": "Agrega rápidamente un pedido popular",
-	"quickAddOrderFormSheetTitle": "Agrega rápidamente un pedido",
-	"ordersPageActionCardMainButtonLabel": "Crear nuevo pedido",
-	"ordersPageActionCardSubtitle": "Presentamos nuestro panel de pedidos dinámico para una gestión sin problemas y análisis insights.",
-	"ordersPageActionCardQuickButtonLabel": "Agrega rápidamente",
-	"ordersPageActionCardTitle": "Tus pedidos"
+	"ordersPageActionCardMainButtonLabel": "Crear nueva orden",
+	"ordersPageActionCardSubtitle": "Presentamos nuestro dinámico panel de pedidos para una gestión sin problemas y un análisis perspicaz.",
+	"ordersPageActionCardQuickButtonLabel": "Agregar rápidamente",
+	"ordersPageActionCardTitle": "Tus ordenes",
+	"quickAddOrderFormSheetSubtitle": "Añadir rápidamente un pedido popular",
+	"quickAddOrderFormSheetTitle": "Añadir rápidamente un pedido",
+	"updatePasswordFormTitle": "Actualizar contraseña",
+	"updatePasswordFormSubtitle": "Ingrese su nueva contraseña",
+	"updatePasswordFormPasswordInputLabel": "Contraseña",
+	"updatePasswordFormConfirmPasswordInputLabel": "Confirmar contraseña",
+	"updatePasswordFormSubmitButtonLabel": "Actualizar contraseña"
 }

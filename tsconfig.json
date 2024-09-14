@@ -21,6 +21,7 @@
 			"shadcn/*": ["./shadcn/*"],
 			"services/*": ["./services/*"],
 			"styles/*": ["./styles/*"],
+			"translations/*": ["./translations/*"],
 			"types/*": ["./types/*"]
 		},
 		"plugins": [

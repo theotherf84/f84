@@ -1,8 +1,13 @@
-import "server-only"
+"use server"
 
-const dictionaries: Record<string, () => Promise<Record<string, string>>> = {
-	"en-us": () => import("../translations/en-us.json").then((module) => module.default),
-	"es-ar": () => import("../translations/es-ar.json").then((module) => module.default),
+import enUSTranslationFile from "../translations/en-us.json"
+import esARTranslationFile from "../translations/es-ar.json"
+
+type Translation = typeof enUSTranslationFile
+
+const dictionaries: Record<string, Translation> = {
+	"en-us": enUSTranslationFile,
+	"es-ar": esARTranslationFile,
 }
 
-export const getTranslations = async (locale = "es-ar") => dictionaries[locale]?.()
+export const getTranslations = async (locale = "es-ar") => await dictionaries[locale]
