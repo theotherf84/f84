@@ -4,6 +4,10 @@ import type { CarrierCode, CountryCallingCode, CountryCode, E164Number, National
 import type { ComponentPropsWithoutRef, Dispatch, InputHTMLAttributes, ReactNode, SetStateAction, TextareaHTMLAttributes } from "react"
 import type { Client } from "types/tables.types"
 
+export interface ColorThemeToggleProperties {
+	messages: any
+}
+
 export type CommandDialogProperties = DialogProps
 
 export type ContentSheetProperties = { children: ReactNode; messages: Record<string, string> }
@@ -17,6 +21,11 @@ export interface DatePickerProperties {
 }
 
 export type InputProperties = InputHTMLAttributes<HTMLInputElement>
+
+export interface NavigationBarItemListProperties {
+	isOnSidebar?: boolean
+	messages: Record<string, string>
+}
 
 export type PhoneData = {
 	carrierCode?: CarrierCode
@@ -38,6 +47,7 @@ export interface PhoneInputProperties extends ComponentPropsWithoutRef<"input"> 
 }
 
 export interface SearchClientInputProperties {
+	messages: any
 	onSelect: (item: Client | null) => void
 }
 
