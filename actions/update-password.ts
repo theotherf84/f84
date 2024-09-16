@@ -1,6 +1,6 @@
 "use server"
 
-import { formSchema } from "components/(authentication)/update-password-forms/update-password-form-schema"
+import { formSchema } from "components/(authentication)/update-password-form/update-password-form-schema"
 import { createSupabaseClient } from "helpers/supabase/supabase-server"
 import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
