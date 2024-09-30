@@ -1,6 +1,4 @@
 import { checkUnauthenticatedRoute } from "helpers/check-unauthenticated-route"
-import { getPreferredLocale } from "helpers/get-preferred-locale"
-import { supportedLocales } from "helpers/internationalisation"
 import { updateUserSession } from "helpers/supabase/supabase-middleware"
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
@@ -20,17 +18,17 @@ export async function middleware(request: NextRequest) {
 	if (shouldAuthenticateUser) return NextResponse.redirect(new URL("/sign-in", request.url))
 
 	// Check if there is any supported locale in the pathname.
-	const pathnameHasLocale = supportedLocales.some((locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`)
+	// const pathnameHasLocale = supportedLocales.some((locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`)
 
-	if (pathnameHasLocale) return
+	// if (pathnameHasLocale) return
 
 	// Redirect if there is no locale.
-	const locale = getPreferredLocale(request)
+	// const locale = getPreferredLocale(request)
 
-	request.nextUrl.pathname = `/${locale}${pathname}`
+	// request.nextUrl.pathname = `/${locale}${pathname}`
 
 	// e.g. Incoming request is /products, the new URL should be now /es-ar/products.
-	return NextResponse.redirect(request.nextUrl)
+	return NextResponse.next()
 }
 
 export const config = {
