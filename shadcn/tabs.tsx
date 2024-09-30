@@ -6,15 +6,13 @@ import React from "react"
 
 const Tabs = TabsPrimitive.Root
 
-const TabsList = React.forwardRef<React.ElementRef<typeof TabsPrimitive.List>, React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>>(
-	({ className, ...properties }, reference) => (
-		<TabsPrimitive.List
-			ref={reference}
-			className={mergeClassNames("inline-flex h-10 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground", className)}
-			{...properties}
-		/>
-	),
-)
+const TabsList = React.forwardRef<React.ElementRef<typeof TabsPrimitive.List>, React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>>(({ className, ...properties }, reference) => (
+	<TabsPrimitive.List
+		ref={reference}
+		className={mergeClassNames("inline-flex h-10 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground", className)}
+		{...properties}
+	/>
+))
 
 TabsList.displayName = TabsPrimitive.List.displayName
 
@@ -37,10 +35,7 @@ const TabsContent = React.forwardRef<React.ElementRef<typeof TabsPrimitive.Conte
 	({ className, ...properties }, reference) => (
 		<TabsPrimitive.Content
 			ref={reference}
-			className={mergeClassNames(
-				"mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-				className,
-			)}
+			className={mergeClassNames("mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2", className)}
 			{...properties}
 		/>
 	),

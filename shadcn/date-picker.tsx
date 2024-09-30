@@ -28,9 +28,7 @@ export const DatePicker = ({ date, setDate, shouldDisableFutureSelection = false
 				</Button>
 			</PopoverTrigger>
 			<PopoverContent align="start" className="w-auto p-0">
-				{shouldDisableFutureSelection && (
-					<Calendar mode="single" selected={date} onSelect={handleOnSelect} initialFocus disabled={(date) => date > new Date()} />
-				)}
+				{shouldDisableFutureSelection && <Calendar mode="single" selected={date} onSelect={handleOnSelect} initialFocus disabled={(date) => date > new Date()} />}
 				{!shouldDisableFutureSelection && <Calendar mode="single" selected={date} onSelect={handleOnSelect} initialFocus />}
 			</PopoverContent>
 		</Popover>

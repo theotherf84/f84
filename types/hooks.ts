@@ -1,4 +1,4 @@
-import type { Client } from "types/tables.types"
+import type { Client } from "types/tables"
 
 export interface UseSearchClientResult {
 	handleSearch: (value: string) => void

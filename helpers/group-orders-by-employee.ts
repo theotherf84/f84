@@ -1,4 +1,4 @@
-import type { OrderWithEmployee } from "types/tables.types"
+import type { OrderWithEmployee } from "types/tables"
 
 export const groupOrdersByEmployee = (data: OrderWithEmployee[]) => {
 	const filteredData = data?.filter(({ created_at }) => {

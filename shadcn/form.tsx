@@ -62,13 +62,11 @@ const FormItem = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEl
 
 FormItem.displayName = "FormItem"
 
-const FormLabel = React.forwardRef<React.ElementRef<typeof LabelPrimitive.Root>, React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>>(
-	({ className, ...properties }, reference) => {
-		const { error, formItemId } = useFormField()
+const FormLabel = React.forwardRef<React.ElementRef<typeof LabelPrimitive.Root>, React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root>>(({ className, ...properties }, reference) => {
+	const { error, formItemId } = useFormField()
 
-		return <LabelPrimitive.Label ref={reference} className={mergeClassNames(error && "text-destructive", className)} htmlFor={formItemId} {...properties} />
-	},
-)
+	return <LabelPrimitive.Label ref={reference} className={mergeClassNames(error && "text-destructive", className)} htmlFor={formItemId} {...properties} />
+})
 
 FormLabel.displayName = "FormLabel"
 

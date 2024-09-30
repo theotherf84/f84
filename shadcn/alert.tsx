@@ -17,11 +17,9 @@ const variants = classVarianceAuthority(
 	},
 )
 
-const Alert = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof variants>>(
-	({ className, variant, ...properties }, reference) => (
-		<div ref={reference} role="alert" className={mergeClassNames(variants({ variant }), className)} {...properties} />
-	),
-)
+const Alert = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof variants>>(({ className, variant, ...properties }, reference) => (
+	<div ref={reference} role="alert" className={mergeClassNames(variants({ variant }), className)} {...properties} />
+))
 
 Alert.displayName = "Alert"
 

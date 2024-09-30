@@ -5,7 +5,7 @@ import { ContentSheet } from "components/content-sheet"
 import { UserAvatar } from "components/user-avatar"
 import { getFormattedLocaleCurrency } from "helpers/get-formatted-locale-currency"
 import { DataTableColumnHeader } from "shadcn/data-table/data-table-header"
-import type { Employee } from "types/tables.types"
+import type { Employee } from "types/tables"
 
 export const columns: ColumnDef<any>[] = [
 	{

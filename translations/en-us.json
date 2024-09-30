@@ -1,13 +1,103 @@
 {
-	"ordersPageActionCardMainButtonLabel": "Create new order",
-	"ordersPageActionCardSubtitle": "Introducing our dynamic orders dashboard for seamless management and insightful analysis.",
-	"ordersPageActionCardQuickButtonLabel": "Quick add",
-	"ordersPageActionCardTitle": "Your orders",
-	"quickAddOrderFormSheetSubtitle": "Quickly add a popular order",
-	"quickAddOrderFormSheetTitle": "Quickly add an order",
-	"updatePasswordFormTitle": "Update password",
-	"updatePasswordFormSubtitle": "Enter your new password",
-	"updatePasswordFormPasswordInputLabel": "Password",
-	"updatePasswordFormConfirmPasswordInputLabel": "Confirm password",
-	"updatePasswordFormSubmitButtonLabel": "Update password"
+	"accessibility": {
+		"screenReader": {
+			"brandName": "Recortalo",
+			"toggleColorTheme": "Toggle color theme",
+			"toggleNavigationMenu": "Toggle navigation menu",
+			"toggleUserMenu": "Toggle user menu"
+		}
+	},
+	"colorTheme": {
+		"dark": "Dark",
+		"light": "Light",
+		"system": "System"
+	},
+	"forms": {
+		"addClient": {
+			"subtitle": "Used to promote and reward your clients",
+			"title": "Add a client"
+		},
+		"addEmployee": {
+			"subtitle": "Used to match your employees with different actions and workflows",
+			"title": "Add an employee"
+		},
+		"addOrder": {
+			"sheetSubtitle": "Enter your new password",
+			"sheetTitle": "Quickly add an order",
+			"submitButton": "Save order"
+		},
+		"updatePassword": {
+			"confirmPasswordInput": "Confirm password",
+			"passwordInput": "Password",
+			"subtitle": "Enter your new password",
+			"submitButton": "Update password",
+			"title": "Update password"
+		}
+	},
+	"inputs": {
+		"category": {
+			"label": "Category",
+			"placeholder": "Select a category"
+		},
+		"client": {
+			"label": "Client",
+			"placeholder": "Select a client"
+		},
+		"cost": {
+			"label": "Cost"
+		},
+		"date": {
+			"label": "Date"
+		},
+		"dateOfBirth": {
+			"description": "Your date of birth is used to calculate your age",
+			"label": "Date of birth"
+		},
+		"email": {
+			"description": "We will use this to contact you only when necessary",
+			"label": "Email",
+			"placeholder": "max@example.com"
+		},
+		"employee": {
+			"label": "Employee",
+			"placeholder": "Select an employee"
+		},
+		"firstName": {
+			"label": "First name",
+			"placeholder": "Max"
+		},
+		"lastName": {
+			"label": "Last name",
+			"placeholder": "Wellness"
+		},
+		"phoneNumber": {
+			"description": "Enter a valid phone number with country",
+			"label": "Phone number"
+		},
+		"status": {
+			"label": "Status",
+			"placeholder": "Select a status"
+		},
+		"subcategory": {
+			"label": "Subcategory",
+			"placeholder": "Select a subcategory"
+		}
+	},
+	"navigation": {
+		"navigationBar": {
+			"categories": "Categories",
+			"clients": "Clients",
+			"employees": "Employees",
+			"orders": "Orders"
+		}
+	},
+	"pages": {
+		"orders": {
+			"actionCard": {
+				"button": "Create new order",
+				"subtitle": "Introducing our dynamic orders dashboard for seamless management and insightful analysis",
+				"title": "Your orders"
+			}
+		}
+	}
 }

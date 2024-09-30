@@ -1,13 +1,103 @@
 {
-	"ordersPageActionCardMainButtonLabel": "Crear nueva orden",
-	"ordersPageActionCardSubtitle": "Presentamos nuestro dinámico panel de pedidos para una gestión sin problemas y un análisis perspicaz.",
-	"ordersPageActionCardQuickButtonLabel": "Agregar rápidamente",
-	"ordersPageActionCardTitle": "Tus ordenes",
-	"quickAddOrderFormSheetSubtitle": "Añadir rápidamente un pedido popular",
-	"quickAddOrderFormSheetTitle": "Añadir rápidamente un pedido",
-	"updatePasswordFormTitle": "Actualizar contraseña",
-	"updatePasswordFormSubtitle": "Ingrese su nueva contraseña",
-	"updatePasswordFormPasswordInputLabel": "Contraseña",
-	"updatePasswordFormConfirmPasswordInputLabel": "Confirmar contraseña",
-	"updatePasswordFormSubmitButtonLabel": "Actualizar contraseña"
+	"accessibility": {
+		"screenReader": {
+			"brandName": "Recortalo",
+			"toggleColorTheme": "Cambiar tema de color",
+			"toggleNavigationMenu": "Alternar menú de navegación",
+			"toggleUserMenu": "Alternar menú del usuario"
+		}
+	},
+	"colorTheme": {
+		"dark": "Oscuro",
+		"light": "Claro",
+		"system": "Sistema"
+	},
+	"forms": {
+		"addClient": {
+			"subtitle": "Se usa para promocionar y recompensar a sus clientes",
+			"title": "Agregar un cliente"
+		},
+		"addEmployee": {
+			"subtitle": "Se utiliza para emparejar a sus empleados con diferentes acciones y flujos de trabajo",
+			"title": "Agregar un empleado"
+		},
+		"addOrder": {
+			"sheetSubtitle": "Ingrese su nueva contraseña",
+			"sheetTitle": "Agregue rápidamente un pedido",
+			"submitButton": "Guardar orden"
+		},
+		"updatePassword": {
+			"confirmPasswordInput": "Confirmar contraseña",
+			"passwordInput": "Contraseña",
+			"submitButton": "Actualizar contraseña",
+			"subtitle": "Ingrese su nueva contraseña",
+			"title": "Actualizar contraseña"
+		}
+	},
+	"inputs": {
+		"category": {
+			"label": "Categoría",
+			"placeholder": "Seleccione una categoría"
+		},
+		"client": {
+			"label": "Cliente",
+			"placeholder": "Seleccionar un cliente"
+		},
+		"cost": {
+			"label": "Costo"
+		},
+		"date": {
+			"label": "Fecha"
+		},
+		"dateOfBirth": {
+			"description": "Su fecha de nacimiento se utiliza para calcular su edad",
+			"label": "Fecha de nacimiento"
+		},
+		"email": {
+			"description": "Lo usaremos para comunicarnos con usted solo cuando sea necesario",
+			"label": "Correo electrónico",
+			"placeholder": "max@example.com"
+		},
+		"employee": {
+			"label": "Empleado",
+			"placeholder": "Seleccionar un empleado"
+		},
+		"firstName": {
+			"label": "Nombre de pila",
+			"placeholder": "Max"
+		},
+		"lastName": {
+			"label": "Apellido",
+			"placeholder": "Wellness"
+		},
+		"phoneNumber": {
+			"description": "Ingrese un número de teléfono válido con país",
+			"label": "Número de teléfono"
+		},
+		"status": {
+			"label": "Estado",
+			"placeholder": "Seleccione un estado"
+		},
+		"subcategory": {
+			"label": "Subcategoría",
+			"placeholder": "Seleccionar una subcategoría"
+		}
+	},
+	"navigation": {
+		"navigationBar": {
+			"categories": "Categorías",
+			"clients": "Clientes",
+			"employees": "Empleados",
+			"orders": "Pedidos"
+		}
+	},
+	"pages": {
+		"orders": {
+			"actionCard": {
+				"button": "Crear nuevo pedido",
+				"subtitle": "Presentamos nuestro tablero de pedidos dinámico para un manejo sin problemas y análisis perspicaz",
+				"title": "Tus pedidos"
+			}
+		}
+	}
 }

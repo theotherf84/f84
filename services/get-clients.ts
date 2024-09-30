@@ -1,6 +1,6 @@
 import { TableName } from "enumerations/table-name"
 import { createSupabaseClient } from "helpers/supabase/supabase-server"
-import type { Client } from "types/tables.types"
+import type { Client } from "types/tables"
 
 export const getClients = async () => {
 	const supabase = createSupabaseClient()

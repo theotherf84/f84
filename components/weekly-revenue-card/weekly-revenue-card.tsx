@@ -2,7 +2,7 @@
 
 import { WeeklyRevenueCardBarChart } from "components/weekly-revenue-card/weekly-revenue-card-bar-chart"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "shadcn/card"
-import type { Order } from "types/tables.types"
+import type { Order } from "types/tables"
 
 export const WeeklyRevenueCard = ({ orders }: { orders: Order[] }) => {
 	return (

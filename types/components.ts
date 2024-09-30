@@ -2,10 +2,11 @@ import type { DialogProps } from "@radix-ui/react-dialog"
 import type { countries } from "constants/countries"
 import type { CarrierCode, CountryCallingCode, CountryCode, E164Number, NationalNumber, NumberType } from "libphonenumber-js"
 import type { ComponentPropsWithoutRef, Dispatch, InputHTMLAttributes, ReactNode, SetStateAction, TextareaHTMLAttributes } from "react"
-import type { Client } from "types/tables.types"
+import type { Translation } from "types/helpers"
+import type { Client } from "types/tables"
 
 export interface ColorThemeToggleProperties {
-	messages: any
+	messages: Partial<Translation>
 }
 
 export type CommandDialogProperties = DialogProps
@@ -24,7 +25,7 @@ export type InputProperties = InputHTMLAttributes<HTMLInputElement>
 
 export interface NavigationBarItemListProperties {
 	isOnSidebar?: boolean
-	messages: Record<string, string>
+	messages: any
 }
 
 export type PhoneData = {

@@ -1,6 +1,6 @@
 import { TableName } from "enumerations/table-name"
 import { createSupabaseClient } from "helpers/supabase/supabase-server"
-import type { Order } from "types/tables.types"
+import type { Order } from "types/tables"
 
 export const getOrders = async () => {
 	const supabase = createSupabaseClient()

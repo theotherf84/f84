@@ -1,7 +1,7 @@
 import { mergeClassNames } from "helpers/merge-class-names"
 import { ArrowDownIcon, ArrowUpIcon, ChevronsUpDown } from "lucide-react"
 import { Button } from "shadcn/button"
-import type { DataTableColumnHeaderProperties } from "types/data-table.types"
+import type { DataTableColumnHeaderProperties } from "types/data-table"
 
 export const DataTableColumnHeader = <TData, TValue>({ column, title, className }: DataTableColumnHeaderProperties<TData, TValue>) => {
 	if (!column.getCanSort()) return <div className={mergeClassNames(className)}>{title}</div>

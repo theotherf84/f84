@@ -1,4 +1,4 @@
-import { OrdersDataTableContainer } from "components/(orders)/orders-data-table/orders-data-table-container"
+import { OrdersDataTableContainer } from "components/orders/data-table/data-table-container"
 
 const Page = () => (
 	<div className="bg-muted/40 h-full p-6">

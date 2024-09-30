@@ -16,7 +16,7 @@ import { useState } from "react"
 import { DataTablePagination } from "shadcn/data-table/data-table-pagination"
 import { DataTableToolbar } from "shadcn/data-table/data-table-toolbar"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "shadcn/table"
-import type { DataTableProperties } from "types/data-table.types"
+import type { DataTableProperties } from "types/data-table"
 
 export const DataTable = <TData, TValue>({ columns, data }: DataTableProperties<TData, TValue>) => {
 	const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([])
@@ -54,9 +54,7 @@ export const DataTable = <TData, TValue>({ columns, data }: DataTableProperties<
 						{table.getHeaderGroups().map((headerGroup) => (
 							<TableRow key={headerGroup.id}>
 								{headerGroup.headers.map((header) => (
-									<TableHead key={header.id}>
-										{header.isPlaceholder ? <></> : flexRender(header.column.columnDef.header, header.getContext())}
-									</TableHead>
+									<TableHead key={header.id}>{header.isPlaceholder ? <></> : flexRender(header.column.columnDef.header, header.getContext())}</TableHead>
 								))}
 							</TableRow>
 						))}

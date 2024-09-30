@@ -1,6 +1,6 @@
 "use server"
 
-import { formSchema } from "components/(authentication)/password-recovery-form/password-recovery-form-schema"
+import { formSchema } from "components/authentication/password-recovery-form/password-recovery-form-schema"
 import { createSupabaseClient } from "helpers/supabase/supabase-server"
 import { headers } from "next/headers"
 import { redirect } from "next/navigation"

@@ -11,7 +11,7 @@ import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, Command
 import { Popover, PopoverContent, PopoverTrigger } from "shadcn/popover"
 import type { SearchClientInputProperties } from "types/components"
 
-const SearchClientInput = ({ onSelect }: SearchClientInputProperties) => {
+const SearchClientInput = ({ messages, onSelect }: SearchClientInputProperties) => {
 	const [open, setOpen] = useState(false)
 	const [value, setValue] = useState("")
 
@@ -27,14 +27,14 @@ const SearchClientInput = ({ onSelect }: SearchClientInputProperties) => {
 							{selectedItem.first_name} {selectedItem.last_name}
 						</div>
 					) : (
-						"Search client"
+						messages?.placeholder
 					)}
 					<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
 				</Button>
 			</PopoverTrigger>
 			<PopoverContent className="p-0 w-[--radix-popover-trigger-width] max-h-[--radix-popover-content-available-height]">
 				<Command>
-					<CommandInput placeholder="Search the place..." onValueChange={(value) => handleSearch(value)} className="w-full" />
+					<CommandInput placeholder={messages.placeholder} onValueChange={(value) => handleSearch(value)} className="w-full" />
 					<CommandList>
 						{loading ? (
 							<CommandLoading>

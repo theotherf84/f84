@@ -1,10 +1,12 @@
 import { UserAvatar } from "components/user-avatar"
 import { UserDropdownMenuSignOutForm } from "components/user-dropdown-menu/user-dropdown-menu-sign-out-form"
+import { getTranslations } from "helpers/get-translations"
 import { getUserSession } from "services/get-user-session"
 import { Button } from "shadcn/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "shadcn/dropdown-menu"
 
 export const UserDropdownMenu = async () => {
+	const { accessibility } = await getTranslations()
 	const session = await getUserSession()
 
 	const userMetadata = session?.user?.user_metadata
@@ -15,7 +17,7 @@ export const UserDropdownMenu = async () => {
 				<DropdownMenuTrigger asChild>
 					<Button variant="ghost" size="icon" className="h-8 w-8 px-0 rounded-full">
 						<UserAvatar firstName={userMetadata?.first_name} lastName={userMetadata?.last_name} />
-						<span className="sr-only">Toggle user menu</span>
+						<span className="sr-only">{accessibility.screenReader.toggleUserMenu}</span>
 					</Button>
 				</DropdownMenuTrigger>
 				<DropdownMenuContent align="end">

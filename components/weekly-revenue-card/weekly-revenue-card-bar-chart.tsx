@@ -3,7 +3,7 @@
 import { getDaysOfWeek } from "helpers/get-days-of-week"
 import { Bar, BarChart, Label, Rectangle, ReferenceLine, XAxis } from "recharts"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "shadcn/chart"
-import type { Order } from "types/tables.types"
+import type { Order } from "types/tables"
 
 const generateChartData = (orders: Order[]) => {
 	const daysOfWeek = getDaysOfWeek()

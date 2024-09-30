@@ -1,6 +1,7 @@
-import ThemeProvider from "components/theme-provider"
 import type { Viewport } from "next"
 import "styles/globals.css"
+import { ThemeProvider } from "providers/theme-provider"
+import type { ReactNode } from "react"
 
 export const metadata = {
 	title: "",
@@ -14,13 +15,7 @@ export const viewport: Viewport = {
 	],
 }
 
-const Layout = ({
-	children,
-	params: { locale },
-}: {
-	children: React.ReactNode
-	params: { locale: string }
-}) => (
+const Layout = ({ children, params: { locale } }: { children: ReactNode; params: { locale: string } }) => (
 	<html lang={locale} suppressHydrationWarning>
 		<body>
 			<ThemeProvider attribute="class" defaultTheme="system" enableSystem>

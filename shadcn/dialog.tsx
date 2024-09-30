@@ -13,18 +13,16 @@ const DialogPortal = DialogPrimitive.Portal
 
 const DialogClose = DialogPrimitive.Close
 
-const DialogOverlay = forwardRef<ElementRef<typeof DialogPrimitive.Overlay>, ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>>(
-	({ className, ...properties }, reference) => (
-		<DialogPrimitive.Overlay
-			ref={reference}
-			className={mergeClassNames(
-				"fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
-				className,
-			)}
-			{...properties}
-		/>
-	),
-)
+const DialogOverlay = forwardRef<ElementRef<typeof DialogPrimitive.Overlay>, ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>>(({ className, ...properties }, reference) => (
+	<DialogPrimitive.Overlay
+		ref={reference}
+		className={mergeClassNames(
+			"fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+			className,
+		)}
+		{...properties}
+	/>
+))
 
 DialogOverlay.displayName = DialogPrimitive.Overlay.displayName
 
@@ -63,18 +61,14 @@ const DialogFooter = ({ className, ...properties }: HTMLAttributes<HTMLDivElemen
 
 DialogFooter.displayName = "DialogFooter"
 
-const DialogTitle = forwardRef<ElementRef<typeof DialogPrimitive.Title>, ComponentPropsWithoutRef<typeof DialogPrimitive.Title>>(
-	({ className, ...properties }, reference) => (
-		<DialogPrimitive.Title ref={reference} className={mergeClassNames("text-lg font-semibold leading-none tracking-tight", className)} {...properties} />
-	),
-)
+const DialogTitle = forwardRef<ElementRef<typeof DialogPrimitive.Title>, ComponentPropsWithoutRef<typeof DialogPrimitive.Title>>(({ className, ...properties }, reference) => (
+	<DialogPrimitive.Title ref={reference} className={mergeClassNames("text-lg font-semibold leading-none tracking-tight", className)} {...properties} />
+))
 
 DialogTitle.displayName = DialogPrimitive.Title.displayName
 
 const DialogDescription = forwardRef<ElementRef<typeof DialogPrimitive.Description>, ComponentPropsWithoutRef<typeof DialogPrimitive.Description>>(
-	({ className, ...properties }, reference) => (
-		<DialogPrimitive.Description ref={reference} className={mergeClassNames("text-sm text-muted-foreground", className)} {...properties} />
-	),
+	({ className, ...properties }, reference) => <DialogPrimitive.Description ref={reference} className={mergeClassNames("text-sm text-muted-foreground", className)} {...properties} />,
 )
 
 DialogDescription.displayName = DialogPrimitive.Description.displayName

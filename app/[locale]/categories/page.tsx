@@ -1,7 +1,7 @@
-import { AddCategoryForm } from "components/(categories)/categories-add-form/categories-add-form"
-import { CategoriesTableContainer } from "components/(categories)/categories-table/categories-table-container"
-import { AddSubcategoryForm } from "components/(subcategories)/subcategories-forms/subcategories-add-form"
-import { SubcategoriesTableContainer } from "components/(subcategories)/subcategories-table/subcategories-table-container"
+import { AddCategoryForm } from "components/categories/add-form/add-form"
+import { CategoriesTableContainer } from "components/categories/table/table-container"
+import { AddSubcategoryForm } from "components/subcategories/add-form/add-form"
+import { SubcategoriesTableContainer } from "components/subcategories/table/table-container"
 import React from "react"
 
 const Page = () => (

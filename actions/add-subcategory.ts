@@ -1,6 +1,6 @@
 "use server"
 
-import { formSchema } from "components/(subcategories)/subcategories-forms/subcategories-add-form-schema"
+import { formSchema } from "components/subcategories/add-form/add-form-schema"
 import { TableName } from "enumerations/table-name"
 import { createSupabaseClient } from "helpers/supabase/supabase-server"
 import { revalidatePath } from "next/cache"
@@ -23,9 +23,7 @@ export const action = async (formData: FormData) => {
 
 	if (userError) return redirect("/settings?message=Could not authenticate user")
 
-	const { error: insertError, status: insertStatus } = await supabase
-		.from(TableName.Subcategories)
-		.insert({ category: validation.data?.category, name: validation.data?.name })
+	const { error: insertError, status: insertStatus } = await supabase.from(TableName.Subcategories).insert({ category: validation.data?.category, name: validation.data?.name })
 
 	if (insertError) return redirect("/settings?message=Could not add subcategory")
 

@@ -4,7 +4,7 @@ import { useDebounce } from "@uidotdev/usehooks"
 import { useEffect, useState } from "react"
 import { getClientsBySearchTerm } from "services/clients"
 import type { UseSearchClientResult } from "types/hooks"
-import type { Client } from "types/tables.types"
+import type { Client } from "types/tables"
 
 export const useSearchClient = (): UseSearchClientResult => {
 	const [query, setQuery] = useState("")
