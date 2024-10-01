@@ -46,7 +46,7 @@ export const QuickAddOrderForm = ({ categories, employees, messages, subcategori
 						name="client"
 						render={({ field }) => (
 							<FormItem className="flex flex-col">
-								<FormLabel htmlFor="date" asChild>
+								<FormLabel htmlFor="client" asChild>
 									<Label>{messages?.inputs?.client.label}</Label>
 								</FormLabel>
 								<FormControl>
