@@ -33,4 +33,6 @@ export const action = async (data: QuickAddOrderFormFieldValues) => {
 	if (orderError) return redirect("/orders?error=Could not create an order")
 
 	revalidatePath("/orders")
+
+	return orderStatus
 }
