@@ -14,9 +14,8 @@ export const DatePicker = ({ date, setDate, shouldDisableFutureSelection = false
 	const [isPopoverOpen, setIsPopoverOpen] = useState(false)
 
 	const handleOnSelect: SelectSingleEventHandler = (selected) => {
+		setDate(selected)
 		setIsPopoverOpen(false)
-
-		setDate?.(selected)
 	}
 
 	return (

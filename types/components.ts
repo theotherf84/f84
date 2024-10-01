@@ -3,7 +3,6 @@ import type { countries } from "constants/countries"
 import type { CarrierCode, CountryCallingCode, CountryCode, E164Number, NationalNumber, NumberType } from "libphonenumber-js"
 import type { ComponentPropsWithoutRef, Dispatch, InputHTMLAttributes, ReactNode, SetStateAction, TextareaHTMLAttributes } from "react"
 import type { Translation } from "types/helpers"
-import type { Client } from "types/tables"
 
 export interface ColorThemeToggleProperties {
 	messages: Partial<Translation>
@@ -49,7 +48,7 @@ export interface PhoneInputProperties extends ComponentPropsWithoutRef<"input"> 
 
 export interface SearchClientInputProperties {
 	messages: any
-	onSelect: (item: Client | null) => void
+	setClient: Dispatch<SetStateAction<number | undefined>>
 }
 
 export type TextareaProperties = TextareaHTMLAttributes<HTMLTextAreaElement>

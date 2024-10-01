@@ -39,8 +39,6 @@ export interface QuickAddOrderFormSheetProperties {
 	categories: Category[]
 	employees: Employee[]
 	subcategories: Subcategory[]
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-	translations?: Record<string, any>
 }
 
 export type QuickAddOrderFormFieldValues = zod.infer<typeof quickAddOrderFormSchema>

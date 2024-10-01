@@ -3,6 +3,7 @@
 import { formSchema } from "components/orders/quick-add-form/quick-add-form-schema"
 import { TableName } from "enumerations/table-name"
 import { createSupabaseClient } from "helpers/supabase/supabase-server"
+import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 import type { QuickAddOrderFormFieldValues } from "types/forms"
 
@@ -31,5 +32,5 @@ export const action = async (data: QuickAddOrderFormFieldValues) => {
 
 	if (orderError) return redirect("/orders?error=Could not create an order")
 
-	return orderStatus
+	revalidatePath("/orders")
 }

@@ -11,7 +11,7 @@ import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, Command
 import { Popover, PopoverContent, PopoverTrigger } from "shadcn/popover"
 import type { SearchClientInputProperties } from "types/components"
 
-const SearchClientInput = ({ messages, onSelect }: SearchClientInputProperties) => {
+const SearchClientInput = ({ messages, setClient }: SearchClientInputProperties) => {
 	const [open, setOpen] = useState(false)
 	const [value, setValue] = useState("")
 
@@ -40,21 +40,18 @@ const SearchClientInput = ({ messages, onSelect }: SearchClientInputProperties) 
 							<CommandLoading>
 								<CommandEmpty>Type to search</CommandEmpty>
 							</CommandLoading>
-						) : Object.keys(results).length ? (
+						) : results.length ? (
 							<CommandGroup>
 								{results.map((item) => (
 									<CommandItem
 										key={item.id}
 										value={item.first_name}
-										onSelect={(currentValue: string) => {
-											const item = results?.find((item) => item.first_name === currentValue)
-
-											setValue(currentValue === value ? "" : currentValue)
-											setSelectedItem(item ?? null)
-
-											onSelect(item ?? null)
+										onSelect={() => {
+											setClient(item.id)
 
 											setOpen(false)
+											setSelectedItem(item)
+											setValue(item.first_name)
 										}}
 									>
 										<Check className={mergeClassNames("mr-2 h-4 w-4", value === item.first_name ? "opacity-100" : "opacity-0")} />

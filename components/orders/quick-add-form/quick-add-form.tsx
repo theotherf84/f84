@@ -39,7 +39,7 @@ export const QuickAddOrderForm = ({ categories, employees, messages, subcategori
 
 	return (
 		<Form {...form}>
-			<form onSubmit={form.handleSubmit(handleOnSubmit)} className="flex flex-col gap-6">
+			<form onSubmit={form.handleSubmit(handleOnSubmit)} className="flex flex-col gap-6 overflow-x-scroll">
 				<div className="grid gap-2">
 					<FormField
 						control={form.control}
@@ -50,7 +50,7 @@ export const QuickAddOrderForm = ({ categories, employees, messages, subcategori
 									<Label>{messages?.inputs?.client.label}</Label>
 								</FormLabel>
 								<FormControl>
-									<SearchClientInput messages={messages?.inputs?.client} onSelect={field.onChange} />
+									<SearchClientInput messages={messages?.inputs?.client} setClient={field.onChange} />
 								</FormControl>
 							</FormItem>
 						)}
