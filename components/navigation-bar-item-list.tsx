@@ -6,7 +6,7 @@ import { useMemo } from "react"
 import { Button } from "shadcn/button"
 import type { NavigationBarItemListProperties } from "types/components"
 
-export const NavigationBarItemList = async ({ isOnSidebar, messages }: NavigationBarItemListProperties) => {
+export const NavigationBarItemList = ({ isOnSidebar, messages }: NavigationBarItemListProperties) => {
 	const items = useMemo(
 		() => [
 			{
